@@ -1,0 +1,14 @@
+@font-face {
+    font-family: GildaDisplay-Regular;
+    src: url('../assets/fonts/GildaDisplay-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: PlexMono-Regular;
+    src: url('../assets/fonts/IBMPlexMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: PlexMono-Medium;
+    src: url('../assets/fonts/IBMPlexMono-Medium.ttf') format('truetype');
+}

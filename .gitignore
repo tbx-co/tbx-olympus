@@ -5,3 +5,4 @@ node_modules/*
 
 helix-importer-ui
 .idea
+.DS_Store
