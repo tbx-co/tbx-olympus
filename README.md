@@ -1,9 +1,13 @@
-# Your Project's Title...
-Your project's description...
+# TBX Syndicate Franklin Build 
+Adobe Franklin site build for the TBX Syndicate.
+
+## Do this first
+[Franklin Tutorial](https://www.hlx.live/developer/tutorial "Adobe Franklin Tutorial")
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Develop Preview: https://develop--tbx-olympus--solomon71.hlx.page/
+- Preview: https://main----tbx-olympus--solomon71.hlx.page/
+- Live: https://main----tbx-olympus--solomon71.hlx.page/
 
 ## Installation
 

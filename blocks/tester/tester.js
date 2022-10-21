@@ -1,5 +1,5 @@
 export default function decorate(block) {
   [...block.children].forEach((row) => {
-    console.log(row);
+    row.innerHTML = row.innerHTML.replaceAll('TBX', 'TBX.syndicate');
   });
 }
