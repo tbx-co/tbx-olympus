@@ -1,4 +1,4 @@
-.columns > div {
+.casestudy > div {
     display: flex;
     flex-direction: column;
 }
