@@ -250,6 +250,15 @@ main .section.highlight {
 .tbx-column-points p {
   font-size: 14px;
   line-height: 2.125;
+  padding-bottom: 40px;
+}
+
+@media (min-width: 900px) {
+  .tbx-column-points p {
+    font-size: 14px;
+    line-height: 2.125;
+    padding-bottom: 10px;
+  }
 }
 
 /* Utility CSS */

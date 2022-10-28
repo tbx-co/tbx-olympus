@@ -48,11 +48,6 @@ export default function decorate(block) {
           }
         });
       }
-
-
-
-        //div.querySelector('h4').className = 'casestudy-card-title';
-
     });
   });
 }
