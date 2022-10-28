@@ -1,0 +1,11 @@
+.header-statement {
+    margin: 24px 0 16px;
+}
+
+@media (min-width: 900px) {
+    .header-statement {
+        max-width: 55%;
+        margin: 32px 0 24px;
+    }
+}
+

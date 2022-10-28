@@ -10,7 +10,7 @@
 @media (min-width: 900px) {
     .columns > div {
         display: flex;
-        align-items: center;
+        align-items: baseline;
         flex-direction: unset;
     }
 
