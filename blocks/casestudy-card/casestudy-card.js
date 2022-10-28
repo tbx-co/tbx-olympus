@@ -1,10 +1,10 @@
 import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
 
-function fullWidthImage(img) {
+function optimizeImage(img) {
   return createOptimizedPicture(
     img.src,
     img.alt,
-    false,
+    true,
     [{ media: '(min-width: 400px)', width: '2000' }, { width: '750' }],
   );
 }
@@ -21,7 +21,7 @@ export default function decorate(block) {
 
         div.querySelectorAll('img')
           .forEach((img) => img.closest('picture')
-            .replaceWith(fullWidthImage(img)));
+            .replaceWith(optimizeImage(img)));
       } else {
         div.className = 'casestudy-card-copy';
         [...div.querySelectorAll('p')].forEach((p) => {
