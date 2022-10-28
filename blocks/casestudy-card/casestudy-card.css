@@ -25,7 +25,7 @@
     height: 350px;
     max-height: 500px;
     border-radius: 20px;
-    background-color: var(--overlay-background-color);
+    background-color: black;
 }
 
 @media (min-width: 900px) {
@@ -40,8 +40,14 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    min-width: 750px;
+    min-width: 570px;
     transform: translateY(-50%) translateX(-50%);
+}
+
+@media (min-width: 900px) {
+    .casestudy-card-image-frame img {
+        min-width: 800px;
+    }
 }
 
 .casestudy-card-copy {
