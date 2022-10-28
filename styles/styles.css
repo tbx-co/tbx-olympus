@@ -15,7 +15,7 @@
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
   --background-color: #fff;
-  --overlay-background-color: #eee;
+  --overlay-background-color: #EFF2F0;
   --overlay-color: inherit;
   --highlight-background-color: #ccc;
   --text-color: #000;
@@ -32,9 +32,9 @@
   --body-font-size-xs: 14px;
 
   /* heading sizes */
-  --heading-font-size-xxl: 48px;
-  --heading-font-size-xl: 40px;
-  --heading-font-size-l: 32px;
+  --heading-font-size-xxl: 42px;
+  --heading-font-size-xl: 36px;
+  --heading-font-size-l: 30px;
   --heading-font-size-m: 24px;
   --heading-font-size-s: 20px;
   --heading-font-size-xs: 18px;
@@ -44,14 +44,30 @@
 
 }
 
+@media (min-width: 900px) {
+  :root {
+    --heading-font-size-xxl: 60px;
+    --heading-font-size-xl: 48px;
+    --heading-font-size-l: 36px;
+    --heading-font-size-m: 30px;
+    --heading-font-size-s: 24px;
+    --heading-font-size-xs: 22px;
+  }
+
+  .section > div {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+
 body {
-  font-size: var(--body-font-size-s);
-  margin: 0;
   font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
   line-height: 1.6;
+  display: none;
+  margin: 0;
   color: var(--text-color);
   background-color: var(--background-color);
-  display: none;
 }
 
 body.appear {
@@ -65,7 +81,7 @@ header {
 h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--heading-font-family);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.25;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -85,8 +101,8 @@ p, dl, ol, ul, pre, blockquote {
 }
 
 a:any-link {
-  color: var(--link-color);
   text-decoration: none;
+  color: var(--link-color);
 }
 
 a:hover {
@@ -111,52 +127,52 @@ pre {
 
 a.button:any-link, button {
   font-family: var(--body-font-family);
-  display: inline-block;
-  box-sizing: border-box;
-  text-decoration: none;
-  border: 2px solid transparent;
-  padding: 5px 30px;
-  text-align: center;
-  font-style: normal; 
   font-weight: 600;
-  cursor: pointer;
-  color: var(--background-color);
-  background-color: var(--link-color);
-  margin: 16px 0;
-  white-space: nowrap;
+  font-style: normal;
+  display: inline-block;
   overflow: hidden;
+  box-sizing: border-box;
+  margin: 16px 0;
+  padding: 5px 30px;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
   text-overflow: ellipsis;
+  color: var(--background-color);
+  border: 2px solid transparent;
   border-radius: 30px;
+  background-color: var(--link-color);
 }
 
 a.button:hover, a.button:focus, button:hover, button:focus  {
-  background-color: var(--link-hover-color);
   cursor: pointer;
+  background-color: var(--link-hover-color);
 }
 
 button:disabled, button:disabled:hover {
-  background-color: var(--overlay-background-color);
   cursor: unset;
+  background-color: var(--overlay-background-color);
 }
 
 a.button.secondary, button.secondary {
-  background-color: unset;
+  color: var(--text-color);
   border: 2px solid currentcolor;
-  color: var(--text-color)
+  background-color: unset;
 } 
 
 
 main input {
   font-size: 1.25rem;
+  display: block;
+  box-sizing: border-box;
   width: 100%;
   max-width: 50rem;
-  display: block;
   margin-bottom: 1rem;
-  padding: 0.75rem 0.6rem;    
-  border-radius: 0.25rem;
-  box-sizing: border-box;
-  border: 1px solid var(--text-color);
+  padding: 0.75rem 0.6rem;
   color: var(--text-color);
+  border: 1px solid var(--text-color);
+  border-radius: 0.25rem;
   background-color: var(--background-color);
 }
 
@@ -165,15 +181,21 @@ main input:hover {
 }
 
 main .section {
-  padding: 64px 16px;
+  padding: 42px 32px;
+}
+
+@media (min-width: 600px) {
+  main .section {
+    padding: 48px 64px;
+  }
 }
 
 main pre {
-  background-color: var(--overlay-background-color);
-  padding: 1em;
-  border-radius: .25em;
   overflow-x: auto;
+  padding: 1em;
   white-space: pre;
+  border-radius: .25em;
+  background-color: var(--overlay-background-color);
 }
 
 main blockquote {
@@ -184,13 +206,13 @@ main blockquote {
 }
 
 main blockquote p::before {
-  content: "“";
   line-height: 0;
+  content: "“";
 }
 
 main blockquote p::after {
-  content: "”";
   line-height: 0;
+  content: "”";
 }
 
 hr {
@@ -201,31 +223,9 @@ hr {
 }
 
 main img {
-  max-width: 100%;
   width: auto;
+  max-width: 100%;
   height: auto;
-}
-
-@media (min-width: 600px) {
-  main .section {
-    padding: 64px 32px;
-  }  
-}
-
-@media (min-width: 900px) {
-  :root {
-    --heading-font-size-xxl: 60px;
-    --heading-font-size-xl: 48px;
-    --heading-font-size-l: 36px;
-    --heading-font-size-m: 30px;
-    --heading-font-size-s: 24px;
-    --heading-font-size-xs: 22px;  
-  }
-  
-  .section > div {
-    max-width: 1200px;
-    margin: auto;
-  }
 }
 
 /* progressive section appearance */
@@ -236,4 +236,81 @@ main .section[data-section-status='initialized'] {
 
 main .section.highlight {
   background-color: var(--highlight-background-color);
+}
+
+.tbx-column-points h3:nth-child(1) {
+  font-size: 24px;
+  line-height: 1.75;
+}
+
+.tbx-column-points h3:nth-child(2) {
+  font-size: 28px;
+}
+
+.tbx-column-points p {
+  font-size: 14px;
+  line-height: 2.125;
+  padding-bottom: 40px;
+}
+
+@media (min-width: 900px) {
+  .tbx-column-points p {
+    font-size: 14px;
+    line-height: 2.125;
+    padding-bottom: 10px;
+  }
+}
+
+/* Utility CSS */
+.leading-12 {
+  line-height: 3rem;
+}
+
+.leading-14 {
+  line-height: 3.5rem;
+}
+
+.bg-grey {
+  background-color: var(--overlay-background-color);
+}
+
+.py-50 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.pt-50 {
+  padding-top: 50px;
+}
+
+.pt-100 {
+  padding-top: 100px;
+}
+
+@media (min-width: 900px) {
+  .pt-100-ns {
+    padding-top: 100px;
+  }
+}
+
+.pt-150 {
+  padding-top: 150px;
+}
+
+.pb-50 {
+  padding-bottom: 50px;
+}
+
+.pb-100 {
+  padding-bottom: 100px;
+}
+
+@media (min-width: 900px) {
+  .pb-100-ns {
+    padding-bottom: 100px;
+  }
+}
+
+.pb-150 {
+  padding-bottom: 150px;
 }

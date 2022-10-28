@@ -1,13 +1,45 @@
 footer {
-  padding: 1rem;
+  padding: 2em 0 10em;
   font-size: var(--body-font-size-xs);
 }
 
 footer .footer {
   max-width: 1200px;
   margin: auto;
+  padding: 42px 32px;
+}
+
+@media (min-width: 600px) {
+  footer .footer {
+    padding: 48px 64px;
+  }
 }
 
 footer .footer p {
   margin: 0;
+  font-size: 14px;
+  line-height: 2.125;
+}
+
+footer .footer h4 {
+  font-size: 28px;
+}
+
+footer .footer a {
+  color: var(--text-color);
+  text-decoration: underline lightgrey;
+}
+
+footer .footer a:hover {
+  background-color: #fde4b2;
+}
+
+footer .footer .columns div {
+  margin-bottom: 1.5em;
+}
+
+@media (min-width: 600px) {
+  footer .footer .columns div {
+    margin-bottom: 0;
+  }
 }

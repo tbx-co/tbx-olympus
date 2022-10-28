@@ -1,6 +1,7 @@
 .columns > div {
     display: flex;
     flex-direction: column;
+    margin-left: 1px;
 }
 
 .columns img {
@@ -10,7 +11,7 @@
 @media (min-width: 900px) {
     .columns > div {
         display: flex;
-        align-items: center;
+        align-items: baseline;
         flex-direction: unset;
     }
 
