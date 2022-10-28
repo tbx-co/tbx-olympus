@@ -1,18 +1,18 @@
 /* header and nav layout */
 header nav {
+  font-family: var(--body-font-family);
+  position: fixed;
+  z-index: 1;
   display: grid;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100vw;
+  height: var(--nav-height);
+  padding: 0 2rem;
+  background-color: rgb(255 255 255 / 90%);
   grid-template:
     'hamburger brand tools' var(--nav-height)
     'sections sections sections' 1fr / 50px 1fr 50px;
-  align-items: center;
-  padding: 0 2rem;
-  position: fixed;
-  z-index: 1;
-  background-color: rgb(255 255 255 / 75%);
-  width: 100vw;
-  height: var(--nav-height);
-  box-sizing: border-box;
-  font-family: var(--body-font-family);
   backdrop-filter: blur(10px);
 }
 
@@ -21,18 +21,18 @@ header nav a:any-link {
 }
 
 header nav[aria-expanded='true'] {
-  grid-template: 'hamburger brand' 'sections sections' 'tools tools';
-  grid-template-columns:  56px 1fr;
   overflow-y: scroll;
   min-height: 100vh;
+  grid-template: 'hamburger brand' 'sections sections' 'tools tools';
+  grid-template-columns:  56px 1fr;
 }
 
 /* brand */
 header .nav-brand {
-  grid-area: brand;
   font-size: 22px;
   font-weight: 700;
   line-height: 1em;
+  grid-area: brand;
 }
 
 header nav .nav-brand p {
@@ -46,19 +46,19 @@ header nav .nav-brand img {
 
 /* hamburger */
 header nav .nav-hamburger {
-  grid-area: hamburger;
   height: 22px;
   padding-top: 3px;
   cursor: pointer;
+  grid-area: hamburger;
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon,
 header nav[aria-expanded='false'] .nav-hamburger-icon::after,
 header nav[aria-expanded='false'] .nav-hamburger-icon::before {
-  box-sizing: border-box;
   position: relative;
-  display: block;
   top: 8px;
+  display: block;
+  box-sizing: border-box;
   width: 20px;
   height: 2px;
   border-radius: 3px;
@@ -67,9 +67,9 @@ header nav[aria-expanded='false'] .nav-hamburger-icon::before {
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::after,
 header nav[aria-expanded='false'] .nav-hamburger-icon::before {
-  content: '';
   position: absolute;
   top: -6px;
+  content: '';
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::after {
@@ -77,29 +77,29 @@ header nav[aria-expanded='false'] .nav-hamburger-icon::after {
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon {
-  box-sizing: border-box;
   position: relative;
   display: block;
+  box-sizing: border-box;
   width: 22px;
   height: 22px;
+  transform: translate(-3px, -2px);
   border: 2px solid transparent;
   border-radius: 5px;
-  transform: translate(-3px, -2px);
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon::after,
 header nav[aria-expanded='true'] .nav-hamburger-icon::before {
-  content: '';
+  position: absolute;
+  top: 8px;
+  left: 1px;
   display: block;
   box-sizing: border-box;
-  position: absolute;
   width: 22px;
   height: 2px;
-  background: currentcolor;
+  content: '';
   transform: rotate(45deg);
   border-radius: 5px;
-  top: 8px;
-  left: 1px
+  background: currentcolor;
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
@@ -108,18 +108,18 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 
 /* sections */
 header nav .nav-sections {
-  grid-area: sections;
-  flex-direction: column;
   display: none;
-  background-color: var(--overlay-color);
   flex: 1 1 auto;
+  flex-direction: column;
+  background-color: var(--overlay-color);
+  grid-area: sections;
 }
 
 header nav .nav-sections ul  {
   font-size: 16px;
   font-weight: 500;
-  list-style: none;
   padding-left: 0;
+  list-style: none;
 } 
 
 header nav .nav-sections li {
@@ -134,9 +134,9 @@ header nav[aria-expanded='true'] .nav-sections {
 
 /* tools */
 header nav .nav-tools {
-  grid-area: tools;
   flex: 0 0 auto;
   height: 22px;
+  grid-area: tools;
 }
 
 header nav .nav-tools p {
@@ -171,16 +171,16 @@ header nav[aria-expanded='true'] .nav-tools li {
   }
 
   header nav .nav-drop::after {
-    content: ' ';
-    border: 1px solid currentolor;
-    transform: rotate(135deg);
-    border-width: 2px 2px 0 0;
-    display: inline-block;
-    width: 6px;
-    height: 6px;
     position: absolute;
     top: 8px;
     right: 14px;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    content: ' ';
+    transform: rotate(135deg);
+    border: solid currentcolor;
+    border-width: 2px 2px 0 0;
   }
 
   header nav .nav-hamburger {
@@ -198,9 +198,9 @@ header nav[aria-expanded='true'] .nav-tools li {
   header nav .nav-sections ul {
     display: flex;
     flex-direction: row;
-    background-color: unset;
     width: unset;
     margin: 0;
+    background-color: unset;
   }
   
   header nav[aria-expanded='true'] .nav-sections ol {
@@ -209,12 +209,12 @@ header nav[aria-expanded='true'] .nav-tools li {
   }
 
   header nav .nav-sections > ul > li {
-    padding: 0 16px;
-    position: relative;
     font-size: 16px;
+    position: relative;
     margin: 0;
-    cursor: pointer;
+    padding: 0 16px;
     padding-top: 0;
+    cursor: pointer;
   }
 
   header nav .nav-sections > ul > li > p {
@@ -222,9 +222,9 @@ header nav[aria-expanded='true'] .nav-tools li {
   }
 
   header nav .nav-sections > ul > li > ul {
-    margin-top: 20px;
-    display: none;
     position: relative;
+    display: none;
+    margin-top: 20px;
   }
 
   header nav .nav-sections > ul > li > ul:any-link {
@@ -232,15 +232,15 @@ header nav[aria-expanded='true'] .nav-tools li {
   }
 
   header nav .nav-sections > ul > li > ul::before {
-    content: '';
-    width: 0;
-    height: 0;
     position: absolute;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;    
-    border-bottom: 15px solid var(--highlight-background-color);
     top: -15px;
     left: 20px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid var(--highlight-background-color);
+    border-left: 15px solid transparent;
   }
 
 
@@ -250,12 +250,12 @@ header nav[aria-expanded='true'] .nav-tools li {
   }
 
   header nav .nav-sections > ul > li[aria-expanded='true'] ul {
-    display: block;
     position: absolute;
-    background-color: var(--highlight-background-color);
-    width: 300px;
     left: 0;
+    display: block;
+    width: 300px;
     padding: 16px;
+    background-color: var(--highlight-background-color);
     box-shadow: 0 0 5px var(text-color);
   }
 }

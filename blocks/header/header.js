@@ -37,7 +37,27 @@ export default async function decorate(block) {
       if (section) section.classList.add(`nav-${e}`);
     });
 
-    const navSections = [...nav.children][1];
+    // relative header links from Google doc -> transform (very specific)
+    let navSections = [...nav.children][0];
+    navSections.querySelectorAll(':scope > p').forEach((p) => {
+      const navSectionLink = p.querySelector('a');
+      if (navSectionLink.href.includes('#')) {
+        navSectionLink.href = '/';
+      }
+    });
+
+    // eslint-disable-next-line prefer-destructuring
+    navSections = [...nav.children][1];
+    navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
+      const navSectionLink = navSection.querySelector('a');
+      if (navSectionLink.href.includes('#') && !navSectionLink.href.includes('#new-business')) {
+        navSectionLink.href = navSectionLink.href.replace('#', '');
+        // check for /home
+        navSectionLink.href = navSectionLink.href.replace('/home', '/');
+      }
+    });
+
+    // nested navs
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
         if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
