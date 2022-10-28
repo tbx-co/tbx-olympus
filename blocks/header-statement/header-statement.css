@@ -2,9 +2,13 @@
     margin: 24px 0 16px;
 }
 
+.header-statement h2 {
+    margin: 0;
+}
+
 @media (min-width: 900px) {
     .header-statement {
-        max-width: 55%;
+        max-width: 65%;
         margin: 32px 0 24px;
     }
 }

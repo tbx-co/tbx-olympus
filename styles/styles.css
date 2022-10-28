@@ -181,12 +181,12 @@ main input:hover {
 }
 
 main .section {
-  padding: 42px 16px;
+  padding: 42px 32px;
 }
 
 @media (min-width: 600px) {
   main .section {
-    padding: 48px 24px;
+    padding: 48px 64px;
   }
 }
 
@@ -238,6 +238,21 @@ main .section.highlight {
   background-color: var(--highlight-background-color);
 }
 
+.tbx-column-points h3:nth-child(1) {
+  font-size: 24px;
+  line-height: 1.75;
+}
+
+.tbx-column-points h3:nth-child(2) {
+  font-size: 28px;
+}
+
+.tbx-column-points p {
+  font-size: 14px;
+  line-height: 2.125;
+}
+
+/* Utility CSS */
 .leading-12 {
   line-height: 3rem;
 }
@@ -248,4 +263,45 @@ main .section.highlight {
 
 .bg-grey {
   background-color: var(--overlay-background-color);
+}
+
+.py-50 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.pt-50 {
+  padding-top: 50px;
+}
+
+.pt-100 {
+  padding-top: 100px;
+}
+
+@media (min-width: 900px) {
+  .pt-100-ns {
+    padding-top: 100px;
+  }
+}
+
+.pt-150 {
+  padding-top: 150px;
+}
+
+.pb-50 {
+  padding-bottom: 50px;
+}
+
+.pb-100 {
+  padding-bottom: 100px;
+}
+
+@media (min-width: 900px) {
+  .pb-100-ns {
+    padding-bottom: 100px;
+  }
+}
+
+.pb-150 {
+  padding-bottom: 150px;
 }
