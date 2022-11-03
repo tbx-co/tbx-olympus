@@ -37,23 +37,20 @@ export default async function decorate(block) {
       if (section) section.classList.add(`nav-${e}`);
     });
 
-    // relative header links from Google doc -> transform (very specific)
-    let navSections = [...nav.children][0];
+    // look at URI path, look for relative and absolute links
+    let navSections = nav.querySelector('div.nav-brand');
     navSections.querySelectorAll(':scope > p').forEach((p) => {
       const navSectionLink = p.querySelector('a');
-      if (navSectionLink.href.includes('#')) {
-        navSectionLink.href = '/';
-      }
+      const gotoLink = new URL(navSectionLink.href);
+      navSectionLink.href = gotoLink.pathname;
     });
 
-    // eslint-disable-next-line prefer-destructuring
-    navSections = [...nav.children][1];
+    navSections = nav.querySelector('div.nav-sections');
     navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
       const navSectionLink = navSection.querySelector('a');
-      if (navSectionLink.href.includes('#') && !navSectionLink.href.includes('#new-business')) {
-        navSectionLink.href = navSectionLink.href.replace('#', '');
-        // check for /home
-        navSectionLink.href = navSectionLink.href.replace('/home', '/');
+      if (!navSectionLink.href.includes('#new-business')) { // new business is a special case, always anchor to footer
+        const gotoLink = new URL(navSectionLink.href);
+        navSectionLink.href = gotoLink.pathname;
       }
     });
 

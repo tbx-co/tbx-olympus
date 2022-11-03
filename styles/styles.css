@@ -262,6 +262,25 @@ main .section.highlight {
 }
 
 /* Utility CSS */
+.section .full-width {
+  position: relative;
+  right: 50%;
+  left: 50%;
+  overflow: hidden;
+  width: 100vw;
+  max-height: 45vw;
+  margin-right: -50vw;
+  margin-left: -50vw;
+  padding: 0;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .full-width {
+    max-height: 40vw;
+  }
+}
+
 .leading-12 {
   line-height: 3rem;
 }

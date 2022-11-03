@@ -28,6 +28,8 @@ footer .footer h4 {
 footer .footer a {
   color: var(--text-color);
   text-decoration: underline lightgrey;
+  transition: all 0.25s ease-in-out;
+  padding-block: 0.5em;
 }
 
 footer .footer a:hover {
