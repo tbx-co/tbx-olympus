@@ -9,11 +9,10 @@ header nav {
   width: 100vw;
   height: var(--nav-height);
   padding: 0 2rem;
-  background-color: rgb(255 255 255 / 90%);
+  background-color: rgb(255 255 255 / 0%);
   grid-template:
     'hamburger brand tools' var(--nav-height)
     'sections sections sections' 1fr / 50px 1fr 50px;
-  backdrop-filter: blur(10px);
 }
 
 header nav a:any-link {

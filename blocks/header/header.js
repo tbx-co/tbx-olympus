@@ -51,33 +51,42 @@ export default async function decorate(block) {
       if (!navSectionLink.href.includes('#new-business')) { // new business is a special case, always anchor to footer
         const gotoLink = new URL(navSectionLink.href);
         navSectionLink.href = gotoLink.pathname;
-      }
-    });
-
-    // nested navs
-    if (navSections) {
-      navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
-        if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-        navSection.addEventListener('click', () => {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          collapseAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      } else if (navSectionLink.href.includes('#new-business')) {
+        // scroll to anchor
+        navSectionLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          // scroll to bottom of page
+          document.getElementById('new-business').scrollIntoView({ behavior: 'smooth' });
         });
-      });
-    }
+      }
 
-    // hamburger for mobile
-    const hamburger = document.createElement('div');
-    hamburger.classList.add('nav-hamburger');
-    hamburger.innerHTML = '<div class="nav-hamburger-icon"></div>';
-    hamburger.addEventListener('click', () => {
-      const expanded = nav.getAttribute('aria-expanded') === 'true';
-      document.body.style.overflowY = expanded ? '' : 'hidden';
-      nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      // nested navs
+      /**
+      if (navSections) {
+        navSections.querySelectorAll(':scope > ul > li').forEach((navSection_) => {
+          if (navSection_.querySelector('ul')) navSection_.classList.add('nav-drop');
+          navSection_.addEventListener('click', () => {
+            const expanded = navSection_.getAttribute('aria-expanded') === 'true';
+            collapseAllNavSections(navSections);
+            navSection_.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          });
+        });
+      }
+       */
+
+      // hamburger for mobile
+      const hamburger = document.createElement('div');
+      hamburger.classList.add('nav-hamburger');
+      hamburger.innerHTML = '<div class="nav-hamburger-icon"></div>';
+      hamburger.addEventListener('click', () => {
+        const expanded = nav.getAttribute('aria-expanded') === 'true';
+        document.body.style.overflowY = expanded ? '' : 'hidden';
+        nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      });
+      nav.prepend(hamburger);
+      nav.setAttribute('aria-expanded', 'false');
+      decorateIcons(nav);
+      block.append(nav);
     });
-    nav.prepend(hamburger);
-    nav.setAttribute('aria-expanded', 'false');
-    decorateIcons(nav);
-    block.append(nav);
   }
 }

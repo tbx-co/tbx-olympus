@@ -42,11 +42,25 @@ function buildAutoBlocks(main) {
 }
 
 /**
+ * Looks for a meta tag with the given name and returns styles the body background color
+ * @param main
+ */
+function decoratePageTheme() {
+  const theme = document.querySelector('meta[name="page-theme-color"]');
+  if (theme) {
+    document.body.style.backgroundColor = theme.getAttribute('content');
+    document.getElementsByTagName('header')[0].style.backgroundColor = theme.getAttribute('content');
+  }
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
+  // look for meta tag that define the page theme
+  decoratePageTheme();
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
