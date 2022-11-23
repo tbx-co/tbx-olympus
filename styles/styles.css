@@ -333,3 +333,18 @@ main .section.highlight {
 .pb-150 {
   padding-bottom: 150px;
 }
+
+/* fade up animation */
+
+.fadeup {
+  transition-timing-function: ease;
+  transition-duration: 500ms;
+  transition-property: transform, opacity;
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+.in-view {
+  transform: none;
+  opacity: 1;
+}

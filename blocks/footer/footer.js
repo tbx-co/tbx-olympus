@@ -13,6 +13,7 @@ export default async function decorate(block) {
   const resp = await fetch(`${footerPath}.plain.html`);
   const html = await resp.text();
   const footer = document.createElement('div');
+  footer.classList.add('fadeup');
   footer.innerHTML = html;
   await decorateIcons(footer);
   block.append(footer);

@@ -49,7 +49,7 @@ function decoratePageTheme() {
   const theme = document.querySelector('meta[name="page-theme-color"]');
   if (theme) {
     document.body.style.backgroundColor = theme.getAttribute('content');
-    document.getElementsByTagName('header')[0].style.backgroundColor = theme.getAttribute('content');
+    document.getElementsByTagName('nav')[0].style.backgroundColor = theme.getAttribute('content');
   }
 }
 
@@ -59,8 +59,6 @@ function decoratePageTheme() {
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
-  // look for meta tag that define the page theme
-  decoratePageTheme();
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
@@ -113,6 +111,8 @@ async function loadLazy(doc) {
   await loadHeader(doc.querySelector('header'));
   await loadFooter(doc.querySelector('footer'));
 
+  decoratePageTheme();
+
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`, null);
   addFavIcon(`${window.hlx.codeBasePath}/assets/images/favicon-96x96.png`);
   sampleRUM('lazy');
@@ -130,10 +130,29 @@ function loadDelayed() {
   // load anything that can be postponed to the latest here
 }
 
+const observerOptions = {
+  threshold: 0.25,
+  rootMargin: '0px 0px -50px 0px',
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
 }
 
-loadPage().then((r) => r).catch((e) => e);
+loadPage().then(() => {
+  const sections = Array.from(document.getElementsByClassName('fadeup'));
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+});
