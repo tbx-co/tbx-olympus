@@ -1,0 +1,9 @@
+.section-image-container {
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: var(--background-color);
+}
+
+.section .full-width img {
+  width: 100%;
+}
