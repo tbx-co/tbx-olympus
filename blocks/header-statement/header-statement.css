@@ -1,3 +1,7 @@
+.header-statement-container:has(.white) {
+    background-color: var(--background-color);
+}
+
 .header-statement {
     margin: 80px 0 16px;
 }

@@ -1,0 +1,30 @@
+.statement-image-container:has(.white) {
+  background-color: var(--background-color);
+}
+
+main .statement-image > div {
+  width: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+main .statement-image div :nth-child(1) {
+  width: 50%;
+  min-width: 700px;
+}
+
+main .statement-image h2, main .statement-image h2 {
+  padding: 24px 0;
+  margin: 0;
+} 
+
+main .statement-image div :nth-child(2) {
+  justify-self: flex-end;
+}
+
+main .statement-image img {
+  height: 100%;
+  width: auto; 
+  object-fit: contain;
+}
