@@ -1,0 +1,21 @@
+main .careers-container {
+  padding: 180px 64px;
+}
+
+.careers-container .careers > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.careers-container .column-0 {
+  width: 50%;
+  padding: 0;
+}
+
+.careers-container .column-1 ul {
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  list-style-type: none; 
+
+  padding: 0;
+}
