@@ -14,7 +14,7 @@ main .careers-container {
 
 .careers-container .column-1 ul {
   font-family: var(--heading-font-family);
-  font-size: 28px;
+  font-size: var(--heading-font-size-m);
   list-style-type: none; 
 
   padding: 0;
