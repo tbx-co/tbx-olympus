@@ -1,10 +1,9 @@
 footer {
-  padding: 2em 0 10em;
   font-size: var(--body-font-size-xs);
 }
 
 footer .footer {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 24px auto 16px;
   padding: 42px 32px;
 }

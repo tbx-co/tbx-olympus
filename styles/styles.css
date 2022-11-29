@@ -55,7 +55,7 @@
   }
 
   .section > div {
-    max-width: 1200px;
+    max-width: 1440px;
     margin: auto;
   }
 }
@@ -184,6 +184,7 @@ main input:hover {
 
 main .section {
   padding: 42px 32px;
+  overflow: hidden;
 }
 
 @media (min-width: 600px) {

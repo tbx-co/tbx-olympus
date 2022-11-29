@@ -9,20 +9,21 @@ main .testimonial-container {
   grid-template: 'disclaimer signature01 signature02';
 }
 
-.column-0 {
+.testimonial-container .column-0 {
   grid-area: disclaimer;
+  width: 50%;
   min-width: 600px;
 }
 
-.column-1, .column-2 {
+.testimonial-container .column-1, .testimonial-container .column-2 {
   padding: 0 40px;
 }
 
-.column-1 {
+.testimonial-container .column-1 {
   grid-area: signature01;
 }
 
-.column-2 {
+.testimonial-container .column-2 {
   grid-area: signature02;
 }
 
