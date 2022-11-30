@@ -4,6 +4,10 @@
   background-color: var(--background-color);
 }
 
+.section-image-container:has(.white) {
+  background-color: var(--background-color);
+}
+
 .section .full-width img {
   width: 100%;
 }

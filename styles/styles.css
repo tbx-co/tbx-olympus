@@ -56,7 +56,8 @@
 
   .section > div {
     max-width: 1440px;
-    margin: auto;
+    padding: 0 40px;
+    margin: 0 auto;
   }
 }
 
