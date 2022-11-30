@@ -1,8 +1,8 @@
-main .careers-container:has(.white) {
+main .statement-text-container:has(.white) {
   background-color: var(--background-color);
 }
 
-.careers-container .careers > div {
+.statement-text-container .statement-text > div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,12 +10,12 @@ main .careers-container:has(.white) {
   gap: 120px;
 }
 
-.careers-container .column-0, .careers-container .column-1 {
+.statement-text-container .column-0, .statement-text-container .column-1 {
   width: 100%;
   padding: 0;
 }
 
-.careers-container .column-1 ul {
+.statement-text-container .column-1 ul {
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-m);
   list-style-type: none; 
@@ -24,10 +24,10 @@ main .careers-container:has(.white) {
 }
 
 @media (min-width: 900px) {
-  .careers-container .careers > div {
+  .statement-text-container .statement-text > div {
     flex-direction: row;
   }
-  .careers-container .column-0, .careers-container .column-1 {
+  .statement-text-container .column-0, .statement-text-container .column-1 {
     width: 50%;
     padding: 0;
   }
