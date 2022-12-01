@@ -130,7 +130,7 @@ header nav .nav-sections {
 }
 
 header nav .nav-sections ul  {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   padding-left: 0;
   list-style: none;
@@ -139,6 +139,8 @@ header nav .nav-sections ul  {
 header nav .nav-sections li {
   font-size: 20px;
   font-weight: 500;
+  text-transform: uppercase;
+
 }
 
 header nav[aria-expanded='true'] .nav-sections {
@@ -171,13 +173,13 @@ header nav[aria-expanded='true'] .nav-tools li {
 }
 
 /* desktop nav styles */
-@media (min-width: 1000px) {
+@media (min-width: 900px) {
   header nav {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 1000px;
-    padding: 3rem 4rem;
+    max-width: 1200px;
+    padding: 1.5rem 3rem;
     margin: 0 auto;
     height: var(--nav-height);
     border-radius: 50px;
@@ -216,7 +218,21 @@ header nav[aria-expanded='true'] .nav-tools li {
   }
 
   header nav .nav-brand {
-    flex: 0 0 150px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  header nav .nav-brand img {
+    width: 25px;
+  }
+
+  header nav .nav-brand a {
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 35px;
   }
 
   header nav .nav-sections ul {
@@ -233,10 +249,10 @@ header nav[aria-expanded='true'] .nav-tools li {
   }
 
   header nav .nav-sections > ul > li {
-    font-size: 16px;
+    font-size: 14px;
     position: relative;
     margin: 0;
-    padding: 0 16px;
+    padding: 0 30px;
     padding-top: 0;
     cursor: pointer;
   }

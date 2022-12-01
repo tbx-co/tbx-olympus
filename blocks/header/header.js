@@ -16,6 +16,8 @@ function collapseAllNavSections(sections) {
  * @param {Element} block The header block element
  */
 
+const BRAND_IMG = '<img loading="lazy" alt="Adobe" src="/blocks/header/tbx-logo.svg">';
+
 export default async function decorate(block) {
   const cfg = readBlockConfig(block);
   block.textContent = '';
@@ -44,6 +46,10 @@ export default async function decorate(block) {
       const gotoLink = new URL(navSectionLink.href);
       navSectionLink.href = gotoLink.pathname;
     });
+
+    // decorate brand icon
+    const brand = navSections.querySelector('a');
+    navSections.insertAdjacentHTML('afterbegin', BRAND_IMG);
 
     navSections = nav.querySelector('div.nav-sections');
     navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
