@@ -53,11 +53,6 @@ header nav .nav-brand p {
   margin: 0;
 }
 
-header nav .nav-brand img {
-  width: 50px;
-  height: auto;
-}
-
 /* hamburger */
 header nav .nav-hamburger {
   height: 22px;
@@ -178,7 +173,7 @@ header nav[aria-expanded='true'] .nav-tools li {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     padding: 1.5rem 3rem;
     margin: 0 auto;
     height: var(--nav-height);
@@ -224,10 +219,11 @@ header nav[aria-expanded='true'] .nav-tools li {
   }
 
   header nav .nav-brand img {
-    width: 25px;
+    width: 23px;
   }
 
   header nav .nav-brand a {
+    font-family: 'Circular Std';
     text-align: center;
     font-style: normal;
     font-weight: 700;
@@ -250,9 +246,10 @@ header nav[aria-expanded='true'] .nav-tools li {
 
   header nav .nav-sections > ul > li {
     font-size: 14px;
+    letter-spacing: 0.09em;
     position: relative;
     margin: 0;
-    padding: 0 30px;
+    padding: 0 24px;
     padding-top: 0;
     cursor: pointer;
   }
