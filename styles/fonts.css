@@ -21,3 +21,11 @@
     src: url('../assets/fonts/IBMPlexMono-Medium.ttf') format('truetype');
     font-display: swap;
 }
+
+@font-face {
+    font-family: Circular-Bold;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/circular-bold.otf') format('opentype');
+    font-display: swap;
+}
