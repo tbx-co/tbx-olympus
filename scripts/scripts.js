@@ -27,6 +27,30 @@ function buildHeroBlock(main) {
   }
 }
 
+function buildCursorTakeover() {
+  const cursor = document.createElement('div');
+  cursor.className = 'cursor';
+  const shapes = document.createElement('div');
+  shapes.className = 'shapes';
+  shapes.innerHTML = `<div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>`;
+  document.body.append(cursor, shapes);
+  window.addEventListener('mousemove', evt => {
+    const mouseX = evt.clientX;
+    const mouseY = evt.clientY;
+    gsap.set('.cursor', {
+      x: mouseX,
+      y: mouseY,
+    });
+    gsap.to('.shape', {
+      x: mouseX,
+      y: mouseY,
+      stagger: -0.1,
+    });
+  });
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -65,6 +89,7 @@ export function decorateMain(main) {
   // buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  buildCursorTakeover();
 }
 
 /**

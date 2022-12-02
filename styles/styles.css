@@ -19,6 +19,9 @@
   --overlay-color: inherit;
   --highlight-background-color: #ccc;
   --text-color: #000;
+  --cursor-large-color: #005dfe6c;
+  --cursor-medium-color: #ffe5e388;
+  --cursor-small-color: #ffcd5779;
 
   /* fonts */
   --body-font-family: plexmono-regular, sans-serif;
@@ -42,6 +45,10 @@
   /* nav height */
   --nav-height: 72px;
 
+  --cursor-large-size: 650px;
+  --cursor-medium-size: 440px;
+  --cursor-small-size: 270px;
+
 }
 
 @media (min-width: 900px) {
@@ -61,6 +68,10 @@
   }
 }
 
+body, html {
+  height: 100%;
+}
+
 body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-s);
@@ -72,10 +83,13 @@ body {
 }
 
 body.appear {
-  display: unset;
+  display: block;
   align-items: center;
-
 }
+
+/* * {
+  cursor: none;
+} */
 
 header {
   height: var(--nav-height);
@@ -163,6 +177,63 @@ a.button.secondary, button.secondary {
   border: 2px solid currentcolor;
   background-color: unset;
 } 
+
+.shapes {
+  position: absolute;
+  display: block;
+  height: 100%; 
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  /* background: #2128bd; */
+  overflow: hidden;
+}
+
+.shape {
+  will-change: transform;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.shape.shape-1 {
+  background: var(--cursor-large-color);
+  width: var(--cursor-large-size);
+  height: var(--cursor-large-size);
+  margin: calc(-650px/2) 0 0 calc(-650px/2) ;
+}
+
+.shape.shape-2 {
+  background: var(--cursor-medium-color);
+  width: var(--cursor-medium-size);
+  height: var(--cursor-medium-size);
+  margin: calc(-440px/2) 0 0 calc(-440px/2);
+}
+
+.shape.shape-3 {
+  background: var(--cursor-small-color);
+  width: var(--cursor-small-size);
+  height: var(--cursor-small-size);
+  margin: calc(-270px/2) 0 0 calc(-270px/2) ;
+}
+
+
+.cursor {
+  position: fixed;
+  background: #2128bd;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border-radius: 50%;
+  will-change: transform;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+::selection {
+  color: #fff;
+  background: #2128bd;
+}
 
 
 main input {
