@@ -2,7 +2,7 @@
 header nav {
   font-family: var(--body-font-family);
   position: fixed;
-  z-index: 100;
+  z-index: 5;
 
   display: grid;
   align-items: center;
@@ -170,6 +170,7 @@ header nav[aria-expanded='true'] .nav-tools li {
 /* desktop nav styles */
 @media (min-width: 900px) {
   header nav {
+    /* background: blue; */
     display: flex;
     justify-content: space-between;
     width: 100%;

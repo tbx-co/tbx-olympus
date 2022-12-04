@@ -27,28 +27,37 @@ function buildHeroBlock(main) {
   }
 }
 
-function buildCursorTakeover() {
-  const cursor = document.createElement('div');
-  cursor.className = 'cursor';
+function mouseMove(evt) {
+  let scrollHeight = 0;
+  window.addEventListener('scroll', (evt) => {
+    scrollHeight = window.scrollY;
+  });
+  const mouseX = evt.clientX;
+  const mouseY = evt.clientY;
+  gsap.to('.cursor', {
+    x: mouseX,
+    y: mouseY + scrollHeight,
+  });
+  gsap.to('.cursor-bg', {
+    x: mouseX,
+    y: mouseY + scrollHeight,
+    stagger: -0.1,
+  });
+  gsap.to('.shape', {
+    x: mouseX,
+    y: mouseY + scrollHeight,
+    stagger: -0.1,
+  });
+}
+
+function buildCursorTakeover(main) {
   const shapes = document.createElement('div');
   shapes.className = 'shapes';
   shapes.innerHTML = `<div class="shape shape-1"></div>
                     <div class="shape shape-2"></div>
                     <div class="shape shape-3"></div>`;
-  document.body.append(cursor, shapes);
-  window.addEventListener('mousemove', evt => {
-    const mouseX = evt.clientX;
-    const mouseY = evt.clientY;
-    gsap.set('.cursor', {
-      x: mouseX,
-      y: mouseY,
-    });
-    gsap.to('.shape', {
-      x: mouseX,
-      y: mouseY,
-      stagger: -0.1,
-    });
-  });
+  document.body.append(shapes);
+  window.addEventListener('mousemove', (evt) => { mouseMove(evt); });
 }
 
 /**
@@ -89,7 +98,7 @@ export function decorateMain(main) {
   // buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
-  buildCursorTakeover();
+  buildCursorTakeover(main);
 }
 
 /**
