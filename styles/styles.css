@@ -200,25 +200,58 @@ a.button.secondary, button.secondary {
   z-index: 99999;
 }
 
-.shape.shape-1 {
-  background: var(--cursor-large-color);
+.shape.shape-1,
+.shape.shape-2,
+.shape.shape.shape-3 {
+  border-style: solid;
+  display: block;
+  border-radius: 50%;
+  height: 0;
+  transition: all 300ms linear;
+}
+
+.shape-1 {
+  border-color: transparent transparent var(--cursor-large-color);
+  border-width: 0 0 var(--cursor-large-size);
   width: var(--cursor-large-size);
-  height: var(--cursor-large-size);
-  margin: calc(-50px/2) 0 0 calc(-50px/2) ;
+  margin: calc(-50px/2) 0 0 calc(-50px/2) ; 
 }
 
 .shape.shape-2 {
-  background: var(--cursor-medium-color);
+  border-color: transparent transparent var(--cursor-medium-color);
+  border-width: 0 0 var(--cursor-medium-size);
   width: var(--cursor-medium-size);
-  height: var(--cursor-medium-size);
-  margin: calc(-35px/2) 0 0 calc(-35px/2);
+  margin: calc(-35px/2) 0 0 calc(-35px/2) ; 
 }
 
 .shape.shape-3 {
-  background: var(--cursor-small-color);
+  border-color: transparent transparent var(--cursor-small-color);
+  border-width: 0 0 var(--cursor-small-size);
   width: var(--cursor-small-size);
-  height: var(--cursor-small-size);
-  margin: calc(-20px/2) 0 0 calc(-20px/2) ;
+  margin: calc(-20px/2) 0 0 calc(-20px/2) ; 
+}
+
+.shapes.hover .shape.shape-1, 
+.shapes.hover .shape.shape-2,
+.shapes.hover .shape.shape-3{
+  width: 0;
+  height: 0;
+  border-radius: 0;
+}
+
+.shapes.hover .shape.shape-1 {
+  transform: translate(0, 6.7px);
+  border-width: 0 30px 60px;
+}
+
+.shapes.hover .shape.shape-2 {
+  transform: translate(0, 6.7px);
+  border-width: 0 20px 40px;
+}
+
+.shapes.hover .shape.shape-3 {
+  transform: translate(0, 6.7px);
+  border-width: 0 10px 20px;
 }
 
 ::selection {

@@ -34,18 +34,10 @@ function mouseMove(evt) {
   });
   const mouseX = evt.clientX;
   const mouseY = evt.clientY;
-  gsap.to('.cursor', {
-    x: mouseX,
-    y: mouseY + scrollHeight,
-  });
-  gsap.to('.cursor-bg', {
-    x: mouseX,
-    y: mouseY + scrollHeight,
-    stagger: -0.1,
-  });
   gsap.to('.shape', {
     x: mouseX,
     y: mouseY + scrollHeight,
+    rotation: -50,
     stagger: -0.1,
   });
 }

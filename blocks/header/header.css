@@ -57,7 +57,6 @@ header nav .nav-brand p {
 header nav .nav-hamburger {
   height: 22px;
   padding-top: 3px;
-  cursor: pointer;
   grid-area: hamburger;
 }
 
@@ -252,7 +251,6 @@ header nav[aria-expanded='true'] .nav-tools li {
     margin: 0;
     padding: 0 24px;
     padding-top: 0;
-    cursor: pointer;
   }
 
   header nav .nav-sections > ul > li > p {

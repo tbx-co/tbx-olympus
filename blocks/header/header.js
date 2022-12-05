@@ -5,12 +5,6 @@ import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
  * @param {Element} sections The container element
  */
 
-function collapseAllNavSections(sections) {
-  sections.querySelectorAll('.nav-sections > ul > li').forEach((section) => {
-    section.setAttribute('aria-expanded', 'false');
-  });
-}
-
 /**
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -48,7 +42,6 @@ export default async function decorate(block) {
     });
 
     // decorate brand icon
-    const brand = navSections.querySelector('a');
     navSections.insertAdjacentHTML('afterbegin', BRAND_IMG);
 
     navSections = nav.querySelector('div.nav-sections');
@@ -65,21 +58,6 @@ export default async function decorate(block) {
           document.getElementById('new-business').scrollIntoView({ behavior: 'smooth' });
         });
       }
-
-      // nested navs
-      /**
-      if (navSections) {
-        navSections.querySelectorAll(':scope > ul > li').forEach((navSection_) => {
-          if (navSection_.querySelector('ul')) navSection_.classList.add('nav-drop');
-          navSection_.addEventListener('click', () => {
-            const expanded = navSection_.getAttribute('aria-expanded') === 'true';
-            collapseAllNavSections(navSections);
-            navSection_.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-          });
-        });
-      }
-       */
-
       // hamburger for mobile
       const hamburger = document.createElement('div');
       hamburger.classList.add('nav-hamburger');
@@ -93,6 +71,22 @@ export default async function decorate(block) {
       nav.setAttribute('aria-expanded', 'false');
       decorateIcons(nav);
       block.append(nav);
+    });
+
+    // decorate nav sections hover animation
+    const cursorShape = document.body.querySelector('.shapes');
+    navSections.addEventListener('mouseenter', () => {
+      cursorShape.classList.add('hover');
+    });
+    navSections.addEventListener('mouseleave', () => {
+      cursorShape.classList.remove('hover');
+    });
+
+    document.querySelector('.nav-brand').addEventListener('mouseenter', () => {
+      cursorShape.classList.add('hover');
+    });
+    document.querySelector('.nav-brand').addEventListener('mouseleave', () => {
+      cursorShape.classList.remove('hover');
     });
   }
 }
