@@ -433,6 +433,10 @@ main .section.highlight {
   padding-bottom: 150px;
 }
 
+.n-pt-100 {
+  margin-top: -100px;
+}
+
 /* fade up animation */
 
 .fadeup {
