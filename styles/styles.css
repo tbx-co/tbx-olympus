@@ -237,6 +237,7 @@ a.button.secondary, button.secondary {
   width: 0;
   height: 0;
   border-radius: 0;
+  margin: 0;
 }
 
 .shapes.hover .shape.shape-1 {
@@ -433,7 +434,7 @@ main .section.highlight {
   padding-bottom: 150px;
 }
 
-.n-pt-100 {
+.n-mt-100 {
   margin-top: -100px;
 }
 
