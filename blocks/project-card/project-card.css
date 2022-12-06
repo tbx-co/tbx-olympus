@@ -1,4 +1,4 @@
-.project-card.white {
+.project-card-container:has(.white) {
   background: var(--background-color);
 }
 

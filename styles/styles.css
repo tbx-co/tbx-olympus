@@ -381,6 +381,10 @@ main .section.highlight {
   }
 }
 
+.upper {
+  text-transform: uppercase;
+}
+
 .leading-12 {
   line-height: 3rem;
 }

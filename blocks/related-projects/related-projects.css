@@ -1,0 +1,19 @@
+.related-projects-header-statement-container:has(.white) {
+  background-color: var(--background-color);
+}
+
+.related-projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+  width: 100%;
+  transition: all 300ms linear;
+}
+
+@media (min-width: 900px) {
+  .related-projects {
+    flex-direction: row;
+  }
+}
