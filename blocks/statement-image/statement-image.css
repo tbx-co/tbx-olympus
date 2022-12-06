@@ -17,12 +17,12 @@ main .statement-image div :nth-child(1) {
   width: 100%;
   padding: 0;
   margin: 0;
-}
- 
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0em;
+  text-align: left;
 
-main .statement-image div :nth-child(2) {
-  justify-self: flex-end;
-  min-width: 320px;
 }
 
 main .statement-image img {
@@ -35,7 +35,9 @@ main .statement-image img {
   main .statement-image > div {
     flex-direction: row;
   }
-  main .statement-image div :nth-child(1) {
-    width: 70%;
+  
+  main .statement-image div :nth-child(2) {
+    justify-self: flex-end;
+    min-width: 730px;
   }
 }

@@ -8,10 +8,11 @@ main .statement-text-container:has(.white) {
   justify-content: space-between;
   align-items: center;
   gap: 120px;
+
+  width: 100%;
 }
 
 .statement-text-container .column-0, .statement-text-container .column-1 {
-  width: 100%;
   padding: 0;
 }
 
@@ -23,12 +24,20 @@ main .statement-text-container:has(.white) {
   padding: 0;
 }
 
+.statement-text-container .column-1 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
 @media (min-width: 900px) {
   .statement-text-container .statement-text > div {
     flex-direction: row;
   }
-  .statement-text-container .column-0, .statement-text-container .column-1 {
-    width: 50%;
+  .statement-text-container .column-0 {
+    min-width: 55%;
     padding: 0;
   }
 }
