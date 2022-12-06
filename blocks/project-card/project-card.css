@@ -1,3 +1,7 @@
+.project-card.white {
+  background: var(--background-color);
+}
+
 .project-card > div {
   display: flex;
   align-items: center;
