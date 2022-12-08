@@ -24,11 +24,18 @@ main .hero-container > div > div > div > div:has(h2) {
   margin: 0 auto;
   color: black;
 }
-
-main .hero h2 {
-  max-width: 600px;
+@media (min-width: 900px) {
+  main .hero-container > div > div > div > div:has(h2) {
+    padding: 64px 0 40px 0;
+  }
 }
 
+@media (min-width: 900px) {
+  main .hero h2 {
+    max-width: 600px;
+    
+  }
+}
 
 main .hero picture {
   position: absolute;
