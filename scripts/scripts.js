@@ -38,7 +38,7 @@ function mouseMove(evt) {
     x: mouseX,
     y: mouseY + scrollHeight,
     rotation: -50,
-    stagger: -0.1,
+    stagger: -0.02,
   });
 }
 

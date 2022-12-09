@@ -214,41 +214,23 @@ a.button.secondary, button.secondary {
   border-color: transparent transparent var(--cursor-large-color);
   border-width: 0 0 var(--cursor-large-size);
   width: var(--cursor-large-size);
-  margin: calc(-50px/2) 0 0 calc(-50px/2) ; 
+  margin: calc(-60px/2) 0 0 calc(-60px/2) ; 
 }
-
-/* .shape.shape-2 {
-  border-color: transparent transparent var(--cursor-medium-color);
-  border-width: 0 0 var(--cursor-medium-size);
-  width: var(--cursor-medium-size);
-  margin: calc(-35px/2) 0 0 calc(-35px/2) ; 
-} */
 
 .shape.shape-3 {
   border-color: transparent transparent var(--cursor-small-color);
   border-width: 0 0 var(--cursor-small-size);
   width: var(--cursor-small-size);
-  margin: calc(-20px/2) 0 0 calc(-20px/2) ; 
+  margin: calc(-10px/2) 0 0 calc(-10px/2) ; 
 }
 
 .shapes.hover .shape.shape-1, 
-/* .shapes.hover .shape.shape-2, */
 .shapes.hover .shape.shape-3{
   width: 0;
   height: 0;
   border-radius: 0;
   margin: 0;
 }
-
-/* .shapes.hover .shape.shape-1 {
-  transform: translate(0, 6.7px);
-  border-width: 0 30px 60px;
-} */
-
-/* .shapes.hover .shape.shape-2 {
-  transform: translate(0, 6.7px);
-  border-width: 0 20px 40px;
-} */
 
 .shapes.hover .shape.shape-3 {
   transform: translate(0, 6.7px);
@@ -339,7 +321,7 @@ main .section.highlight {
 }
 
 .tbx-column-points h3:nth-child(1) {
-  font-size: 24px;
+  font-size: 28px;
   line-height: 1.75;
 }
 

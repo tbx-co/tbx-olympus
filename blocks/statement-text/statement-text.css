@@ -4,16 +4,17 @@ main .statement-text-container:has(.white) {
 
 .statement-text-container .statement-text > div {
   display: flex;
+  flex: 1 1 500px;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: left;
   gap: 120px;
-
-  width: 100%;
 }
 
 .statement-text-container .column-0, .statement-text-container .column-1 {
   padding: 0;
+  flex-grow: 1;
+
 }
 
 .statement-text-container .column-1 ul {
@@ -24,20 +25,26 @@ main .statement-text-container:has(.white) {
   padding: 0;
 }
 
+.statement-text-container .column-1 ul li {
+  line-height: 51px;
+}
+
 .statement-text-container .column-1 {
   font-size: 14px;
   font-weight: 400;
   line-height: 31px;
   letter-spacing: 0em;
   text-align: left;
+  
 }
 
 @media (min-width: 900px) {
   .statement-text-container .statement-text > div {
     flex-direction: row;
+    align-items: center;
   }
   .statement-text-container .column-0 {
-    min-width: 55%;
-    padding: 0;
+    max-width: 60%;
+    min-width: 50%;
   }
 }

@@ -23,3 +23,9 @@
 .section .full-width img {
   width: 100%;
 }
+
+.section .section-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
