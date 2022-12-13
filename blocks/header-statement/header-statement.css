@@ -10,6 +10,14 @@
   margin: 0;
 }
 
+.header-statement p {
+  margin-top: 75px;
+}
+
+.header-statement p:has(picture) {
+  margin: 0;
+}
+
 @media (min-width: 900px) {
   .header-statement {
     max-width: 65%;
