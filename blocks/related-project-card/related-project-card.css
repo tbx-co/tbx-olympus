@@ -38,13 +38,12 @@
   height: 350px;
   max-height: 400px;
   border-radius: 20px;
-  background-color: black;
+  background-color: var(--text-color);
 }
 
 .related-project-card .related-project-card-image-frame img {
-    width: 100%;
-    /* aspect-ratio: 4 / 3; */
-    object-fit: contain;
+  width: 100%;
+  object-fit: contain;
 }
 
 @media (min-width: 900px) {
@@ -62,15 +61,15 @@
   font-family: GildaDisplay-Regular, serif;
   font-size: 28px;
   line-height: 41px;
-  margin: 3rem 0 0 0;
-  /* letter-spacing: 0.09em; */
   text-transform: capitalize;
+
+  margin: 3rem 0 0 0;
 }
 
 .related-project-card .related-project-card-description {
-  /* font-family: PlexMono-Medium, sans-serif; */
   font-size: 14px;
   line-height: 31px;
   font-weight: 400;
+
   margin: 1em 0;
 }

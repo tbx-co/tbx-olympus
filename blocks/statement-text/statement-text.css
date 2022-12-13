@@ -35,7 +35,6 @@ main .statement-text-container:has(.white) {
   line-height: 31px;
   letter-spacing: 0em;
   text-align: left;
-  
 }
 
 @media (min-width: 900px) {
