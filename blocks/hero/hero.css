@@ -6,7 +6,6 @@ main .hero-container {
   padding: 0;
   background-color: rgba(247,247,247,255);
   z-index: -1;
-
 }
   
 main .hero {
@@ -22,7 +21,7 @@ main .hero-container > div > div > div > div:has(h2) {
   max-width: 1440px;
   padding: 64px 40px; 
   margin: 0 auto;
-  color: black;
+  color: var(--text-color);
 }
 @media (min-width: 900px) {
   main .hero-container > div > div > div > div:has(h2) {

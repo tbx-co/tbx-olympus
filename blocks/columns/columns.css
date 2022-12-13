@@ -1,26 +1,26 @@
 .columns > div {
-    display: flex;
-    flex-direction: column;
-    margin-left: 1px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1px;
 }
 
 .columns img {
-    width: 100%;
+  width: 100%;
 }
 
 @media (min-width: 900px) {
-    .columns > div {
-        display: flex;
-        align-items: baseline;
-        flex-direction: unset;
-    }
+  .columns > div {
+    display: flex;
+    align-items: baseline;
+    flex-direction: unset;
+  }
 
-    .columns > div > div {
-        flex: 1;
-        margin-left: 32px;
-    }
+  .columns > div > div {
+    flex: 1;
+    margin-left: 32px;
+  }
 
-    .columns > div > div:first-of-type {
-        margin-left: unset;
-    }
+  .columns > div > div:first-of-type {
+    margin-left: unset;
+  }
 }

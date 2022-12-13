@@ -19,8 +19,7 @@
   --overlay-color: inherit;
   --highlight-background-color: #ccc;
   --text-color: #000;
-  --cursor-large-color: #ff918970;
-  --cursor-medium-color: #ff9189;
+  --cursor-large-color: #ff918918;
   --cursor-small-color: #ff9189;
 
   /* fonts */
@@ -46,7 +45,6 @@
   --nav-height: 72px;
 
   --cursor-large-size: 60px;
-  --cursor-medium-size: 35px;
   --cursor-small-size: 10px;
 
 }
@@ -200,9 +198,8 @@ a.button.secondary, button.secondary {
   z-index: 99999;
 }
 
-.shape.shape-1,
-/* .shape.shape-2, */
-.shape.shape.shape-3 {
+.shape.shape-1, 
+.shape.shape-3 {
   border-style: solid;
   display: block;
   border-radius: 50%;
@@ -210,10 +207,11 @@ a.button.secondary, button.secondary {
   transition: all 300ms linear;
 }
 
-.shape-1 {
-  border-color: transparent transparent var(--cursor-large-color);
-  border-width: 0 0 var(--cursor-large-size);
+.shape.shape-1 {
   width: var(--cursor-large-size);
+  height: var(--cursor-large-size);
+  background: var(--cursor-large-color);
+  border: none;
   margin: calc(-60px/2) 0 0 calc(-60px/2) ; 
 }
 

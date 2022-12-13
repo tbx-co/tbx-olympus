@@ -1,19 +1,18 @@
 .header-statement-container:has(.white) {
-    background-color: var(--background-color);
+  background-color: var(--background-color);
 }
 
 .header-statement {
-    margin: 80px 0 16px;
+  margin: 80px 0 16px;
 }
 
 .header-statement h2 {
-    margin: 0;
+  margin: 0;
 }
 
 @media (min-width: 900px) {
-    .header-statement {
-        max-width: 65%;
-        margin: 32px 0 24px;
-    }
+  .header-statement {
+    max-width: 65%;
+    margin: 32px 0 24px;
+  }
 }
-
