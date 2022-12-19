@@ -170,6 +170,20 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
+export function initIntersectionObserver({ sections, callback, options = {} }) {
+  const intersectionObserver = new IntersectionObserver((entries, ob) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        callback(entry.target, entry);
+        ob.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  intersectionObserver.observe(sections);
+  return intersectionObserver;
+}
+
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
