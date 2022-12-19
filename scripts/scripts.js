@@ -90,7 +90,7 @@ export function decorateMain(main) {
   // buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
-  buildCursorTakeover(main);
+  // buildCursorTakeover(main);
 }
 
 /**

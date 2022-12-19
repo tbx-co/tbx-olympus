@@ -2,7 +2,6 @@ import { initIntersectionObserver } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const embedVideo = () => {
-    console.log('hellooooooooooo');
     [...block.children].forEach((div) => {
       const youtubeId = div.childNodes[1].innerHTML;
       const videoEmbed = `<div class="youtube-player-frame">

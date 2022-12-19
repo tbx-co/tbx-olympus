@@ -74,19 +74,19 @@ export default async function decorate(block) {
     });
 
     // decorate nav sections hover animation
-    const cursorShape = document.body.querySelector('.shapes');
-    navSections.addEventListener('mouseenter', () => {
-      cursorShape.classList.add('hover');
-    });
-    navSections.addEventListener('mouseleave', () => {
-      cursorShape.classList.remove('hover');
-    });
+    // const cursorShape = document.body.querySelector('.shapes');
+    // navSections.addEventListener('mouseenter', () => {
+    //   cursorShape.classList.add('hover');
+    // });
+    // navSections.addEventListener('mouseleave', () => {
+    //   cursorShape.classList.remove('hover');
+    // });
 
-    document.querySelector('.nav-brand').addEventListener('mouseenter', () => {
-      cursorShape.classList.add('hover');
-    });
-    document.querySelector('.nav-brand').addEventListener('mouseleave', () => {
-      cursorShape.classList.remove('hover');
-    });
+    // document.querySelector('.nav-brand').addEventListener('mouseenter', () => {
+    //   cursorShape.classList.add('hover');
+    // });
+    // document.querySelector('.nav-brand').addEventListener('mouseleave', () => {
+    //   cursorShape.classList.remove('hover');
+    // });
   }
 }
