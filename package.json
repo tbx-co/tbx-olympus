@@ -34,5 +34,8 @@
     "stylelint": "14.13.0",
     "stylelint-config-prettier": "9.0.3",
     "stylelint-config-standard": "25.0.0"
+  },
+  "dependencies": {
+    "@vimeo/player": "^2.18.0"
   }
 }
