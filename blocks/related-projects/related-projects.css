@@ -7,8 +7,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 100px;
+  gap: 12rem;
+
   width: 100%;
+  
   transition: all 300ms linear;
 }
 
