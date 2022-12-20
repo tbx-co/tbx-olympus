@@ -7,31 +7,68 @@ main .hero-container {
   background-color: rgba(247,247,247,255);
   z-index: -1;
 }
+
+
+main .section .hero-wrapper {
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  main .hero {
+    height: 350px;
+  }
+}
   
-main .hero {
+main .hero .hero-image-frame  {
   position: relative;
-  min-height: 600px;
+  padding-bottom: 30%;
+  height: 0;
   width: 100vw;
 }
 
-main .hero-container > div > div > div > div:has(h2) {
-  position: relative;
+main .hero .hero-copy {
+  position: absolute;
   z-index: 2;
-
+  
+  width: 100%;
   max-width: 1440px;
   padding: 64px 40px; 
-  margin: 0 auto;
+  margin-left: calc((100vw - 1440px)/2);
+
   color: var(--text-color);
 }
-@media (min-width: 900px) {
-  main .hero-container > div > div > div > div:has(h2) {
-    padding: 64px 0 40px 0;
+
+@media (max-width: 900px) {
+  main .hero .hero-copy {
+  }
+}
+
+@media (max-width: 1440px) {
+  main .hero .hero-copy { 
+    margin: 0 auto;
+    padding: 120px 100px;
+
+  }
+}
+
+@media (max-width: 900px) {
+  main .hero .hero-copy { 
+    padding: 120px 40px;
+
   }
 }
 
 @media (min-width: 900px) {
   main .hero h2 {
     max-width: 600px;
+    
+  }
+}
+
+@media (max-width: 900px) {
+  main .hero-container .hero {
+    display: flex;
     
   }
 }
