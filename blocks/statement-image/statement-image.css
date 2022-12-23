@@ -15,10 +15,18 @@
   position: relative;
   overflow: hidden;
   order: 2;
+
   width: 100%;
-  min-height: 350px;
+  min-height: 350px;  
   background-color: transparent;
+}
+
+.br-20 .statement-image-frame {
   border-radius: 20px;
+}
+
+.square .statement-image-frame {
+  height: 500px;
 }
 
 @media (max-width: 900px) {
@@ -65,7 +73,11 @@
     flex-flow: row;
   }
 
-  .statement-image-copy {
+  .fb-500 .statement-image-copy  {
+    flex-basis: 500px;
+  }
+
+  .fb-750  .statement-image-copy  {
     flex-basis: 750px;
   }
   
