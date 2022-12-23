@@ -1,0 +1,27 @@
+@media (min-width: 900px) {
+  .hero-mobile-container {
+    display: none;
+  }
+}
+
+.hero-mobile-container {
+  padding: 0;
+  background-color: rgba(247,247,247,255);
+  z-index: -1;
+}
+
+.hero-mobile > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-mobile-image-frame {
+  display: flex;
+  order: 1;
+}
+
+.hero-mobile-copy {
+  display: flex;
+  flex-direction: column;
+  order: 2;
+}

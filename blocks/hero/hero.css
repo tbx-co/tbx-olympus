@@ -1,6 +1,12 @@
 main .hero-container > div {
   max-width: unset;
 }
+
+@media (max-width: 899px) {
+  .hero-container {
+    display: none;
+  }
+}
     
 main .hero-container {
   padding: 0;
