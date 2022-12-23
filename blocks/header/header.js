@@ -45,8 +45,23 @@ export default async function decorate(block) {
     navSections.insertAdjacentHTML('afterbegin', BRAND_IMG);
 
     navSections = nav.querySelector('div.nav-sections');
+    const DECONSTRUCTION_AMOUNT = 4;
     navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
       const navSectionLink = navSection.querySelector('a');
+      // const sectionText = navSectionLink.innerHTML;
+      // navSectionLink.innerHTML = '';
+      // navSectionLink.classList.add('deconstructedTextWrapper');
+      // // decorate nav-section decosntruct text
+      // for (let i = 0; i < DECONSTRUCTION_AMOUNT; i++) {
+      //   const deconstructionTextWrapper = `<div class="deconstructedTextItem_0${i}">
+      //                                       <div class="deconstructedTextContainer_0${i}">
+      //                                         <div class="deconstructedText_0${i}">
+      //                                         ${sectionText}
+      //                                         </div>
+      //                                       </div>
+      //                                     </div>`;
+      //   navSectionLink.innerHTML += deconstructionTextWrapper;
+      // }
       if (!navSectionLink.href.includes('#new-business')) { // new business is a special case, always anchor to footer
         const gotoLink = new URL(navSectionLink.href);
         navSectionLink.href = gotoLink.pathname;
@@ -72,21 +87,5 @@ export default async function decorate(block) {
       decorateIcons(nav);
       block.append(nav);
     });
-
-    // decorate nav sections hover animation
-    // const cursorShape = document.body.querySelector('.shapes');
-    // navSections.addEventListener('mouseenter', () => {
-    //   cursorShape.classList.add('hover');
-    // });
-    // navSections.addEventListener('mouseleave', () => {
-    //   cursorShape.classList.remove('hover');
-    // });
-
-    // document.querySelector('.nav-brand').addEventListener('mouseenter', () => {
-    //   cursorShape.classList.add('hover');
-    // });
-    // document.querySelector('.nav-brand').addEventListener('mouseleave', () => {
-    //   cursorShape.classList.remove('hover');
-    // });
   }
 }

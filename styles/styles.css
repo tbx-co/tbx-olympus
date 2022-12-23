@@ -122,16 +122,6 @@ a:any-link {
 
 .nav-sections a {
   padding-bottom: .15em;
-  background: linear-gradient(#000 0 0), linear-gradient(#000 0 0);
-  background-size: .3em .1em;
-  background-position:50% 100%;
-  background-repeat: no-repeat;
-  transition: .3s linear, background-size .3s .2s linear;
-}
-
-a:hover {
-  background-size: 40% .1em;
-  background-position: 10% 100%, 90% 100%;
 }
 
 code, pre, samp {
