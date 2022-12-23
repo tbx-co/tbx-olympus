@@ -53,6 +53,10 @@ header .nav-brand p {
   gap: 10px;
 }
 
+header nav {
+  top: 0;
+}
+
 header nav .nav-brand p {
   margin: 0;
 }
@@ -149,6 +153,22 @@ header nav .nav-sections li {
   text-transform: uppercase;
 }
 
+header nav .nav-sections .deconstruction_text_wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 20px;
+}  
+
+header nav .nav-sections .deconstruction_text_wrapper > div {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  transform: translateY(-50%);
+}
+
+
 header nav[aria-expanded='true'] .nav-sections {
   display: block;
   align-self: flex-start;
@@ -189,7 +209,7 @@ header nav[aria-expanded='true'] .nav-tools li {
     max-width: 1000px;
     height: var(--nav-height);
     padding: 1.5rem 3rem;
-    margin: 0 auto;
+    margin: 2rem auto;
 
     border-radius: 50px;
     box-shadow: inset 3em 3em 3em var(--background-color), 0 0 0 0 var(--background-color),
@@ -271,7 +291,7 @@ header nav[aria-expanded='true'] .nav-tools li {
     position: relative;
     margin: 0;
     padding: 0 24px;
-    padding-top: 0;
+    height: 20px;
   }
 
   header nav .nav-sections > ul > li > p {
@@ -320,4 +340,72 @@ header nav[aria-expanded='true'] .nav-tools li {
     background-color: var(--highlight-background-color);
     box-shadow: 0 0 5px var(--text-color);
   }
+
+  .deconstructionTextWrapper {
+    position: relative;
+    overflow: hidden;
+    height: 20px;
+  }
+
+  .deconstructedTextItem_00, 
+  .deconstructedTextItem_01,
+  .deconstructedTextItem_02,
+  .deconstructedTextItem_03 {
+    width: 100%;
+    height: 20px;
+  }
+
+  .deconstructedTextItem_00 {
+    background-color: pink;
+  }
+
+  .deconstructedTextItem_00 .deconstructedText_00 {
+    transform: translateY(1px);
+  }
+
+
+  .deconstructedTextItem_01 {
+    background-color: orange;
+  }
+
+  .deconstructedTextItem_01 .deconstructedTextContainer_01 {
+    bottom: 2px;
+    height: 3px;
+  }
+
+  .deconstructedTextItem_01 .deconstructedText_01 {
+    top: 0;
+    transform: translateY(-15px);
+  }
+
+  .deconstructedTextItem_02 {
+    background-color: teal;
+    transform: translateY(100%);
+  }
+
+  .deconstructedTextItem_02 .deconstructedTextContainer_02 {
+    transform: translateY(-120%);
+    height: 20px;
+  }
+
+  .deconstructedTextItem_02 .deconstructedText_02 {
+    top: 0;
+  }
+
+  .deconstructedTextItem_03 {
+    background-color: yellowgreen;
+    transform: translateY(100%);
+  }
+
+  .deconstructedTextItem_03 .deconstructedTextContainer_03 {
+    top: 0;
+    transform: translateY(-120%);
+    height: 20px;
+  }
+
+  .deconstructedTextItem_03 .deconstructedText_03 {
+    top: 0;
+    transform: translateY(-75%);
+  }
+  
 }
