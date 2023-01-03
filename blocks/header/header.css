@@ -2,21 +2,27 @@
 header nav {
   font-family: var(--body-font-family);
   position: fixed;
-  width: 100vw;
-  height: var(--nav-height);
+  width: 95%;
+  margin: 2rem auto;
   padding: 0 2rem;
   z-index: 5;
 
   display: grid;
   align-items: center;
   grid-template:
-    'hamburger brand tools' var(--nav-height)
+    'brand tools hamburger' var(--nav-height)
     'sections sections sections' 1fr / 50px 1fr 50px;
   box-sizing: border-box;
 
   background-color: var(--background-color);
   
   animation:  0.25s ease-in-out;
+
+  
+
+  border-radius: 50px;
+  box-shadow: inset 3em 3em 3em var(--background-color), 0 0 0 0 var(--background-color),
+  0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
 .header.block {
@@ -33,7 +39,11 @@ header nav a:any-link {
 header nav[aria-expanded='true'] {
   overflow-y: scroll;
   min-height: 100vh;
-  grid-template: 'hamburger brand' 'sections sections' 'tools tools';
+  width: 100vw;
+  border-radius: 0;
+  margin: 0;
+  padding: 2rem 3rem;
+  grid-template: 'brand brand hamburger' 'sections sections' 'tools tools';
   grid-template-columns:  56px 1fr;
 }
 
@@ -42,6 +52,10 @@ header .nav-brand {
   font-size: 22px;
   font-weight:700;
   line-height: 1em;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
 
   grid-area: brand;
 }
@@ -168,6 +182,15 @@ header nav .nav-sections .deconstruction_text_wrapper > div {
   transform: translateY(-50%);
 }
 
+header nav .nav-brand a {
+  font-family: 'Circular-Bold';
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 35px;
+}
+
 
 header nav[aria-expanded='true'] .nav-sections {
   display: block;
@@ -258,15 +281,6 @@ header nav[aria-expanded='true'] .nav-tools li {
 
   header nav .nav-brand img {
     width: 23px;
-  }
-
-  header nav .nav-brand a {
-    font-family: 'Circular-Bold';
-    text-align: center;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 35px;
   }
 
   header nav .nav-sections ul {
