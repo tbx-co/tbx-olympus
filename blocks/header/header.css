@@ -2,21 +2,27 @@
 header nav {
   font-family: var(--body-font-family);
   position: fixed;
-  width: 100vw;
-  height: var(--nav-height);
+  width: 95%;
+  margin: 2rem auto;
   padding: 0 2rem;
   z-index: 5;
 
   display: grid;
   align-items: center;
   grid-template:
-    'hamburger brand tools' var(--nav-height)
+    'brand tools hamburger' var(--nav-height)
     'sections sections sections' 1fr / 50px 1fr 50px;
   box-sizing: border-box;
 
   background-color: var(--background-color);
   
   animation:  0.25s ease-in-out;
+
+  
+
+  border-radius: 50px;
+  box-shadow: inset 3em 3em 3em var(--background-color), 0 0 0 0 var(--background-color),
+  0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
 .header.block {
@@ -33,7 +39,11 @@ header nav a:any-link {
 header nav[aria-expanded='true'] {
   overflow-y: scroll;
   min-height: 100vh;
-  grid-template: 'hamburger brand' 'sections sections' 'tools tools';
+  width: 100vw;
+  border-radius: 0;
+  margin: 0;
+  padding: 2rem 3rem;
+  grid-template: 'brand brand hamburger' 'sections sections' 'tools tools';
   grid-template-columns:  56px 1fr;
 }
 
@@ -42,6 +52,10 @@ header .nav-brand {
   font-size: 22px;
   font-weight:700;
   line-height: 1em;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
 
   grid-area: brand;
 }
@@ -168,6 +182,15 @@ header nav .nav-sections .deconstruction_text_wrapper > div {
   transform: translateY(-50%);
 }
 
+header nav .nav-brand a {
+  font-family: 'Circular-Bold';
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 35px;
+}
+
 
 header nav[aria-expanded='true'] .nav-sections {
   display: block;
@@ -260,20 +283,10 @@ header nav[aria-expanded='true'] .nav-tools li {
     width: 23px;
   }
 
-  header nav .nav-brand a {
-    font-family: 'Circular-Bold';
-    text-align: center;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 35px;
-  }
-
   header nav .nav-sections ul {
     display: flex;
     flex-direction: row;
 
-    width: unset;
     margin: 0;
 
     background-color: unset;
@@ -290,7 +303,8 @@ header nav[aria-expanded='true'] .nav-tools li {
 
     position: relative;
     margin: 0;
-    padding: 0 24px;
+    padding: 0 55px;
+    width: 55px;
     height: 20px;
   }
 
@@ -341,71 +355,80 @@ header nav[aria-expanded='true'] .nav-tools li {
     box-shadow: 0 0 5px var(--text-color);
   }
 
-  .deconstructionTextWrapper {
-    position: relative;
+  .deconstructedTextWrapper {
+    position: absolute;
     overflow: hidden;
-    height: 20px;
+    height: 2rem;
+    /* padding: 0 5.5rem; */
   }
 
   .deconstructedTextItem_00, 
   .deconstructedTextItem_01,
   .deconstructedTextItem_02,
   .deconstructedTextItem_03 {
+    position: absolute;
+    top: 50%;
+    left: 0px;
     width: 100%;
-    height: 20px;
+    height: 2rem;
+    transform: translateY(-50%);
+    /* overflow: hidden÷; */
   }
 
-  .deconstructedTextItem_00 {
-    background-color: pink;
+  .deconstructedTextContainer_00 {
+    display: flex;
+    align-items: center;
+    height: 10px;
   }
 
-  .deconstructedTextItem_00 .deconstructedText_00 {
+  .deconstructedText_00 {
     transform: translateY(1px);
+    position: absolute;
   }
-
-
-  .deconstructedTextItem_01 {
-    background-color: orange;
-  }
-
-  .deconstructedTextItem_01 .deconstructedTextContainer_01 {
+  
+  .deconstructedTextContainer_01 {
     bottom: 2px;
     height: 3px;
   }
 
-  .deconstructedTextItem_01 .deconstructedText_01 {
+  .deconstructedText_01 {
     top: 0;
     transform: translateY(-15px);
   }
 
   .deconstructedTextItem_02 {
-    background-color: teal;
-    transform: translateY(100%);
+    /* background-color: teal; */
+    transform: translateY(-100%);
   }
 
-  .deconstructedTextItem_02 .deconstructedTextContainer_02 {
+  .deconstructedTextContainer_02 {
     transform: translateY(-120%);
     height: 20px;
   }
 
-  .deconstructedTextItem_02 .deconstructedText_02 {
+  .deconstructedText_02 {
     top: 0;
   }
 
   .deconstructedTextItem_03 {
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
     transform: translateY(100%);
   }
 
-  .deconstructedTextItem_03 .deconstructedTextContainer_03 {
+  .deconstructedTextContainer_03 {
     top: 0;
     transform: translateY(-120%);
     height: 20px;
   }
 
-  .deconstructedTextItem_03 .deconstructedText_03 {
+  .deconstructedText_03 {
     top: 0;
     transform: translateY(-75%);
+  }
+
+  .hiddenText {
+    opacity: 0;
+    pointer-events: none;
   }
   
 }
