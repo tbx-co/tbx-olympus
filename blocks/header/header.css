@@ -308,6 +308,10 @@ header nav[aria-expanded='true'] .nav-tools li {
     height: 20px;
   }
 
+  header nav .nav-sections > ul > li:first-child {
+    padding: 0 27px;
+  }
+
   header nav .nav-sections > ul > li > p {
     margin: 0;
   }
