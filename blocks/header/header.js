@@ -103,7 +103,7 @@ export default async function decorate(block) {
         .to(section.querySelector('.deconstructedText_01'), { y: '85%', duration: 0.5 }, 'start')
         .to(section.querySelector('.deconstructedTextItem_02'), { y: '-50%', duration: 0.5 }, 'start+=0.1')
         .to(section.querySelector('.deconstructedTextContainer_02'), { y: '46%', height: 20, duration: 0.5 }, 'start+=0.1')
-        .to(section.querySelector('.deconstructedText_02'), { y: '-45%', duration: 0.5 }, 'start+=0.1')
+        .to(section.querySelector('.deconstructedText_02'), { y: '-40%', duration: 0.5 }, 'start+=0.1')
         .to(section.querySelector('.deconstructedTextItem_03'), { y: '-50%', duration: 0.5 }, 'start+=0.2')
         .to(section.querySelector('.deconstructedTextContainer_03'), { y: '0%', height: 10, duration: 0.6 }, 'start+=0.2')
         .to(section.querySelector('.deconstructedText_03'), { y: '0%', duration: 0.3 }, 'start+=0.2');
