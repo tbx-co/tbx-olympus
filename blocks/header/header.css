@@ -412,7 +412,7 @@ header nav[aria-expanded='true'] .nav-tools li {
 
   .deconstructedTextItem_03 {
     /* background-color: yellowgreen; */
-    transform: translateY(100%);
+    transform: translateY(-100%);
   }
 
   .deconstructedTextContainer_03 {
