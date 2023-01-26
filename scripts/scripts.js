@@ -184,6 +184,18 @@ export function initIntersectionObserver({ sections, callback, options = {} }) {
   return intersectionObserver;
 }
 
+//Window Resize Handler
+let resizeTimer;
+let resizeCompleteEvent = new CustomEvent('resizeComplete', e => { handleEvent(e.detail) })
+let handleEvent = e => console.log(e)
+// dispatch custom resize event when a resize event has completed
+window.addEventListener('resize', () => {
+	clearTimeout(resizeTimer)
+  	resizeTimer = setTimeout(() => {
+	    window.dispatchEvent(resizeCompleteEvent)
+  	}, 250)
+})
+
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
@@ -196,3 +208,5 @@ loadPage().then(() => {
     observer.observe(section);
   });
 });
+
+
