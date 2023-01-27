@@ -1,0 +1,82 @@
+.stacked-card-labeled-wrapper {
+    display: grid;
+    place-items: center;
+}
+
+.stacked-card-labeled {
+    position: relative;
+    transform: scale(0.9);
+}
+
+.stacked-card-labeled__card-wrapper {
+    position: relative;
+}
+
+.stacked-card-labeled__card-wrapper {
+    position: relative;
+}
+
+.stacked-card-labeled__card-image {
+    filter: var(--image-card-shadow);
+}
+
+/* label styling */
+.stacked-card-labeled__card-label {
+    width: fit-content;
+    padding: 12px 30px;
+    background: var(--label-color-black);
+    color: var(--text-color-white);
+    border-radius: var(--label-border-radius-large);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    box-shadow: var(--image-label-shadow);
+}
+
+.stacked-card-labeled__card-label .icon{
+    padding-right: 12px;
+    display: grid;
+    place-items: center;
+}
+
+/* specific card styling */
+.stacked-card-labeled__card-wrapper.item-0{
+    position: absolute;
+    width: 100%;
+    max-width: 385px;
+    top: 15%;
+    left: -30%;
+}
+
+.stacked-card-labeled__card-label.item-0{
+    top: 0;
+    left: -10%;
+    z-index: 1;
+}
+
+.stacked-card-labeled__card-wrapper.item-1{
+    width: 100%;
+    max-width: 350px;
+}
+
+.stacked-card-labeled__card-label.item-1{
+    bottom: -2%;
+    right: -15%;
+    background: var(--label-color-blue);
+}
+
+.stacked-card-labeled__card-wrapper.item-2{
+    position: absolute;
+    width: 100%;
+    max-width: 218px;
+    top: 15%;
+    /* right: 0; */
+    right: -40%;
+}
+
+.stacked-card-labeled__card-label.item-2{
+    bottom: -5%;
+    right: -15%;
+    background: var(--label-color-orange);
+}

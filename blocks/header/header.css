@@ -1,6 +1,6 @@
 /* header and nav layout */
 header nav {
-  font-family: var(--body-font-family);
+  font-family: var(--nav-font-family);
   position: fixed;
   width: 95%;
   margin: 2rem auto;
