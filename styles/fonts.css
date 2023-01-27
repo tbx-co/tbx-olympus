@@ -1,64 +1,55 @@
 @font-face {
-    font-family: 'Inter';
-    font-style: light;
-    font-weight: 300;
-    src: url('../assets/fonts/Inter-Light.ttf') format('truetype');
-    font-display: swap;
+  font-family: "Inter";
+  font-style: light;
+  font-weight: 300;
+  src: url("../assets/fonts/Inter-Light.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../assets/fonts/Inter-Regular.ttf') format('truetype');
-    font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Inter-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    src: url('../assets/fonts/Inter-Medium.ttf') format('truetype');
-    font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/Inter-Medium.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Inter';
-    font-style: bold;
-    font-weight: 700;
-    src: url('../assets/fonts/Inter-Bold.ttf') format('truetype');
-    font-display: swap;
-}
-
-
-@font-face {
-    font-family: GildaDisplay-Regular;
-    font-style: normal;
-    font-weight: 400;
-    src: url('../assets/fonts/GildaDisplay-Regular.ttf') format('truetype');
-    font-display: swap;
+  font-family: "Inter";
+  font-style: bold;
+  font-weight: 700;
+  src: url("../assets/fonts/Inter-Bold.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-    font-family: PlexMono-Regular;
-    font-style: normal;
-    font-weight: 400;
-    src: url('../assets/fonts/IBMPlexMono-Regular.ttf') format('truetype');
-    font-display: swap;
+  font-family: GildaDisplay-Regular;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/GildaDisplay-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-    font-family: PlexMono-Medium;
-    font-style: normal;
-    font-weight: 500;
-    src: url('../assets/fonts/IBMPlexMono-Medium.ttf') format('truetype');
-    font-display: swap;
+  font-family: PlexMono-Regular;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/IBMPlexMono-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-    font-family: Circular-Bold;
-    font-style: normal;
-    font-weight: 400;
-    src: url('../assets/fonts/circular-bold.otf') format('opentype');
-    font-display: swap;
+  font-family: PlexMono-Medium;
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/IBMPlexMono-Medium.ttf") format("truetype");
+  font-display: swap;
 }
