@@ -5,11 +5,16 @@ footer {
 footer .footer {
   max-width: 1440px;
   margin: 24px auto 16px;
-  
-  padding: 42px 32px;
+  padding: 42px 26px;
 }
 
 @media (min-width: 600px) {
+  footer .footer {
+    padding: 48px 32px;
+  }
+}
+
+@media (min-width: 900px) {
   footer .footer {
     padding: 48px 64px;
   }
@@ -46,9 +51,6 @@ footer .footer .columns div {
   }
 }
 
-
-
-
 footer .footer h2 {
   margin: 0;
 }
@@ -58,4 +60,3 @@ footer .footer h2 {
     max-width: 65%;
   }
 }
-
