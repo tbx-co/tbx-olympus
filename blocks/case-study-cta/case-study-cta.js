@@ -1,4 +1,8 @@
 import { createOptimizedPicture } from "../../scripts/lib-franklin.js";
+import {
+  addSectionLayoutClassToParentSection,
+  trimTextAndUpdateClassOfElementArray,
+} from "../../scripts/helpers.js";
 
 function optimizeImage(img) {
   return createOptimizedPicture(img.src, img.alt, true, [
@@ -8,6 +12,8 @@ function optimizeImage(img) {
 }
 
 export default function decorate(block) {
+  addSectionLayoutClassToParentSection(block);
+
   [...block.children].forEach((row) => {
     [...row.children].forEach((div) => {
       if (div.querySelector("picture")) {
@@ -23,12 +29,23 @@ export default function decorate(block) {
           );
       } else {
         div.className = "case-study-copy";
-         [...div.querySelectorAll("p")].forEach((p) => {
-            if (p.textContent.toLowerCase().startsWith("description")) {
-              p.className = "case-study-description";
-              p.textContent = p.textContent.replace("Description:", "").trim();
-            }
-        });
+        let updateConditions = [
+          {
+            prefixText: "eyebrow",
+            className: "case-study-eyebrow",
+            textToBeTrimmed: "Eyebrow:",
+          },
+          {
+            prefixText: "description",
+            className: "case-study-description",
+            textToBeTrimmed: "Description:",
+          },
+        ];
+        let targetElementArray = [...div.querySelectorAll("p")];
+        trimTextAndUpdateClassOfElementArray(
+          targetElementArray,
+          updateConditions
+        );
       }
     });
   });

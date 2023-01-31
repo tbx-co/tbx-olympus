@@ -1,15 +1,14 @@
 .section.button-section-container {
-    display: none;
-    padding-top: 0;
+  display: none;
 }
 
-.button-section-container .button-container{
-    display: flex;
-    justify-content: center;
+.button-section-container .button-container {
+  display: flex;
+  justify-content: center;
 }
 
-@media (min-width: 600px) {
-    .section.button-section-container {
-        display: flex;
-    }
+@media (min-width: 768px) {
+  .section.button-section-container {
+    display: block;
+  }
 }

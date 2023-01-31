@@ -31,6 +31,14 @@
 }
 
 @font-face {
+  font-family: "Acumin Pro";
+  font-style: bold;
+  font-weight: 600;
+  src: url("../assets/fonts/Acumin-Pro-Semibold.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
   font-family: GildaDisplay-Regular;
   font-style: normal;
   font-weight: 400;

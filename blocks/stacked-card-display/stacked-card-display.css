@@ -8,25 +8,20 @@
   align-items: center;
 }
 
-.stacked-card-display {
-  padding: 0 32px;
-}
-
 .stacked-cards-wrapper {
   position: relative;
   margin-left: calc(var(--overlap-card-distance) * -0.5);
 }
 
 .stacked-cards-outer-wrapper {
-  width: 95%;
+  width: 45vw;
+  max-width: 320px;
   position: relative;
 }
 
 .stacked-cards-wrapper picture img {
-  width: 55vw;
-  max-width: 360px;
+  width: 100%;
   aspect-ratio: 360 / 756;
-  max-height: 75vh;
   filter: var(--image-card-shadow);
 }
 
@@ -51,6 +46,10 @@
 @media screen and (min-width: 600px) {
   .stacked-cards-wrapper picture img {
     width: 100%;
+  }
+
+  .stacked-cards-outer-wrapper {
+    width: 25vw;
   }
 
   .stacked-cards-wrapper {
