@@ -2,6 +2,7 @@ import { createOptimizedPicture } from "../../scripts/lib-franklin.js";
 import {
   addSectionLayoutClassToParentSection,
   trimTextAndUpdateClassOfElementArray,
+  addSectionInnerWrapperDiv,
 } from "../../scripts/helpers.js";
 
 function optimizeImage(img) {
@@ -12,6 +13,7 @@ function optimizeImage(img) {
 }
 
 export default function decorate(block) {
+  addSectionInnerWrapperDiv(block);
   addSectionLayoutClassToParentSection(block);
 
   [...block.children].forEach((row) => {

@@ -103,3 +103,23 @@ export function addSectionLayoutClassToParentSection(blockElement) {
     }
   });
 }
+
+// add an extra div to wrap around children blocks if there are more than one children inside a section
+// i.e. <div class="section"> </div>
+export function addSectionInnerWrapperDiv(blockElement) {
+  let parentSection = blockElement.closest(".section");
+  let childrenDivs = parentSection.children;
+  if (childrenDivs.length <= 1) {
+    return;
+  }
+
+  let innerWrapperDiv = createTag("div", { class: "blocks-wrapper" }, "");
+  [...parentSection.children].forEach((child) =>
+    innerWrapperDiv.appendChild(child)
+  );
+  parentSection.append(innerWrapperDiv);
+}
+
+export function getCurrentYear() {
+  return new Date().getFullYear();
+}

@@ -1,5 +1,7 @@
 .section.button-section-container {
   display: none;
+  padding: 0;
+  min-height: auto;
 }
 
 .button-section-container .button-container {

@@ -1,23 +1,30 @@
+:root {
+  --footer-section-vertical-padding: 100px;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --footer-section-vertical-padding: 150px;
+  }
+}
+
 footer {
   font-size: var(--body-font-size-xs);
 }
 
-footer .footer {
-  max-width: 1440px;
-  margin: 24px auto 16px;
-  padding: 42px 26px;
+footer .section.footer-text {
+  padding-top: var(--footer-section-vertical-padding);
+  padding-bottom: 64px;
 }
 
-@media (min-width: 600px) {
-  footer .footer {
-    padding: 48px 32px;
-  }
+footer .section.columns {
+  padding-top: 0;
+  padding-bottom: var(--footer-section-vertical-padding);
 }
 
-@media (min-width: 900px) {
-  footer .footer {
-    padding: 48px 64px;
-  }
+footer .section.copyright {
+  padding-top: 0;
+  padding-bottom: 0px;
 }
 
 footer .footer p {
@@ -52,11 +59,73 @@ footer .footer .columns div {
 }
 
 footer .footer h2 {
+  font-size: var(--heading-font-size-xxl);
   margin: 0;
+  width: 80vw;
+}
+
+@media (min-width: 600px) {
+  footer .footer h2 {
+    width: 70vw;
+    max-width: 420px;
+  }
 }
 
 @media (min-width: 900px) {
+  .footer .columns > div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   footer .footer h2 {
-    max-width: 65%;
+    max-width: clamp(520px, 50vw, 680px);
+  }
+}
+
+/* bottom grey copyright styles */
+.copyright {
+  background-color: var(--background-color-light-grey);
+  height: 60px;
+}
+
+footer .section.copyright > div {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-content: center;
+}
+
+footer .copyright {
+  font-size: 16px;
+  display: none;
+}
+
+footer .copyright a {
+  text-decoration: none;
+}
+
+footer .copyright a:hover {
+  background: none;
+}
+
+footer .copyright a::before {
+  content: "";
+  display: inline-block;
+  width: 0.2rem;
+  height: 0.2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.copyright-inner-wrapper > * {
+  vertical-align: middle;
+}
+
+@media (min-width: 600px) {
+  footer .copyright {
+    display: block;
   }
 }

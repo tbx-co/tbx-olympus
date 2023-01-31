@@ -14,6 +14,7 @@
   --link-color: #000000;
   --link-hover-color: #136ff6;
   --background-color: #fff;
+  --background-color-light-grey: #f8f8f8;
   --overlay-background-color: rgba(244, 244, 244, 0.6);
   --overlay-color: inherit;
   --highlight-background-color: #ccc;
@@ -83,13 +84,18 @@
 
   .section > div {
     max-width: 1440px;
-    padding: 0 40px;
     margin: 0 auto;
   }
 
   .section.multi-block-wrapper > div {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section > div {
+    padding: 0 40px;
   }
 }
 
@@ -322,22 +328,31 @@ main input:hover {
   border: 1px solid var(--text-color);
 }
 
-main .section {
+main .section,
+footer .section {
   padding: 42px 26px;
-  /* overflow: hidden; */
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 @media (min-width: 600px) {
-  main .section {
+  main .section,
+  footer .section {
     padding: 48px 32px;
   }
 }
 
 @media (min-width: 900px) {
-  main .section {
+  main .section,
+  footer .section {
     padding: 48px 64px;
+  }
+}
+
+@media (min-width: 1200px) {
+  main .section,
+  footer .section {
+    padding: 100px 64px;
   }
 }
 
@@ -508,4 +523,9 @@ main .section.highlight {
 .in-view {
   transform: none;
   opacity: 1;
+}
+
+/* section-layout-background */
+.section.section-layout-bg-grey {
+  background-color: var(--background-color-light-grey);
 }
