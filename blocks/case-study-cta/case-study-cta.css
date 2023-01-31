@@ -132,6 +132,11 @@
   grid-area: stacked-cards-desktop;
 }
 
+.section-layout-project-detail-case-study img {
+  border-radius: var(--border-radius-s);
+  filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.15));
+}
+
 @media (min-width: 900px) {
   .section.section-layout-project-detail-case-study {
     min-height: 900px;

@@ -57,6 +57,8 @@
   --cursor-small-size: 10px;
 
   /* border-radius */
+  --border-radius-s: 8px;
+  --border-radius-m: 20px;
   --label-border-radius-large: 70px;
 
   /* shadows */
