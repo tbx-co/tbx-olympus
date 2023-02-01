@@ -13,9 +13,7 @@ export const replaceElementType = (el, type) => {
   newEl.innerHTML = el.innerHTML;
   el.parentNode.replaceChild(newEl, el);
   // copy all attributes from el to newEl
-  [...el.attributes].forEach((attr) =>
-    newEl.setAttribute(attr.nodeName, attr.nodeValue)
-  );
+  [...el.attributes].forEach((attr) => newEl.setAttribute(attr.nodeName, attr.nodeValue));
   return newEl;
 };
 
@@ -32,7 +30,7 @@ export function createTag(tag, attributes, html) {
     if (html instanceof HTMLElement) {
       el.append(html);
     } else {
-      el.insertAdjacentHTML("beforeend", html);
+      el.insertAdjacentHTML('beforeend', html);
     }
   }
   if (attributes) {
@@ -46,7 +44,7 @@ export function createTag(tag, attributes, html) {
 // replace ALL innerHTML of the parentElement with childNodes {HTMLElement} provided
 export function replaceAllChildElements(parentElement, ...childNodes) {
   if (parentElement && childNodes) {
-    parentElement.innerHTML = "";
+    parentElement.innerHTML = '';
     childNodes.forEach((child) => {
       parentElement.append(child);
     });
@@ -57,15 +55,15 @@ export function replaceAllChildElements(parentElement, ...childNodes) {
 // e.g. <p>Title: xxxx</p> --> <p class="classname-provided">xxxx</p>
 export function trimElementTextAndUpdateClass(
   element = null,
-  prefixText = "",
-  className = "",
-  textToBeTrimmed = ""
+  prefixText = '',
+  className = '',
+  textToBeTrimmed = '',
 ) {
   if (element.textContent && prefixText.length > 0) {
     if (element.textContent.toLowerCase().startsWith(prefixText)) {
       element.className += className;
       element.textContent = element.textContent
-        .replace(textToBeTrimmed, "")
+        .replace(textToBeTrimmed, '')
         .trim();
     }
   }
@@ -82,43 +80,43 @@ export function trimTextAndUpdateClassOfElementArray(elementArray, conditions) {
           el,
           cond.prefixText,
           cond.className,
-          cond.textToBeTrimmed
+          cond.textToBeTrimmed,
         );
       });
     });
   }
 }
 
-// add specific class [starts with section-layout-] to parent section if specific class exist inside the block for easier styling
+// add specific class [starts with section-layout-] to parent section if
+// specific class exist inside the block for easier styling
 export function addSectionLayoutClassToParentSection(blockElement) {
-  const sectionClassSpecificPrefix = "section-layout-";
+  const sectionClassSpecificPrefix = 'section-layout-';
   if (!blockElement.className.includes(sectionClassSpecificPrefix)) {
     return;
   }
 
   blockElement.classList.forEach((className) => {
     if (className.startsWith(sectionClassSpecificPrefix)) {
-      let parentSection = blockElement.closest(".section");
+      const parentSection = blockElement.closest('.section');
       parentSection.className += ` ${className}`;
     }
   });
 }
 
-// add an extra div to wrap around children blocks if there are more than one children inside a section, i.e.
+// add an extra div to wrap around children blocks if there are more than one
+// children inside a section, i.e.
 // <div class="section">
 //     <div class="blocks-wrapper"> ...children </div>
 // </div>
 export function addSectionInnerWrapperDiv(blockElement) {
-  let parentSection = blockElement.closest(".section");
-  let childrenDivs = parentSection.children;
+  const parentSection = blockElement.closest('.section');
+  const childrenDivs = parentSection.children;
   if (childrenDivs.length <= 1) {
     return;
   }
 
-  let innerWrapperDiv = createTag("div", { class: "blocks-wrapper" }, "");
-  [...parentSection.children].forEach((child) =>
-    innerWrapperDiv.appendChild(child)
-  );
+  const innerWrapperDiv = createTag('div', { class: 'blocks-wrapper' }, '');
+  [...parentSection.children].forEach((child) => innerWrapperDiv.appendChild(child));
   parentSection.append(innerWrapperDiv);
 }
 

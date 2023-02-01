@@ -11,52 +11,54 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
-} from "./lib-franklin.js";
+} from './lib-franklin.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
-window.hlx.RUM_GENERATION = "tbx-olympus"; // add your RUM generation information here
+window.hlx.RUM_GENERATION = 'tbx-olympus'; // add your RUM generation information here
 
 function buildHeroBlock(main) {
-  const h1 = main.querySelector("h1");
-  const picture = main.querySelector("picture");
+  const h1 = main.querySelector('h1');
+  const picture = main.querySelector('picture');
   // eslint-disable-next-line no-bitwise
   if (
-    h1 &&
-    picture &&
-    h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING
+    h1
+    && picture
+    && h1.compareDocumentPosition(picture) && Node.DOCUMENT_POSITION_PRECEDING
   ) {
-    const section = document.createElement("div");
-    section.append(buildBlock("hero", { elems: [picture, h1] }));
+    const section = document.createElement('div');
+    section.append(buildBlock('hero', { elems: [picture, h1] }));
     main.prepend(section);
   }
 }
 
-function mouseMove(evt) {
-  let scrollHeight = 0;
-  window.addEventListener("scroll", (evt) => {
-    scrollHeight = window.scrollY;
-  });
-  const mouseX = evt.clientX;
-  const mouseY = evt.clientY;
-  gsap.to(".shape", {
-    x: mouseX,
-    y: mouseY + scrollHeight,
-    rotation: -50,
-    stagger: -0.02,
-  });
-}
+// TODO: previous custom cursor function not finishing up yet
+// TODO: remove later in codebase if not in use
+// function mouseMove(evt) {
+//   let scrollHeight = 0;
+//   window.addEventListener('scroll', (event) => {
+//     scrollHeight = window.scrollY;
+//   });
+//   const mouseX = evt.clientX;
+//   const mouseY = evt.clientY;
+//   gsap.to('.shape', {
+//     x: mouseX,
+//     y: mouseY + scrollHeight,
+//     rotation: -50,
+//     stagger: -0.02,
+//   });
+// }
 
-function buildCursorTakeover(main) {
-  const shapes = document.createElement("div");
-  shapes.className = "shapes";
-  shapes.innerHTML = `<div class="shape shape-1"></div>
-                    <div class="shape shape-2"></div>
-                    <div class="shape shape-3"></div>`;
-  document.body.append(shapes);
-  window.addEventListener("mousemove", (evt) => {
-    mouseMove(evt);
-  });
-}
+// function buildCursorTakeover() {
+//   const shapes = document.createElement('div');
+//   shapes.className = 'shapes';
+//   shapes.innerHTML = `<div class="shape shape-1"></div>
+//                     <div class="shape shape-2"></div>
+//                     <div class="shape shape-3"></div>`;
+//   document.body.append(shapes);
+//   window.addEventListener('mousemove', (evt) => {
+//     mouseMove(evt);
+//   });
+// }
 
 /**
  * Builds all synthetic blocks in a container element.
@@ -68,7 +70,7 @@ function buildAutoBlocks(main) {
     buildHeroBlock(main);
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error("Auto Blocking failed", error);
+    console.error('Auto Blocking failed', error);
   }
 }
 
@@ -79,9 +81,8 @@ function buildAutoBlocks(main) {
 function decoratePageTheme() {
   const theme = document.querySelector('meta[name="page-theme-color"]');
   if (theme) {
-    document.body.style.backgroundColor = theme.getAttribute("content");
-    document.getElementsByTagName("nav")[0].style.backgroundColor =
-      theme.getAttribute("content");
+    document.body.style.backgroundColor = theme.getAttribute('content');
+    document.getElementsByTagName('nav')[0].style.backgroundColor = theme.getAttribute('content');
   }
 }
 
@@ -97,16 +98,16 @@ export function decorateMain(main) {
   // buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
-  // buildCursorTakeover(main);
+  // buildCursorTakeover();   // TODO: remove later if not in use
 }
 
 /**
  * loads everything needed to get to LCP.
  */
 async function loadEager(doc) {
-  document.documentElement.lang = "en";
+  document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
-  const main = doc.querySelector("main");
+  const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
     await waitForLCP(LCP_BLOCKS);
@@ -118,15 +119,15 @@ async function loadEager(doc) {
  * @param {string} href The favicon URL
  */
 export function addFavIcon(href) {
-  const link = document.createElement("link");
-  link.rel = "icon";
-  link.type = "image/svg+xml";
+  const link = document.createElement('link');
+  link.rel = 'icon';
+  link.type = 'image/svg+xml';
   link.href = href;
   const existingLink = document.querySelector('head link[rel="icon"]');
   if (existingLink) {
     existingLink.parentElement.replaceChild(link, existingLink);
   } else {
-    document.getElementsByTagName("head")[0].appendChild(link);
+    document.getElementsByTagName('head')[0].appendChild(link);
   }
 }
 
@@ -134,23 +135,23 @@ export function addFavIcon(href) {
  * loads everything that doesn't need to be delayed.
  */
 async function loadLazy(doc) {
-  const main = doc.querySelector("main");
+  const main = doc.querySelector('main');
   await loadBlocks(main);
 
   const { hash } = window.location;
   const element = hash ? main.querySelector(hash) : false;
   if (hash && element) element.scrollIntoView();
 
-  await loadHeader(doc.querySelector("header"));
-  await loadFooter(doc.querySelector("footer"));
+  await loadHeader(doc.querySelector('header'));
+  await loadFooter(doc.querySelector('footer'));
 
   decoratePageTheme();
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`, null);
   addFavIcon(`${window.hlx.codeBasePath}/assets/images/favicon-96x96.png`);
-  sampleRUM("lazy");
-  sampleRUM.observe(main.querySelectorAll("div[data-block-name]"));
-  sampleRUM.observe(main.querySelectorAll("picture > img"));
+  sampleRUM('lazy');
+  sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
+  sampleRUM.observe(main.querySelectorAll('picture > img'));
 }
 
 /**
@@ -159,19 +160,19 @@ async function loadLazy(doc) {
  */
 function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
-  window.setTimeout(() => import("./delayed.js"), 3000);
+  window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
 }
 
 const observerOptions = {
   threshold: 0.25,
-  rootMargin: "0px 0px -50px 0px",
+  rootMargin: '0px 0px -50px 0px',
 };
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add("in-view");
+      entry.target.classList.add('in-view');
       observer.unobserve(entry.target);
     }
   });
@@ -191,14 +192,13 @@ export function initIntersectionObserver({ sections, callback, options = {} }) {
   return intersectionObserver;
 }
 
-//Window Resize Handler
+// Window Resize Handler
 let resizeTimer;
-let resizeCompleteEvent = new CustomEvent("resizeComplete", (e) => {
-  handleEvent(e.detail);
+const resizeCompleteEvent = new CustomEvent('resizeComplete', (e) => {
+  window.handleEvent(e.detail);
 });
-let handleEvent = (e) => console.log(e);
 // dispatch custom resize event when a resize event has completed
-window.addEventListener("resize", () => {
+window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
     window.dispatchEvent(resizeCompleteEvent);
@@ -212,7 +212,7 @@ async function loadPage() {
 }
 
 loadPage().then(() => {
-  const sections = Array.from(document.getElementsByClassName("fadeup"));
+  const sections = Array.from(document.getElementsByClassName('fadeup'));
   sections.forEach((section) => {
     observer.observe(section);
   });

@@ -1,39 +1,37 @@
-import { createOptimizedPicture } from "../../scripts/lib-franklin.js";
-import { trimTextAndUpdateClassOfElementArray } from "../../scripts/helpers.js";
+import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
+import { trimTextAndUpdateClassOfElementArray } from '../../scripts/helpers.js';
 
 function optimizeImage(img) {
-  return createOptimizedPicture(img.src, img.alt, true, [{ width: "300" }]);
+  return createOptimizedPicture(img.src, img.alt, true, [{ width: '300' }]);
 }
 
 export default function decorate(block) {
   [...block.children].forEach((row) => {
-    row.className = "client-feedback__wrapper";
+    row.className = 'client-feedback__wrapper';
     [...row.children].forEach((div) => {
-      if (div.querySelector("picture")) {
-        div.className = "client-feedback__image";
+      if (div.querySelector('picture')) {
+        div.className = 'client-feedback__image';
         div
-          .querySelectorAll("img")
-          .forEach((img) =>
-            img.closest("picture").replaceWith(optimizeImage(img))
-          );
+          .querySelectorAll('img')
+          .forEach((img) => img.closest('picture').replaceWith(optimizeImage(img)));
       } else {
-        div.className = "client-feedback__copy";
-        let updateConditions = [
+        div.className = 'client-feedback__copy';
+        const updateConditions = [
           {
-            prefixText: "feedback",
-            className: "client-feedback__copy-feedback",
-            textToBeTrimmed: "Feedback:",
+            prefixText: 'feedback',
+            className: 'client-feedback__copy-feedback',
+            textToBeTrimmed: 'Feedback:',
           },
           {
-            prefixText: "client",
-            className: "client-feedback__copy-client",
-            textToBeTrimmed: "Client:",
+            prefixText: 'client',
+            className: 'client-feedback__copy-client',
+            textToBeTrimmed: 'Client:',
           },
         ];
-        let targetElementArray = [...div.querySelectorAll("p")];
+        const targetElementArray = [...div.querySelectorAll('p')];
         trimTextAndUpdateClassOfElementArray(
           targetElementArray,
-          updateConditions
+          updateConditions,
         );
       }
     });

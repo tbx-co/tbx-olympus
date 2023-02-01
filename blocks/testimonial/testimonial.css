@@ -15,15 +15,12 @@ main .testimonial-container:has(.white) {
 @media (min-width: 900px) {
   .testimonial-container .testimonial > div {
     display: grid;
-    grid-template-rows: none;
-    grid-template-columns: auto;
     grid-template: 'disclaimer signature01 signature02';
     grid-gap: 20px;
   }
   
   .testimonial-container .column-0 {
     grid-area: disclaimer;
-
     width: 35vw;
     max-width: 70%;
   }

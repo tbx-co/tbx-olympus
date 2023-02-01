@@ -2,20 +2,17 @@
   position: relative;
 }
 
-.stacked-card-desktop__card-wrapper {
-  width: 70vw;
-  max-width: 540px;
-}
-
 .stacked-card-desktop__image {
   width: 100%;
 }
 
-/* item-0:top, item-1:middle, item-2:bottom */
 .stacked-card-desktop__card-wrapper {
   position: relative;
+  width: 70vw;
+  max-width: 540px;
 }
 
+/* item-0:top, item-1:middle, item-2:bottom */
 .stacked-card-desktop__card-wrapper.item-0 {
   margin-left: 10%;
 }
