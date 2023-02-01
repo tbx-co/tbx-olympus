@@ -73,7 +73,7 @@ export function trimElementTextAndUpdateClass(
 
 // see client-feedback.js for example use
 // elementArray = HTMLElement[]
-// condition = {prefixText: '', className: '', textToBeTrimmed: ''}
+// conditions = [{prefixText: '', className: '', textToBeTrimmed: ''}]
 export function trimTextAndUpdateClassOfElementArray(elementArray, conditions) {
   if (elementArray.length && conditions.length) {
     elementArray.forEach((el) => {
@@ -104,8 +104,10 @@ export function addSectionLayoutClassToParentSection(blockElement) {
   });
 }
 
-// add an extra div to wrap around children blocks if there are more than one children inside a section
-// i.e. <div class="section"> </div>
+// add an extra div to wrap around children blocks if there are more than one children inside a section, i.e.
+// <div class="section">
+//     <div class="blocks-wrapper"> ...children </div>
+// </div>
 export function addSectionInnerWrapperDiv(blockElement) {
   let parentSection = blockElement.closest(".section");
   let childrenDivs = parentSection.children;

@@ -1,10 +1,7 @@
 import { createOptimizedPicture } from "../../scripts/lib-franklin.js";
 
 function optimizeImage(img) {
-  return createOptimizedPicture(img.src, img.alt, true, [
-    { media: "(min-width: 400px)", width: "2000" },
-    { width: "750" },
-  ]);
+  return createOptimizedPicture(img.src, img.alt, true, [{ width: "640" }]);
 }
 
 // support both images & gifs

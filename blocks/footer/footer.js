@@ -10,6 +10,23 @@ import {
  * @param {Element} block The header block element
  */
 
+export default async function decorate(block) {
+  const cfg = readBlockConfig(block);
+  block.textContent = "";
+
+  const footerPath = cfg.footer || "/footer";
+  const resp = await fetch(`${footerPath}.plain.html`);
+  const html = await resp.text();
+  const footer = document.createElement("div");
+  footer.classList += "footer-section-wrapper fadeup";
+  footer.innerHTML = html;
+
+  addSpanAndYearForCopyrightThinkingBoxText(footer);
+
+  await decorateIcons(footer);
+  block.append(footer);
+}
+
 function addSpanAndYearForCopyrightThinkingBoxText(footer) {
   let copyrightSection = footer.querySelector(".copyright > div > div");
   copyrightSection.className = "copyright-inner-wrapper";
@@ -26,21 +43,4 @@ function addSpanAndYearForCopyrightThinkingBoxText(footer) {
     termsElement,
     privacyElement
   );
-}
-
-export default async function decorate(block) {
-  const cfg = readBlockConfig(block);
-  block.textContent = "";
-
-  const footerPath = cfg.footer || "/footer";
-  const resp = await fetch(`${footerPath}.plain.html`);
-  const html = await resp.text();
-  const footer = document.createElement("div");
-  footer.classList += "footer-section-wrapper fadeup";
-  footer.innerHTML = html;
-
-  addSpanAndYearForCopyrightThinkingBoxText(footer);
-
-  await decorateIcons(footer);
-  block.append(footer);
 }

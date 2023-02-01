@@ -1,4 +1,9 @@
+import { createOptimizedPicture } from "../../scripts/lib-franklin.js";
 import { trimTextAndUpdateClassOfElementArray } from "../../scripts/helpers.js";
+
+function optimizeImage(img) {
+  return createOptimizedPicture(img.src, img.alt, true, [{ width: "300" }]);
+}
 
 export default function decorate(block) {
   [...block.children].forEach((row) => {
@@ -6,6 +11,11 @@ export default function decorate(block) {
     [...row.children].forEach((div) => {
       if (div.querySelector("picture")) {
         div.className = "client-feedback__image";
+        div
+          .querySelectorAll("img")
+          .forEach((img) =>
+            img.closest("picture").replaceWith(optimizeImage(img))
+          );
       } else {
         div.className = "client-feedback__copy";
         let updateConditions = [
