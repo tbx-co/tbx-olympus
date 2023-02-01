@@ -29,33 +29,22 @@ footer .section.copyright {
 
 footer .footer p {
   margin: 0;
-  font-size: 14px;
-  line-height: 2.125;
-}
-
-footer .footer h4 {
-  font-size: 28px;
+  font-size: 16px;
+  line-height: 1.65;
 }
 
 footer .footer a {
   color: var(--text-color);
-  text-decoration: underline lightgrey;
   transition: all 0.25s ease-in-out;
   padding-block: 0.5em;
-}
-
-footer .footer a:hover {
-  background-color: #fde4b2;
 }
 
 footer .footer .columns div {
   margin-bottom: 1.5em;
 }
 
-@media (min-width: 600px) {
-  footer .footer .columns div {
-    margin-bottom: 0;
-  }
+footer .footer .columns div > div {
+  margin-bottom: 48px;
 }
 
 footer .footer h2 {
@@ -68,6 +57,14 @@ footer .footer h2 {
   footer .footer h2 {
     width: 70vw;
     max-width: 420px;
+  }
+
+  footer .footer p {
+    line-height: 1.94;
+  }
+
+  footer .footer .columns div {
+    margin-bottom: 0;
   }
 }
 

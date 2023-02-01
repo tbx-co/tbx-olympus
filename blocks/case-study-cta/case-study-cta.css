@@ -5,6 +5,10 @@
   margin: 0 auto;
 }
 
+.blocks-wrapper {
+  width: 100%;
+}
+
 .case-study-cta-wrapper {
   padding: 42px 0;
 }
@@ -137,6 +141,12 @@
   filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.15));
 }
 
+@media (min-width: 600px) {
+  .section-layout-project-detail-case-study .image-column img {
+    max-height: 540px;
+  }
+}
+
 @media (min-width: 900px) {
   .section.section-layout-project-detail-case-study {
     min-height: 900px;
@@ -150,8 +160,13 @@
   }
 
   .section-layout-project-detail-case-study .case-study-copy {
-    max-width: 570px;
+    max-width: 580px;
     padding: 0 36px 0 0;
+  }
+
+  .section-layout-project-detail-case-study.section-layout-life-vantage
+    .case-study-copy {
+    padding: 0 28px 0 0;
   }
 
   .section-layout-project-detail-case-study .case-study-description {
@@ -161,6 +176,10 @@
   .section-layout-project-detail-case-study .case-study-cta-wrapper {
     margin-bottom: 0;
     align-self: center;
+  }
+
+  .section-layout-project-detail-case-study .image-column img {
+    max-height: 700px;
   }
 }
 
