@@ -10,7 +10,6 @@ main .hero-container > div {
     
 main .hero-container {
   padding: 0;
-  background-color: rgba(247,247,247,255);
   z-index: -1;
 }
 
@@ -36,46 +35,35 @@ main .hero .hero-image-frame  {
 main .hero .hero-copy {
   position: absolute;
   z-index: 2;
-  
   width: 100%;
   max-width: 1440px;
   padding: 64px 40px; 
   margin-left: calc((100vw - 1440px)/2);
-
   color: var(--text-color);
-}
-
-@media (max-width: 900px) {
-  main .hero .hero-copy {
-  }
 }
 
 @media (max-width: 1440px) {
   main .hero .hero-copy { 
     margin: 0 auto;
     padding: 120px 100px;
-
   }
 }
 
 @media (max-width: 900px) {
   main .hero .hero-copy { 
     padding: 120px 40px;
-
   }
 }
 
 @media (min-width: 900px) {
   main .hero h2 {
     max-width: 600px;
-    
   }
 }
 
 @media (max-width: 900px) {
   main .hero-container .hero {
     display: flex;
-    
   }
 }
 

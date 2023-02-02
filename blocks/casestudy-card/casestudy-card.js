@@ -1,12 +1,10 @@
 import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
 
 function optimizeImage(img) {
-  return createOptimizedPicture(
-    img.src,
-    img.alt,
-    true,
-    [{ media: '(min-width: 400px)', width: '2000' }, { width: '750' }],
-  );
+  return createOptimizedPicture(img.src, img.alt, true, [
+    { media: '(min-width: 400px)', width: '2000' },
+    { width: '750' },
+  ]);
 }
 
 export default function decorate(block) {
@@ -19,9 +17,9 @@ export default function decorate(block) {
         div.parentNode.insertBefore(divFrame, div);
         divFrame.append(div);
 
-        div.querySelectorAll('img')
-          .forEach((img) => img.closest('picture')
-            .replaceWith(optimizeImage(img)));
+        div
+          .querySelectorAll('img')
+          .forEach((img) => img.closest('picture').replaceWith(optimizeImage(img)));
       } else {
         div.className = 'casestudy-card-copy';
         [...div.querySelectorAll('p')].forEach((p) => {
