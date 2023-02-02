@@ -82,7 +82,7 @@
     --heading-font-size-l: 36px;
     --heading-font-size-m: 32px;
     --heading-font-size-s: 24px;
-    --heading-font-size-xs: 20px;
+    --heading-font-size-xs: 21px;
 
     /* body */
     --body-font-size-s: clamp(16px, 1.6vw, 21px);
