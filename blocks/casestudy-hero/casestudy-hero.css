@@ -24,7 +24,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 52%), rgba(0, 0, 0, 52%));
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.52));
     
     /* backdrop-filter: blur(2px); */
 }
@@ -38,8 +38,15 @@
     padding: 0 32px;
 }
 
-.casestudy-hero .copy-wrapper p, h1 {
+.casestudy-hero .copy-wrapper p,
+.casestudy-hero .copy-wrapper .casestudy-hero-heading {
     color: #fff;
+}
+
+.casestudy-hero .copy-wrapper p {
+    font-size: 14px;
+    letter-spacing: 0.09rem;
+    text-decoration: uppercase;
 }
 
 
