@@ -1,0 +1,4 @@
+.image-column-wrapper {
+  display: grid;
+  place-items: center;
+}

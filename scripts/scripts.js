@@ -20,37 +20,45 @@ function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
   // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
+  if (
+    h1
+    && picture
+    && h1.compareDocumentPosition(picture) && Node.DOCUMENT_POSITION_PRECEDING
+  ) {
     const section = document.createElement('div');
     section.append(buildBlock('hero', { elems: [picture, h1] }));
     main.prepend(section);
   }
 }
 
-function mouseMove(evt) {
-  let scrollHeight = 0;
-  window.addEventListener('scroll', (evt) => {
-    scrollHeight = window.scrollY;
-  });
-  const mouseX = evt.clientX;
-  const mouseY = evt.clientY;
-  gsap.to('.shape', {
-    x: mouseX,
-    y: mouseY + scrollHeight,
-    rotation: -50,
-    stagger: -0.02,
-  });
-}
+// TODO: previous custom cursor function not finishing up yet
+// TODO: remove later in codebase if not in use
+// function mouseMove(evt) {
+//   let scrollHeight = 0;
+//   window.addEventListener('scroll', (event) => {
+//     scrollHeight = window.scrollY;
+//   });
+//   const mouseX = evt.clientX;
+//   const mouseY = evt.clientY;
+//   gsap.to('.shape', {
+//     x: mouseX,
+//     y: mouseY + scrollHeight,
+//     rotation: -50,
+//     stagger: -0.02,
+//   });
+// }
 
-function buildCursorTakeover(main) {
-  const shapes = document.createElement('div');
-  shapes.className = 'shapes';
-  shapes.innerHTML = `<div class="shape shape-1"></div>
-                    <div class="shape shape-2"></div>
-                    <div class="shape shape-3"></div>`;
-  document.body.append(shapes);
-  window.addEventListener('mousemove', (evt) => { mouseMove(evt); });
-}
+// function buildCursorTakeover() {
+//   const shapes = document.createElement('div');
+//   shapes.className = 'shapes';
+//   shapes.innerHTML = `<div class="shape shape-1"></div>
+//                     <div class="shape shape-2"></div>
+//                     <div class="shape shape-3"></div>`;
+//   document.body.append(shapes);
+//   window.addEventListener('mousemove', (evt) => {
+//     mouseMove(evt);
+//   });
+// }
 
 /**
  * Builds all synthetic blocks in a container element.
@@ -90,7 +98,7 @@ export function decorateMain(main) {
   // buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
-  // buildCursorTakeover(main);
+  // buildCursorTakeover();   // TODO: remove later if not in use
 }
 
 /**
@@ -184,19 +192,36 @@ export function initIntersectionObserver({ sections, callback, options = {} }) {
   return intersectionObserver;
 }
 
-//Window Resize Handler
+// Window Resize Handler
 let resizeTimer;
-let resizeCompleteEvent = new CustomEvent('resizeComplete', e => { handleEvent(e.detail) })
-let handleEvent = e => console.log(e)
+const resizeCompleteEvent = new CustomEvent('resizeComplete', (e) => {
+  window.handleEvent(e.detail);
+});
 // dispatch custom resize event when a resize event has completed
 window.addEventListener('resize', () => {
-	clearTimeout(resizeTimer)
-  	resizeTimer = setTimeout(() => {
-	    window.dispatchEvent(resizeCompleteEvent)
-  	}, 250)
-})
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    window.dispatchEvent(resizeCompleteEvent);
+  }, 250);
+});
+
+// add external script before body tag ends to ensure availability
+export function addCDNScriptBeforeBodyEndTag(cdnLink) {
+  const cdnScript = document.createElement('script');
+  cdnScript.src = cdnLink;
+  document.body.append(cdnScript);
+}
+
+// batch add external scripts
+function addExternalCDNScripts() {
+  const cdnLinks = ['https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js'];
+  cdnLinks.forEach((link) => {
+    addCDNScriptBeforeBodyEndTag(link);
+  });
+}
 
 async function loadPage() {
+  addExternalCDNScripts();
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
@@ -208,5 +233,3 @@ loadPage().then(() => {
     observer.observe(section);
   });
 });
-
-

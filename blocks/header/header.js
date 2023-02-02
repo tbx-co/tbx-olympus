@@ -10,7 +10,7 @@ import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
  * @param {Element} block The header block element
  */
 
-const BRAND_IMG = '<img loading="lazy" alt="Adobe" src="/blocks/header/tbx-logo.svg">';
+const BRAND_IMG = '<img loading="lazy" alt="ThinkingBox logo" src="/blocks/header/tbx-logo.svg">';
 
 export default async function decorate(block) {
   const cfg = readBlockConfig(block);
@@ -50,19 +50,19 @@ export default async function decorate(block) {
       const navSectionLink = navSection.querySelector('a');
       const sectionText = navSectionLink.innerHTML;
       // if width is more than 900px
-      if (screen.width > 900) {
+      if (window.screen.width > 900) {
         navSectionLink.innerHTML = '';
-        navSectionLink.classList.add('deconstructedTextWrapper');
+        navSectionLink.classList.add('deconstructed-text-wrapper');
         // decorate nav-section decosntruct text
-        for (let i = 0; i < DECONSTRUCTION_AMOUNT; i++) {
-          const deconstructionTextWrapper = `<div class="deconstructedTextItem_0${i}">
-                                              <div class="deconstructedTextContainer_0${i}">
-                                                <div class="deconstructedText_0${i}">
+        for (let i = 0; i < DECONSTRUCTION_AMOUNT; i += 1) {
+          const deconstructionTextWrapper = `<div class="deconstructed-text-item_0${i}">
+                                              <div class="deconstructed-text-container_0${i}">
+                                                <div class="deconstructed-text_0${i}">
                                                 ${sectionText}
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="hiddenText">${sectionText}</div>`;
+                                            <div class="hidden-text">${sectionText}</div>`;
           navSectionLink.innerHTML += deconstructionTextWrapper;
         }
       }
@@ -91,22 +91,22 @@ export default async function decorate(block) {
       decorateIcons(nav);
       block.append(nav);
     });
-    const deconstructedNavSections = document.getElementsByClassName('deconstructedTextWrapper');
+    const deconstructedNavSections = document.getElementsByClassName('deconstructed-text-wrapper');
     [...deconstructedNavSections].forEach((section) => {
       const gsapAnimation = gsap
         .timeline({ paused: true })
         .addLabel('start')
-        .to(section.querySelector('.deconstructedTextItem_00'), { y: '150%', duration: 0.7 }, 'start+=0.1')
-        .to(section.querySelector('.deconstructedTextContainer_00'), { height: 10, duration: 0.7 }, 'start+=0.1')
-        .to(section.querySelector('.deconstructedTextItem_01'), { y: '100%', duration: 0.5 }, 'start')
-        .to(section.querySelector('.deconstructedTextContainer_01'), { height: '20px', duration: 0.4 }, 'start')
-        .to(section.querySelector('.deconstructedText_01'), { y: '85%', duration: 0.5 }, 'start')
-        .to(section.querySelector('.deconstructedTextItem_02'), { y: '-50%', duration: 0.5 }, 'start+=0.1')
-        .to(section.querySelector('.deconstructedTextContainer_02'), { y: '46%', height: 20, duration: 0.5 }, 'start+=0.1')
-        .to(section.querySelector('.deconstructedText_02'), { y: '-45%', duration: 0.5 }, 'start+=0.1')
-        .to(section.querySelector('.deconstructedTextItem_03'), { y: '-50%', duration: 0.5 }, 'start+=0.2')
-        .to(section.querySelector('.deconstructedTextContainer_03'), { y: '0%', height: 10, duration: 0.6 }, 'start+=0.2')
-        .to(section.querySelector('.deconstructedText_03'), { y: '0%', duration: 0.3 }, 'start+=0.2');
+        .to(section.querySelector('.deconstructed-text-item_00'), { y: '150%', duration: 0.7 }, 'start+=0.1')
+        .to(section.querySelector('.deconstructed-text-container_00'), { height: 10, duration: 0.7 }, 'start+=0.1')
+        .to(section.querySelector('.deconstructed-text-item_01'), { y: '100%', duration: 0.5 }, 'start')
+        .to(section.querySelector('.deconstructed-text-container_01'), { height: '20px', duration: 0.4 }, 'start')
+        .to(section.querySelector('.deconstructed-text_01'), { y: '85%', duration: 0.5 }, 'start')
+        .to(section.querySelector('.deconstructed-text-item_02'), { y: '-50%', duration: 0.5 }, 'start+=0.1')
+        .to(section.querySelector('.deconstructed-text-container_02'), { y: '46%', height: 20, duration: 0.5 }, 'start+=0.1')
+        .to(section.querySelector('.deconstructed-text_02'), { y: '-45%', duration: 0.5 }, 'start+=0.1')
+        .to(section.querySelector('.deconstructed-text-item_03'), { y: '-50%', duration: 0.5 }, 'start+=0.2')
+        .to(section.querySelector('.deconstructed-text-container_03'), { y: '0%', height: 10, duration: 0.6 }, 'start+=0.2')
+        .to(section.querySelector('.deconstructed-text_03'), { y: '0%', duration: 0.3 }, 'start+=0.2');
       section.addEventListener('mouseenter', () => {
         gsapAnimation.timeScale(1.3).play(0);
       });

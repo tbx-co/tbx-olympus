@@ -1,0 +1,128 @@
+.stacked-card-labeled-wrapper {
+  display: grid;
+  place-items: center;
+}
+
+/* control card width using wrapper */
+.stacked-card-labeled {
+  position: relative;
+  width: 45vw;
+  max-width: 320px;
+}
+
+.stacked-card-labeled__card-wrapper {
+  position: relative;
+}
+
+.stacked-card-labeled__card-image {
+  filter: var(--image-card-shadow);
+}
+
+/* label styling */
+.stacked-card-labeled__card-label {
+  font-family: var(--label-font-family);
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: 6px 12px;
+  width: fit-content;
+  background: var(--label-color-black);
+  color: var(--text-color-white);
+  border-radius: var(--label-border-radius-large);
+  box-shadow: var(--image-label-shadow);
+}
+
+.stacked-card-labeled__card-label .icon {
+  padding-right: 6px;
+  display: grid;
+  place-items: center;
+}
+
+.stacked-card-labeled__card-label .icon svg {
+  width: 14px;
+  height: auto;
+}
+
+.stacked-card-labeled__card-label-text {
+  margin-top: 2px;
+}
+
+@media (min-width: 600px) {
+  .stacked-card-labeled {
+    width: 24vw;
+  }
+
+  .stacked-card-labeled__card-label {
+    padding: 8px 16px;
+  }
+
+  .stacked-card-labeled__card-label .icon {
+    padding-right: 8px;
+  }
+
+  .stacked-card-labeled__card-label .icon svg {
+    width: 18px;
+  }
+
+  .stacked-card-labeled__card-label-text {
+    margin-top: 3px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .stacked-card-labeled__card-label {
+    padding: 10px 24px;
+    font-size: var(--heading-font-size-xs);
+  }
+
+  .stacked-card-labeled__card-label .icon {
+    padding-right: 8px;
+  }
+
+  .stacked-card-labeled__card-label .icon svg {
+    width: 24px;
+  }
+}
+
+/* specific card styling */
+.stacked-card-labeled__card-wrapper.item-0 {
+  position: absolute;
+  width: 110%;
+  max-width: 385px;
+  top: 15%;
+  left: -30%;
+}
+
+.stacked-card-labeled__card-label.item-0 {
+  top: 0;
+  left: -10%;
+  z-index: 1;
+}
+
+.stacked-card-labeled__card-wrapper.item-1 {
+  width: 100%;
+}
+
+.stacked-card-labeled__card-label.item-1 {
+  bottom: -2%;
+  right: -15%;
+  background: var(--label-color-blue);
+}
+
+.stacked-card-labeled__card-wrapper.item-2 {
+  position: absolute;
+  width: 70%;
+  max-width: 218px;
+  top: 15%;
+  right: -40%;
+}
+
+.stacked-card-labeled__card-label.item-2 {
+  bottom: -5%;
+  right: -15%;
+  background: var(--label-color-orange);
+}
