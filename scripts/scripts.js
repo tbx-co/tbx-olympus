@@ -205,7 +205,23 @@ window.addEventListener('resize', () => {
   }, 250);
 });
 
+// add external script before body tag ends to ensure availability
+export function addCDNScriptBeforeBodyEndTag(cdnLink) {
+  const cdnScript = document.createElement('script');
+  cdnScript.src = cdnLink;
+  document.body.append(cdnScript);
+}
+
+// batch add external scripts
+function addExternalCDNScripts() {
+  const cdnLinks = ['https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js'];
+  cdnLinks.forEach((link) => {
+    addCDNScriptBeforeBodyEndTag(link);
+  });
+}
+
 async function loadPage() {
+  addExternalCDNScripts();
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
