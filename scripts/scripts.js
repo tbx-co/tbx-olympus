@@ -214,7 +214,7 @@ export function addCDNScriptBeforeBodyEndTag(cdnLink) {
 
 // batch add external scripts
 function addExternalCDNScripts() {
-  const cdnLinks = ['https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js'];
+  const cdnLinks = ['https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js', 'https://player.vimeo.com/api/player.js'];
   cdnLinks.forEach((link) => {
     addCDNScriptBeforeBodyEndTag(link);
   });

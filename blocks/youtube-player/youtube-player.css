@@ -1,3 +1,8 @@
+.section.youtube-player-container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .youtube-player-frame {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */

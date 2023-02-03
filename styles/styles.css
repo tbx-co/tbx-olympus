@@ -26,6 +26,7 @@
   --label-color-black: #021b29;
   --label-color-blue: #0d4599;
   --label-color-orange: #ff5824;
+  --button-grey-color: #E1E1E1;
 
   /* fonts */
   --body-font-family: inter, sans-serif;
@@ -443,7 +444,7 @@ main .section.highlight {
   left: 50%;
   overflow: hidden;
   width: 100vw;
-  max-height: 45vw;
+  max-height: 75vw;
   margin-right: -50vw;
   margin-left: -50vw;
   padding: 0;
@@ -451,8 +452,14 @@ main .section.highlight {
 }
 
 @media (min-width: 600px) {
-  .full-width {
-    max-height: 40vw;
+  .full-width, .section .full-width {
+    max-height: 45vw;
+  }
+}
+
+@media (min-width: 600px) and (orientation: portrait) {
+  .full-width, .section .full-width {
+    max-height: 60vw;
   }
 }
 
