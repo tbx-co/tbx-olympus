@@ -1,26 +1,22 @@
-.header-statement-container:has(.white) {
-  background-color: var(--background-color);
+.section.header-statement-container {
+  padding-top: 36px;
+  padding-bottom: 36px;
 }
 
-.header-statement {
-  margin: 80px 0 16px;
+.header-statement h1 {
+  width: clamp(300px, 45vw, 630px);
 }
 
-.header-statement h2 {
-  margin: 0;
+@media (min-width: 600px) {
+  .section.header-statement-container {
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
 }
 
-.header-statement p {
-  margin-top: 75px;
-}
-
-.header-statement p:has(picture) {
-  margin: 0;
-}
-
-@media (min-width: 900px) {
-  .header-statement {
-    max-width: 65%;
-    margin: 32px 0 24px;
+@media (min-width: 1200px) {
+  .section.header-statement-container {
+    padding-top: 240px;
+    padding-bottom: 135px;
   }
 }

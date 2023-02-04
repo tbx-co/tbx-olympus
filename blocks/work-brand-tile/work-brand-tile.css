@@ -3,10 +3,6 @@
     padding-bottom: 36px;
 }
 
-.work-brand-tile-container .default-content-wrapper h1{
-    width: clamp(300px, 45vw, 630px);
-}
-
 .section.work-brand-tile-container {
     padding-top: 0;
     padding-bottom: 0;
@@ -44,11 +40,6 @@
 
 
 @media (min-width: 600px) {
-    .work-brand-tile-container .default-content-wrapper {
-        padding-top: 120px;
-        padding-bottom: 60px;
-    }
-
     .work-brand-tile-wrapper {
         padding-bottom: 3rem;
     }
@@ -80,17 +71,10 @@
     }
 
     .work-brand-tile-wrapper:last-child > .work-brand-tile {
-        padding-bottom: 0;
+        padding-bottom: 1rem;
     }
 
     .work-brand-tile__info-box {
         padding: 2rem;
-    }
-}
-
-@media (min-width: 1200px) {
-    .work-brand-tile-container .default-content-wrapper {
-        padding-top: 260px;
-        padding-bottom: 135px;
     }
 }
