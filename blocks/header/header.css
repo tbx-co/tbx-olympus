@@ -3,7 +3,7 @@ header nav {
   font-family: var(--nav-font-family);
   position: fixed;
   width: 95%;
-  margin: 2rem auto;
+  margin: 0 auto;
   padding: 0 2rem;
   z-index: 5;
   display: grid;
@@ -23,7 +23,7 @@ header nav {
 .header.block {
   display: flex;
   justify-content: center;
-  margin: 2rem auto;
+  margin: 0 auto;
 }
 
 header nav a:any-link {
@@ -210,7 +210,7 @@ header nav[aria-expanded="true"] .nav-tools li {
     max-width: 1000px;
     height: var(--nav-height);
     padding: 1.5rem 3rem;
-    margin: 2rem auto;
+    margin: 1rem auto 0;
     border-radius: 50px;
     box-shadow: inset 3em 3em 3em var(--background-color),
       0 0 0 0 var(--background-color), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);

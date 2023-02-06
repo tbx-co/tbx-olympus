@@ -12,6 +12,7 @@ import {
   loadBlocks,
   loadCSS,
 } from './lib-franklin.js';
+import { addNextSectionArrowButton } from './helpers.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'tbx-olympus'; // add your RUM generation information here
@@ -225,6 +226,7 @@ async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
+  addNextSectionArrowButton();
 }
 
 loadPage().then(() => {

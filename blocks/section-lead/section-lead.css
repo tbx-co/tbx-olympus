@@ -1,0 +1,35 @@
+.section-lead {
+    position: relative;
+}
+
+.section-lead svg{
+    width: 38px;
+    height: 38px;
+    margin-right: 1rem;
+}
+
+.section-lead p {
+    width: 100%;
+    max-width: 630px;
+}
+
+.has-next-section-arrow-button .section-lead__inner-wrapper{
+    width: 85%;
+}
+
+.section-lead p:last-child {
+    margin-bottom: 0;
+}
+
+
+@media (min-width: 600px) {
+    .section-lead p {
+        width: clamp(300px, 45vw, 540px);
+    }
+}
+
+@media (min-width: 900px) {
+    .section-lead p {
+        width: clamp(300px, 45vw, 620px);
+    }
+}

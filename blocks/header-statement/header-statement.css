@@ -1,22 +1,36 @@
-.section.header-statement-container {
+.section > div.header-statement-wrapper {
   padding-top: 36px;
   padding-bottom: 36px;
 }
 
 .header-statement h1 {
-  width: clamp(300px, 45vw, 630px);
+  width: clamp(300px, 45vw, 700px);
 }
 
 @media (min-width: 600px) {
-  .section.header-statement-container {
+  .header-statement h1 {
+    width: clamp(300px, 90vw, 540px);
+  }
+
+  .section-layout-all-works h1 {
+    width: clamp(300px, 45vw, 630px);
+  }
+
+  .section > div.header-statement-wrapper {
     padding-top: 120px;
     padding-bottom: 60px;
   }
 }
 
-@media (min-width: 1200px) {
-  .section.header-statement-container {
-    padding-top: 240px;
-    padding-bottom: 120px;
+@media (min-width: 900px) {
+  .header-statement h1 {
+    width: clamp(300px, 55vw, 700px);
+  }
+}
+
+@media (min-width: 600px) {
+  .section.all-works-hero-section {
+    padding-top: 108px;
+    padding-bottom: 54px;
   }
 }

@@ -1,4 +1,8 @@
+import { addSectionLayoutClassToParentSection } from '../../scripts/helpers.js';
+
 export default function decorate(block) {
+  addSectionLayoutClassToParentSection(block);
+
   const partnersList = document.createElement('ul');
   partnersList.setAttribute('class', 'partners-list');
   [...block.children].forEach((row) => {
