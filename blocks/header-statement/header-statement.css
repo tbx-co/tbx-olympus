@@ -7,6 +7,10 @@
   width: clamp(300px, 45vw, 700px);
 }
 
+.section.all-works-hero-section {
+  padding-top: clamp(26px, 15vh, 150px);
+}
+
 @media (min-width: 600px) {
   .header-statement h1 {
     width: clamp(300px, 90vw, 540px);

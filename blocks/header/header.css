@@ -1,9 +1,13 @@
 /* header and nav layout */
+.header-wrapper {
+  height: 0;
+}
+
 header nav {
   font-family: var(--nav-font-family);
   position: fixed;
   width: 95%;
-  margin: 0 auto;
+  margin: 1rem auto 0;
   padding: 0 2rem;
   z-index: 5;
   display: grid;
