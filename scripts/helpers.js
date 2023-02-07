@@ -123,3 +123,21 @@ export function addSectionInnerWrapperDiv(blockElement) {
 export function getCurrentYear() {
   return new Date().getFullYear();
 }
+
+// add next-section-arrow to the blocks with .has-next-section-arrow class
+export function addNextSectionArrowButton() {
+  const targetBlocks = document.querySelectorAll('.has-next-section-arrow-button');
+
+  targetBlocks.forEach((block, index) => {
+    const nextSectionArrow = createTag('img', { class: 'next-section-arrow', src: '../icons/downward-arrow.svg' }, '');
+    const nextSectionArrowButton = createTag('a', { class: 'next-section-arrow-btn' }, nextSectionArrow);
+
+    const targetSection = block.closest('.section').nextElementSibling;
+    const targetID = `next-section-button-target-${index}`;
+    targetSection.setAttribute('id', targetID);
+
+    nextSectionArrowButton.setAttribute('href', `#${targetID}`);
+    block.style.position = 'relative';
+    block.append(nextSectionArrowButton);
+  });
+}
