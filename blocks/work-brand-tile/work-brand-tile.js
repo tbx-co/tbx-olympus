@@ -16,6 +16,7 @@ function createInfoDiv(div) {
   return infoDiv;
 }
 
+// TODO: update function to support video in work-brand-tile
 function createVideoElement(videoLinkEl) {
   const videoSrc = videoLinkEl.getAttribute('href');
   const video = createTag('div', { class: 'work-brand-tile__video-container' }, '');
