@@ -131,11 +131,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/*  TODO: can be removed when navbar is fixed, cancel off header spacing */
-/* main {
-  margin-top: calc((var(--nav-height) + 2rem)  * -1); 
-} */
-
 body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-s);
