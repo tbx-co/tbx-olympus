@@ -1,0 +1,31 @@
+.section-image-container {
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: var(--background-color);
+}
+
+.section-image {
+  margin: 0 auto; 
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media (min-width: 900px) {
+  .section-image {
+    padding: 100px 0;
+  }
+}
+
+.section-image-container:has(.white) {
+  background-color: var(--background-color);
+}
+
+.section .full-width img {
+  width: 100%;
+}
+
+.section .section-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

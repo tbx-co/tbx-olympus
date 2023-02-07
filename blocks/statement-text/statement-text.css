@@ -1,0 +1,48 @@
+main .statement-text-container:has(.white) {
+  background-color: var(--background-color);
+}
+
+.statement-text-container .statement-text > div {
+  display: flex;
+  flex: 1 1 500px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  gap: 120px;
+}
+
+.statement-text-container .column-0, .statement-text-container .column-1 {
+  padding: 0;
+  flex-grow: 1;
+}
+
+.statement-text-container .column-1 ul {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  list-style-type: none;
+  padding: 0;
+}
+
+.statement-text-container .column-1 ul li {
+  line-height: 51px;
+}
+
+.statement-text-container .column-1 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+@media (min-width: 900px) {
+  .statement-text-container .statement-text > div {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .statement-text-container .column-0 {
+    max-width: 60%;
+    min-width: 50%;
+  }
+}

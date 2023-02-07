@@ -1,40 +1,85 @@
-/* block specific CSS goes here */
-
 main .hero-container > div {
-    max-width: unset;
+  max-width: unset;
 }
-  
+
+@media (max-width: 899px) {
+  .hero-container {
+    display: none;
+  }
+}
+    
 main .hero-container {
-    padding: 0;
+  padding: 0;
+  z-index: -1;
+}
+
+
+main .section .hero-wrapper {
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  main .hero {
+    height: 350px;
+  }
 }
   
-main .hero {
-    position: relative;
-    padding: 32px;
-    min-height: 300px;
+main .hero .hero-image-frame  {
+  position: relative;
+  padding-bottom: 30%;
+  height: 0;
+  width: 100vw;
 }
 
-main .hero h1 {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    color: white;
+main .hero .hero-copy {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  padding: 64px 40px; 
+  margin-left: calc((100vw - 1440px)/2);
+  color: var(--text-color);
 }
 
+@media (max-width: 1440px) {
+  main .hero .hero-copy { 
+    margin: 0 auto;
+    padding: 120px 100px;
+  }
+}
+
+@media (max-width: 900px) {
+  main .hero .hero-copy { 
+    padding: 120px 40px;
+  }
+}
+
+@media (min-width: 900px) {
+  main .hero h2 {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 900px) {
+  main .hero-container .hero {
+    display: flex;
+  }
+}
 
 main .hero picture {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    object-fit: cover;
-    box-sizing: border-box;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;
+  box-sizing: border-box;
 }
 
 main .hero img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }

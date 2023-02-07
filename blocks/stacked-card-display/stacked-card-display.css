@@ -1,0 +1,59 @@
+:root {
+  --overlap-card-distance: 30%;
+}
+
+.stacked-card-display-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stacked-cards-wrapper {
+  position: relative;
+  margin-left: calc(var(--overlap-card-distance) * -0.5);
+}
+
+.stacked-cards-outer-wrapper {
+  width: 45vw;
+  max-width: 320px;
+  position: relative;
+}
+
+.stacked-cards-wrapper picture img {
+  width: 100%;
+  aspect-ratio: 360 / 756;
+  filter: var(--image-card-shadow);
+}
+
+.stacked-cards-wrapper.item-0 {
+  position: relative;
+}
+
+.stacked-cards-wrapper.item-1 {
+  position: absolute;
+  top: 0;
+}
+
+.stacked-cards-wrapper.item-0 picture img {
+  transform: rotate(-5.13deg);
+}
+
+.stacked-cards-wrapper.item-1 picture img {
+  transform: rotate(5.13deg);
+  margin-left: var(--overlap-card-distance);
+}
+
+@media screen and (min-width: 600px) {
+  .stacked-cards-wrapper picture img {
+    width: 100%;
+  }
+
+  .stacked-cards-outer-wrapper {
+    width: 25vw;
+  }
+
+  .stacked-cards-wrapper {
+    position: relative;
+    margin-left: auto;
+  }
+}

@@ -1,122 +1,122 @@
 .casestudy-card > div {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 100%;
-    transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
 }
 
 @media (min-width: 900px) {
-    .casestudy-card > div {
-        flex-direction: row;
-    }
+  .casestudy-card > div {
+    flex-direction: row;
+  }
 
-    .casestudy-card > div > div:nth-child(2){
-        margin: 0 0 0 4em;
-    }
+  .casestudy-card > div > div:nth-child(2){
+    margin: 0 0 0 4em;
+  }
 }
 
-.casestudy-card-image-frame {
-    position: relative;
-    overflow: hidden;
-    order: 1;
-    width: 100%;
-    height: 350px;
-    max-height: 500px;
-    border-radius: 20px;
-    background-color: black;
-}
-
-@media (min-width: 900px) {
-    .casestudy-card-image-frame {
-        flex: 14;
-        order: unset;
-        height: 578px;
-    }
-}
-
-.casestudy-card-image-frame img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 570px;
-    transform: translateY(-50%) translateX(-50%);
+.casestudy-card .casestudy-card-image-frame {
+  position: relative;
+  overflow: hidden;
+  order: 1;
+  width: 100%;
+  height: 350px;
+  max-height: 500px;
+  border-radius: 20px;
+  background-color: var(--text-color);
 }
 
 @media (min-width: 900px) {
-    .casestudy-card-image-frame img {
-        min-width: 800px;
-    }
+  .casestudy-card .casestudy-card-image-frame {
+    flex: 14;
+    order: unset;
+    height: 578px;
+  }
 }
 
-.casestudy-card-copy {
-    order: 2;
-    max-width: 100%;
-}
-
-@media (min-width: 900px) {
-    .casestudy-card-copy {
-        flex: 7;
-        order: unset;
-    }
-}
-
-.casestudy-card-title {
-    font-family: PlexMono-Medium, sans-serif;
-    font-size: 14px;
-    line-height: 35px;
-    margin: 3em 0 1.5em;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
+.casestudy-card .casestudy-card-image-frame img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 570px;
+  transform: translateY(-50%) translateX(-50%);
 }
 
 @media (min-width: 900px) {
-    .casestudy-card-title {
-        font-size: 16px;
-    }
+  .casestudy-card .casestudy-card-image-frame img {
+    min-width: 800px;
+  }
 }
 
-.casestudy-card-words {
-    font-family: GildaDisplay-Regular, serif;
-    font-size: 20px;
-    line-height: 1.5;
-    margin: 1em 0;
-}
-
-@media (min-width: 900px) {
-    .casestudy-card-words {
-        font-size: 24px;
-    }
-}
-
-.casestudy-card-tags {
-    margin: 1em 0;
+.casestudy-card .casestudy-card-copy {
+  order: 2;
+  max-width: 100%;
 }
 
 @media (min-width: 900px) {
-    .casestudy-card-tags {
-        display: inline-block;
-    }
+  .casestudy-card .casestudy-card-copy {
+    flex: 7;
+    order: unset;
+  }
 }
 
-.casestudy-card-tag {
-    font-family: PlexMono-Regular, sans-serif;
-    font-size: 10px;
-    line-height: 10px;
-    margin: 1.25em 0.8em 1.25em 0;
-    padding: 0.4em 2.0em;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    border-radius: 60px;
-    background-color: #EFF2F0;
+.casestudy-card .casestudy-card-title {
+  font-family: PlexMono-Medium, sans-serif;
+  font-size: 14px;
+  line-height: 35px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin: 3em 0 1.5em;
 }
 
 @media (min-width: 900px) {
-    .casestudy-card-tag {
-        font-size: 12px;
-        line-height: 12px;
-        margin: 1.5em 1em 1.5em 0;
-        padding: 0.5em 1.5em;
-    }
+  .casestudy-card .casestudy-card-title {
+    font-size: 16px;
+  }
+}
+
+.casestudy-card .casestudy-card-words {
+  font-family: GildaDisplay-Regular, serif;
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 1em 0;
+}
+
+@media (min-width: 900px) {
+  .casestudy-card .casestudy-card-words {
+    font-size: 24px;
+  }
+}
+
+.casestudy-card .casestudy-card-tags {
+  margin: 1em 0;
+}
+
+@media (min-width: 900px) {
+  .casestudy-card .casestudy-card-tags {
+      display: inline-block;
+  }
+}
+
+.casestudy-card .casestudy-card-tag {
+  font-family: PlexMono-Regular, sans-serif;
+  font-size: 10px;
+  line-height: 10px;
+  margin: 1.25em 0.8em 1.25em 0;
+  padding: 0.4em 2.0em;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border-radius: 60px;
+  background-color: #EFF2F0;
+}
+
+@media (min-width: 900px) {
+  .casestudy-card .casestudy-card-tag {
+      font-size: 12px;
+      line-height: 12px;
+      margin: 1.5em 1em 1.5em 0;
+      padding: 0.5em 1.5em;
+  }
 }
