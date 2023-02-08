@@ -555,6 +555,28 @@ main .section.highlight {
 
 .section.hero-section {
   padding-top: clamp(26px, 15vh, 150px);
+
+  /* adjust styles to reveal less bottom section for better lighthouse score */
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.section.hero-section > div {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .section.hero-section {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 600px) and (min-height: 700px){
+  .section.hero-section .section-lead{
+    padding-bottom: 2rem;
+  }
 }
 
 /* ------------- go to next section arrow btn ------------- */
