@@ -43,6 +43,7 @@
     padding: 0;
   }
 }
+
 /* .project-card .project-card-image-frame {
   position: relative;
   overflow: hidden;
@@ -55,7 +56,7 @@
 
 .project-card .project-card-copy {
   max-width: 100%;
-  left: 0px;
+  left: 0;
 }
 
 @media (min-width: 900px) {

@@ -18,4 +18,7 @@ module.exports = {
       js: 'always',
     }],
   },
+  globals: {
+    gsap: true,
+  },
 };

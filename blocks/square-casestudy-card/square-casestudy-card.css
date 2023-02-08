@@ -16,7 +16,7 @@
     align-items: flex-start;
     padding: 0 0 2rem;
   }
-  
+
   .right > div {
     align-items: flex-end;
     padding: 0 0 0 2rem;
@@ -27,16 +27,12 @@
 .square-casestudy-card .square-casestudy-card-image-frame {
   position: relative;
   overflow: hidden;
-
   order: 1;
-
   min-width: 300px;
   min-height: 300px;
   height: 100%;
   width: 100%;
-  
   border-radius: 20px;
-
   background-color: var(--text-color);
 }
 
@@ -51,13 +47,9 @@
   position: absolute;
   top: 50%;
   left: 50%;
-
   min-width: 570px;
-
   transform: translateY(-50%) translateX(-50%);
 }
-
-
 
 .square-casestudy-card .square-casestudy-card-copy {
   order: 2;
@@ -73,12 +65,10 @@
 }
 
 .square-casestudy-card .square-casestudy-card-title {
-  font-family: PlexMono-Medium, sans-serif;
   font-size: 14px;
   line-height: 35px;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-
   margin: 3em 0 1.5em;
 }
 
@@ -89,10 +79,8 @@
 }
 
 .square-casestudy-card .square-casestudy-card-description {
-  font-family: GildaDisplay-Regular, serif;
   font-size: 20px;
   line-height: 1.5;
-
   margin: 1em 0;
 }
 
@@ -108,27 +96,26 @@
 
 @media (min-width: 900px) {
   .square-casestudy-card .square-casestudy-card-tags {
-      display: inline-block;
+    display: inline-block;
   }
 }
 
 .square-casestudy-card .square-casestudy-card-tag {
-  font-family: PlexMono-Regular, sans-serif;
   font-size: 10px;
   line-height: 10px;
   margin: 1.25em 0.8em 1.25em 0;
-  padding: 0.4em 2.0em;
+  padding: 0.4em 2em;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   border-radius: 60px;
-  background-color: #EFF2F0;
+  background-color: #eff2f0;
 }
 
 @media (min-width: 900px) {
   .square-casestudy-card .square-casestudy-card-tag {
-      font-size: 12px;
-      line-height: 12px;
-      margin: 1.5em 1em 1.5em 0;
-      padding: 0.5em 1.5em;
+    font-size: 12px;
+    line-height: 12px;
+    margin: 1.5em 1em 1.5em 0;
+    padding: 0.5em 1.5em;
   }
 }

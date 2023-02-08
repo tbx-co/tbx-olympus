@@ -1,9 +1,14 @@
 /* header and nav layout */
+.header-wrapper {
+  height: 0;
+}
+
 header nav {
-  font-family: var(--body-font-family);
+  font-family: var(--nav-font-family);
   position: fixed;
   width: 100%;
-  padding: 0 4rem;
+  margin: 0 auto;
+  padding: 0 2rem;
   z-index: 5;
   display: grid;
   align-items: center;
@@ -13,28 +18,33 @@ header nav {
   box-sizing: border-box;
   background-color: var(--background-color);
   animation: 0.25s ease-in-out;
-border: 1px solid var(--highlight-background-color) ;
+  border-top: 1px solid var(--highlight-background-color);
+  border-bottom: 1px solid var(--highlight-background-color);
+  top: 0;
 }
 
 .header.block {
   display: flex;
   justify-content: center;
-  margin: 2rem auto;
+  margin: 0 auto;
 }
 
 header nav a:any-link {
   color: currentcolor;
 }
 
-/*nav in mobile open state */
+/* nav in mobile open state */
 header nav[aria-expanded="true"] {
   overflow-y: scroll;
   min-height: 100vh;
   width: 100vw;
   border-radius: 0;
   margin: 0;
-  padding: 0rem 4rem;
-  grid-template: "brand brand hamburger" "sections sections" "tools tools";
+  padding: 0 4rem;
+  grid-template-areas: 
+    "brand brand hamburger"
+    "sections sections sections"
+    "tools tools tools";
   grid-template-columns: 56px 1fr;
 }
 
@@ -43,11 +53,9 @@ header .nav-brand {
   font-size: 22px;
   font-weight: 700;
   line-height: 1em;
-
   display: flex;
   gap: 10px;
   align-items: center;
-
   grid-area: brand;
 }
 
@@ -56,10 +64,6 @@ header .nav-brand p {
   align-items: center;
   justify-content: center;
   gap: 10px;
-}
-
-header nav {
-  top: 0;
 }
 
 header nav .nav-brand p {
@@ -72,11 +76,11 @@ header nav .nav-brand p {
 
 /* hamburger */
 header nav .nav-hamburger {
+  grid-area: hamburger;
   height: 22px;
   padding-top: 3px;
-display: flex;
-justify-content: end;
-  grid-area: hamburger;
+  display: flex;
+  justify-content: end;
 }
 
 header nav[aria-expanded="false"] .nav-hamburger-icon,
@@ -89,16 +93,14 @@ header nav[aria-expanded="false"] .nav-hamburger-icon::before {
   width: 20px;
   height: 2px;
   border-radius: 3px;
-
   background: currentcolor;
 }
 
 header nav[aria-expanded="false"] .nav-hamburger-icon::after,
 header nav[aria-expanded="false"] .nav-hamburger-icon::before {
+  content: "";
   position: absolute;
   top: -6px;
-
-  content: "";
 }
 
 header nav[aria-expanded="false"] .nav-hamburger-icon::after {
@@ -118,20 +120,15 @@ header nav[aria-expanded="true"] .nav-hamburger-icon {
 
 header nav[aria-expanded="true"] .nav-hamburger-icon::after,
 header nav[aria-expanded="true"] .nav-hamburger-icon::before {
+  content: "";
   position: absolute;
   top: 8px;
   left: 1px;
-
   display: block;
   box-sizing: border-box;
   border-radius: 5px;
-
   width: 22px;
   height: 2px;
-
-  content: "";
-  transform: rotate(45deg);
-  background: currentcolor;
 }
 
 header nav[aria-expanded="true"] .nav-hamburger-icon::after {
@@ -141,10 +138,8 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 /* sections */
 header nav .nav-sections {
   display: none;
-
   flex: 1 1 auto;
   flex-direction: column;
-
   background-color: var(--overlay-color);
   grid-area: sections;
 }
@@ -153,7 +148,6 @@ header nav .nav-sections ul {
   font-size: 14px;
   font-weight: 500;
   list-style: none;
-
   padding-left: 0;
 }
 
@@ -179,7 +173,7 @@ header nav .nav-sections .deconstruction_text_wrapper > div {
 }
 
 header nav .nav-brand a {
-  font-family: "Circular-Bold";
+  /* font-family: "Circular-Bold"; */
   text-align: center;
   font-style: normal;
   font-weight: 700;
@@ -196,7 +190,6 @@ header nav[aria-expanded="true"] .nav-sections {
 header nav .nav-tools {
   flex: 0 0 auto;
   height: 22px;
-
   grid-area: tools;
 }
 
@@ -222,13 +215,12 @@ header nav[aria-expanded="true"] .nav-tools li {
   header nav {
     display: flex;
     justify-content: space-between;
-
     width: 100%;
     max-width: 1000px;
     height: var(--nav-height);
     padding: 1.5rem 3rem;
-    margin: 2rem auto;
-
+    margin: 1rem auto 0;
+    border: 0;
     border-radius: 50px;
     box-shadow: inset 3em 3em 3em var(--background-color),
       0 0 0 0 var(--background-color), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
@@ -236,6 +228,7 @@ header nav[aria-expanded="true"] .nav-tools li {
 
   header nav .nav-sections {
     flex: 0 0 auto;
+    display: unset;
   }
 
   header nav .nav-sections > ul > li.nav-drop {
@@ -244,28 +237,20 @@ header nav[aria-expanded="true"] .nav-tools li {
   }
 
   header nav .nav-drop::after {
+    content: " ";
     position: absolute;
     top: 8px;
     right: 14px;
-
     display: inline-block;
     width: 6px;
     height: 6px;
-
-    content: " ";
-
     transform: rotate(135deg);
-
     border: solid currentcolor;
     border-width: 2px 2px 0 0;
   }
 
   header nav .nav-hamburger {
     display: none;
-  }
-
-  header nav .nav-sections {
-    display: unset;
   }
 
   header nav .nav-brand {
@@ -281,9 +266,7 @@ header nav[aria-expanded="true"] .nav-tools li {
   header nav .nav-sections ul {
     display: flex;
     flex-direction: row;
-
     margin: 0;
-
     background-color: unset;
   }
 
@@ -295,12 +278,16 @@ header nav[aria-expanded="true"] .nav-tools li {
   header nav .nav-sections > ul > li {
     font-size: 14px;
     letter-spacing: 0.09em;
-
     position: relative;
     margin: 0;
     padding: 0 55px;
     width: 55px;
     height: 20px;
+  }
+
+  header nav .nav-sections > ul > li > ul > li {
+    font-size: 18px;
+    padding: 8px 16px;
   }
 
   header nav .nav-sections > ul > li:first-child {
@@ -322,109 +309,97 @@ header nav[aria-expanded="true"] .nav-tools li {
   }
 
   header nav .nav-sections > ul > li > ul::before {
+    content: "";
     position: absolute;
     top: -15px;
     left: 20px;
-
     width: 0;
     height: 0;
-
-    content: "";
-
     border-right: 15px solid transparent;
     border-bottom: 15px solid var(--highlight-background-color);
     border-left: 15px solid transparent;
-  }
-
-  header nav .nav-sections > ul > li > ul > li {
-    font-size: 18px;
-    padding: 8px 16px;
   }
 
   header nav .nav-sections > ul > li[aria-expanded="true"] ul {
     position: absolute;
     left: 0;
     display: block;
-
     width: 300px;
     padding: 16px;
-
     background-color: var(--highlight-background-color);
     box-shadow: 0 0 5px var(--text-color);
   }
 
-  .deconstructedTextWrapper {
+  .deconstructed-text-wrapper {
     position: absolute;
     overflow: hidden;
     height: 2rem;
-    /* padding: 0 5.5rem; */
   }
 
-  .deconstructedTextItem_00,
-  .deconstructedTextItem_01,
-  .deconstructedTextItem_02,
-  .deconstructedTextItem_03 {
+  .deconstructed-text-item_00,
+  .deconstructed-text-item_01,
+  .deconstructed-text-item_02,
+  .deconstructed-text-item_03 {
     position: absolute;
     top: 50%;
-    left: 0px;
+    left: 0;
     width: 100%;
     height: 2rem;
     transform: translateY(-50%);
-    /* overflow: hidden÷; */
   }
 
-  .deconstructedTextContainer_00 {
+  .deconstructed-text-container_00 {
     display: flex;
     align-items: center;
     height: 10px;
   }
 
-  .deconstructedText_00 {
+  .deconstructed-text_00 {
     transform: translateY(6px);
     position: absolute;
   }
 
-  .deconstructedTextContainer_01 {
+  .deconstructed-text-container_01 {
     bottom: 2px;
     height: 3px;
   }
 
-  .deconstructedText_01 {
+  .deconstructed-text_01 {
     top: 0;
     transform: translateY(-16px);
   }
 
-  .deconstructedTextItem_02 {
+  .deconstructed-text-item_02 {
     /* background-color: teal; */
     transform: translateY(-100%);
   }
 
-  .deconstructedTextContainer_02 {
+  .deconstructed-text-container_02 {
     transform: translateY(-120%);
     height: 20px;
   }
 
-  .deconstructedText_02 {
+  .deconstructed-text_02 {
     top: 0;
   }
 
-  .deconstructedTextItem_03 {
-    /* background-color: yellowgreen; */
+  /* transform: translateY(100%); */
+  .deconstructed-text-item_03 {
     transform: translateY(-100%);
   }
 
-  .deconstructedTextContainer_03 {
+  .deconstructed-text-container_03 {
     top: 0;
     transform: translateY(-120%);
     height: 20px;
   }
 
-  .deconstructedText_03 {
+  .deconstructed-text_03 {
     top: 0;
     transform: translateY(-75%);
   }
 
-  .hiddenText {
+  .hidden-text {
     opacity: 0;
     pointer-events: none;
   }

@@ -1,0 +1,16 @@
+.section.button-section-container {
+  display: none;
+  padding-top: 0;
+  min-height: auto;
+}
+
+.button-section-container .button-container {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .section.button-section-container {
+    display: block;
+  }
+}

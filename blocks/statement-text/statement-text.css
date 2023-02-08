@@ -14,14 +14,12 @@ main .statement-text-container:has(.white) {
 .statement-text-container .column-0, .statement-text-container .column-1 {
   padding: 0;
   flex-grow: 1;
-
 }
 
 .statement-text-container .column-1 ul {
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-m);
-  list-style-type: none; 
-
+  list-style-type: none;
   padding: 0;
 }
 
@@ -33,7 +31,7 @@ main .statement-text-container:has(.white) {
   font-size: 14px;
   font-weight: 400;
   line-height: 31px;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   text-align: left;
 }
 
@@ -42,6 +40,7 @@ main .statement-text-container:has(.white) {
     flex-direction: row;
     align-items: center;
   }
+
   .statement-text-container .column-0 {
     max-width: 60%;
     min-width: 50%;
