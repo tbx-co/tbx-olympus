@@ -25,10 +25,6 @@
     .section-lead p {
         width: clamp(300px, 50vw, 540px);
     }
-
-    .section-lead.spacing-bottom {
-        padding-bottom: 100px;
-    }
 }
 
 @media (min-width: 900px) {

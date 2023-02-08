@@ -583,7 +583,6 @@ main .section.highlight {
   animation: moving-down 2s ease infinite;
 }
 
-
 /* ------------- animations ------------- */
 
 /* fade up animation */
@@ -641,7 +640,7 @@ main .section.highlight {
   }
 
   100% {
-      transform: translateY(-15px);
-      opacity: 0;
+    transform: translateY(-15px);
+    opacity: 0;
   }
 }
