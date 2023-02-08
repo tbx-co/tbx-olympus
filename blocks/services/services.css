@@ -72,14 +72,15 @@
     transition: 0.4s;
     border: 0;
     outline: 0;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    text-align: left;
+    white-space: normal;
 }
 
 .services__accordion__button .services__left-title-wrapper__title {
     width: 100%;
-}
-
-.services__accordion__button:first-child .services__left-title-wrapper__title {
-   margin-top: 0;
 }
 
 .services__accordion__button.active .services__left-title-wrapper__title {

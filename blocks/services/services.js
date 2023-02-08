@@ -77,7 +77,7 @@ export default function decorate(block) {
 
         // mobile accordion title button
         const mobileTitle = title.cloneNode(true);
-        const serviceAccordionButton = createTag('a', { class: 'services__accordion__button' }, '');
+        const serviceAccordionButton = createTag('button', { class: 'services__accordion__button' }, '');
         serviceAccordionButton.append(mobileTitle);
         servicesAccordion.append(serviceAccordionButton);
       } else {
