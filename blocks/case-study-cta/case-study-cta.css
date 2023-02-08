@@ -57,6 +57,12 @@
   max-width: 360px;
 }
 
+@media (max-width: 600px) {
+  .section-layout-home-case-study.stacked-card-display-container {
+    padding-top: 64px;
+  }
+}
+
 @media (min-width: 600px) {
   .section-layout-home-case-study .blocks-wrapper {
     flex-direction: row;

@@ -1,0 +1,122 @@
+/* -------- desktop only: Switching text --------  */
+.services__desktop-wrapper {
+    display: none;
+}
+
+@media (min-width: 900px) {
+    .services__desktop-wrapper {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 24px;
+    }
+}
+
+/* left title styles */
+.services__left-title-wrapper > *:first-child,
+.services__right-content-wrapper > h4 {
+    margin-top: 0.5rem;
+}
+
+.services__left-title-wrapper__title {
+    color: var(--text-color-light-grey);
+    transition: var(--transition-ease-in-out);
+    margin-bottom: 0.6em;
+}
+
+.services__left-title-wrapper__title:hover {
+    cursor: pointer;
+    color: var(--text-color-grey);
+}
+
+.services__left-title-wrapper__title.active {
+    color: var(--text-color);
+}
+
+/* right content styles */
+.services__right-content-wrapper {
+    position: relative;
+}
+
+.services__content-wrapper.desktop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.services__content-wrapper h4 {
+    margin-bottom: 1.5rem;
+}
+
+.services__accordion__content-panel > .services__content-wrapper h4 {
+    display: none;
+}
+
+.services__content-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: var(--transition-ease-in-out);
+}
+
+.services__content-wrapper .primary {
+    margin-top: 1.5rem;
+}
+
+/* --------  mobile only: Accordion -------- */
+.services__accordion__button {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: 0.4s;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    text-align: left;
+    white-space: normal;
+}
+
+.services__accordion__button .services__left-title-wrapper__title {
+    width: 100%;
+}
+
+.services__accordion__button.active .services__left-title-wrapper__title {
+    color: var(--text-color);
+}
+
+.services__accordion__button::after {
+  content: url('../../icons/accordion-arrow.svg');
+  margin-left: 4px;
+  transition: var(--transition-ease-in-out);
+  filter: invert(89%) sepia(0%) saturate(0%) hue-rotate(199deg) brightness(92%) contrast(92%);
+}
+
+.services__accordion__button.active::after {
+  transform: rotate(180deg);
+  filter: none;
+}
+
+.services__accordion__content-panel {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.services__accordion-mobile-wrapper {
+    display: block;
+}
+
+.services__accordion__content-panel .primary {
+    margin-top: 1rem;
+}
+
+@media (min-width: 900px) {
+    .services__accordion-mobile-wrapper {
+        display: none;
+    }
+}
+
