@@ -25,7 +25,7 @@
 
 @media (min-width: 900px) {
     .brand-partners .partners-list-item {
-        width: 216px
+        width: clamp(216px, 25vw, 280px);
     }
 }
 
@@ -37,8 +37,4 @@
     .brand-partners .partners-list {
         gap: 36px;
     }
-
-   .brand-partners .partners-list-item {
-        width: 305px;
-   } 
 }

@@ -533,6 +533,16 @@ main .section.highlight {
   }
 }
 
+.pb-m {
+  padding-bottom: 50px;
+}
+
+@media (min-width: 900px) {
+  .pb-m {
+    padding-bottom: 100px;
+  }
+}
+
 /* ------------- section styles  ------------- */
 .section.section-layout-bg-light-grey {
   background-color: var(--background-color-light-grey);

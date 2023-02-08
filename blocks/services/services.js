@@ -1,7 +1,6 @@
-// replaceElementType, replaceAllChildElements
 import { createTag, replaceAllChildElements } from '../../scripts/helpers.js';
 
-// desktop
+// desktop handling
 function removeCurrentActiveClass(servicesLeftWrapper, servicesRightWrapper) {
   [...servicesLeftWrapper.children].forEach((title) => {
     title.classList.remove('active');
@@ -23,13 +22,20 @@ function addShowActiveItemFunction(servicesLeftWrapper, servicesRightWrapper) {
   [...servicesLeftWrapper.children][0].click();
 }
 
-// mobile
+// mobile handling
 function removeCurrentActiveAccordion(accordionButtons) {
   [...accordionButtons].forEach((btn) => {
     if (btn.classList.contains('active')) {
       btn.click();
     }
   });
+}
+
+function makeFirstAccordionActive(accordionButtons, accordionPanels) {
+  const firstAccordion = accordionButtons[0];
+  const firstPanel = accordionPanels[0];
+  firstAccordion.classList.add('active');
+  firstPanel.style.maxHeight = 'none';
 }
 
 function addShowAccordionFunction() {
@@ -51,10 +57,9 @@ function addShowAccordionFunction() {
     });
   });
 
-  accordionButtons[0].click();
+  makeFirstAccordionActive(accordionButtons, accordionPanels);
 }
 
-// desktop layout only (min-width: 900px?), TODO: add move upward animation
 export default function decorate(block) {
   const servicesLeftWrapper = createTag('div', { class: 'services__left-title-wrapper' }, '');
   const servicesRightWrapper = createTag('div', { class: 'services__right-content-wrapper' }, '');
@@ -78,6 +83,7 @@ export default function decorate(block) {
       } else {
         const content = div;
         content.className = 'services__content-wrapper desktop';
+
         // first element is visible by default
         if (index === 0) {
           content.classList.add('visible');
