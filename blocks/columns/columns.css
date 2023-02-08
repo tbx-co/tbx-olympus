@@ -1,11 +1,56 @@
 .columns > div {
   display: flex;
   flex-direction: column;
-  margin-left: 1px;
+}
+
+.columns__inner-box.support-icon {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+}
+
+.icon-wrapper {
+  grid-row: 1 / span 2;
+  margin-bottom: 0.5rem;
 }
 
 .columns img {
   width: 100%;
+}
+
+.columns .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: clamp(40px, 6vw, 54px);
+  height: clamp(40px, 6vw, 54px);
+  aspect-ratio: 1 / 1;
+  background: #d9d9d9;  /* placeholder bg only */
+}
+
+.columns .icon svg {
+  height: 80%;
+}
+
+.columns h6 {
+  margin-bottom: 0.5rem;
+}
+
+.columns p {
+  margin-top: 0;
+}
+
+.tbx-column-points p{
+  padding-bottom: 1rem;
+}
+
+@media (min-width: 600px) {
+  .tbx-column-points p {
+    padding-bottom: 2rem;
+  }
+
+  .columns h6, .columns .icon-wrapper {
+    margin-bottom: 1rem;
+  }
 }
 
 @media (min-width: 900px) {
@@ -22,5 +67,9 @@
 
   .columns > div > div:first-of-type {
     margin-left: unset;
+  }
+
+  .columns__inner-box.support-icon {
+    grid-template-columns: 1fr;
   }
 }

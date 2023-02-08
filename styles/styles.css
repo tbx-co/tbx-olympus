@@ -75,6 +75,9 @@
 
   /* padding */
   --button-padding: 7px 42px;
+
+  /* transition eases */
+  --transition-ease-in-out: all 0.3s ease-in-out;
 }
 
 /* desktop */
@@ -139,6 +142,16 @@ body {
   margin: 0;
   color: var(--text-color);
   background-color: var(--background-color);
+}
+
+/* disable default styles */
+input,
+textarea,
+button,
+select,
+a {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body.appear {
@@ -236,6 +249,8 @@ samp {
 pre {
   overflow: scroll;
 }
+
+
 
 /* buttons */
 a.button:any-link,
@@ -429,29 +444,6 @@ main .section.highlight {
   background-color: var(--highlight-background-color);
 }
 
-.tbx-column-points h3:nth-child(1) {
-  font-size: 28px;
-  line-height: 1.75;
-}
-
-.tbx-column-points h3:nth-child(2) {
-  font-size: 28px;
-}
-
-.tbx-column-points p {
-  font-size: 14px;
-  line-height: 2.125;
-  padding-bottom: 40px;
-}
-
-@media (min-width: 900px) {
-  .tbx-column-points p {
-    font-size: 14px;
-    line-height: 2.125;
-    padding-bottom: 10px;
-  }
-}
-
 /* Utility CSS */
 .section .full-width {
   position: relative;
@@ -541,22 +533,17 @@ main .section.highlight {
   }
 }
 
-/* fade up animation */
-
-.fadeup {
-  transition-timing-function: ease;
-  transition-duration: 500ms;
-  transition-property: transform, opacity;
-  transform: translateY(30px);
-  opacity: 0;
+.pb-m {
+  padding-bottom: 50px;
 }
 
-.in-view {
-  transform: none;
-  opacity: 1;
+@media (min-width: 900px) {
+  .pb-m {
+    padding-bottom: 100px;
+  }
 }
 
-/* section-layout-background */
+/* ------------- section styles  ------------- */
 .section.section-layout-bg-light-grey {
   background-color: var(--background-color-light-grey);
 }
@@ -565,12 +552,34 @@ main .section.highlight {
   background-color: var(--background-color-grey);
 }
 
-/* section styles */
+
 .section.hero-section {
   padding-top: clamp(26px, 15vh, 150px);
+
+  /* adjust styles to reveal less bottom section for better lighthouse score */
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-/* go to next section arrow btn */
+.section.hero-section > div {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .section.hero-section {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 600px) and (min-height: 700px){
+  .section.hero-section .section-lead{
+    padding-bottom: 2rem;
+  }
+}
+
+/* ------------- go to next section arrow btn ------------- */
 .next-section-arrow-btn {
   position: absolute;
   right: 0;
@@ -593,27 +602,67 @@ main .section.highlight {
 }
 
 .next-section-arrow-btn:hover .next-section-arrow{
-  animation: scroll-down 2s ease infinite;
+  animation: moving-down 2s ease infinite;
 }
 
-@keyframes scroll-down {
-  0%{
+/* ------------- animations ------------- */
+
+/* fade up animation */
+.fadeup {
+  transition-timing-function: ease;
+  transition-duration: 500ms;
+  transition-property: transform, opacity;
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+.in-view {
+  transform: none;
+  opacity: 1;
+}
+
+/* arrow moving down */
+@keyframes moving-down {
+  0% {
     transform: translateY(-15px);
     opacity: 0;
   }
 
-  30%{
+  30% {
     transform: translateY(0);
     opacity: 1;
   }
 
-  70%{
+  70% {
     transform: translateY(0);
     opacity: 1;
   }
 
-  100%{
+  100% {
       transform: translateY(15px);
       opacity: 0;
+  }
+}
+
+/* arrow moving up */
+@keyframes moving-up {
+  0% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+
+  30% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-15px);
+    opacity: 0;
   }
 }
