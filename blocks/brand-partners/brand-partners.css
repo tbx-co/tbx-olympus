@@ -15,7 +15,7 @@
 
 .brand-partners .partners-list-item {
     list-style-type: none;
-    width: 156px;
+    width: clamp(136px, 40vw, 156px);
 }
 
 .brand-partners .partners-list-item img {
