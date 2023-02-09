@@ -20,9 +20,7 @@ const handleResizeComplete = () => {
 window.addEventListener('resizeComplete', handleResizeComplete);
 // window.removeEventListener("resizeComplete", handleResizeComplete);
 
-const BRAND_IMG = screenWidth < 900
-  ? '<img loading="lazy" alt="Adobe" src="/blocks/header/tbx-logo.svg">'
-  : '<img loading="lazy" alt="Adobe" src="/blocks/header/tbx-logo.svg" class="invert-icon">';
+const BRAND_IMG = '<img loading="lazy" alt="Adobe" src="/blocks/header/tbx-logo.svg">';
 
 // console.log(screenWidth);
 
