@@ -27,7 +27,9 @@ function addSpanAndYearForCopyrightThinkingBoxText(footer) {
 function addMainContactID(footer) {
   const firstMainContact = footer.querySelector('.columns > div > div:first-child');
   const scrollToID = 'contact-us';
-  firstMainContact.id = scrollToID;
+  if (firstMainContact) {
+    firstMainContact.id = scrollToID;
+  }
 }
 
 /**
