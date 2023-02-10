@@ -42,16 +42,7 @@ function addMobileHamburgerToggleButton(nav, block) {
   // add toggle functionality
   hamburger.addEventListener('click', () => {
     const expanded = nav.getAttribute('aria-expanded') === 'true';
-    document.body.style.overflowY = expanded ? '' : 'hidden';
-    // NOTE: testing for ios scrolling fix, disable touch scrolling
-    document.ontouchmove = (e) => {
-      if (expanded) {
-        e.preventDefault();
-        return false;
-      }
-      return true;
-    };
-
+    document.body.classList.toggle('scroll-disable');
     nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   });
   nav.prepend(hamburger);

@@ -1,3 +1,8 @@
+.scroll-disable {
+  overflow: hidden;
+  max-height: 100vh;
+}
+
 /* header and nav layout */
 header nav {
   font-family: var(--nav-font-family);
