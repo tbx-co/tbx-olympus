@@ -561,7 +561,7 @@ main .section.highlight {
 
 .section.hero-section {
   padding-top: clamp(26px, 15vh, 150px);
-  
+
   /* adjust styles to reveal less bottom section for better lighthouse score */
   min-height: 95vh;
   max-height: 900px;

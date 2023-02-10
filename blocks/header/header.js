@@ -53,15 +53,15 @@ function addMobileHamburgerToggleButton(nav, block) {
 
 function addScrollToBottomForContactLink(navSectionLink) {
   // new business is a special case, always anchor to footer
-  if (!navSectionLink.href.includes('#new-business')) {
+  if (!navSectionLink.href.includes('#contact-us')) {
     const gotoLink = new URL(navSectionLink.href);
     navSectionLink.href = gotoLink.pathname;
-  } else if (navSectionLink.href.includes('#new-business')) {
+  } else if (navSectionLink.href.includes('#contact-us')) {
     // scroll to anchor: bottom of page
     navSectionLink.addEventListener('click', (e) => {
       e.preventDefault();
       document
-        .getElementById('new-business')
+        .getElementById('contact-us')
         .scrollIntoView({ behavior: 'smooth' });
     });
   }
