@@ -53,6 +53,12 @@
   --heading-font-size-s: 20px;
   --heading-font-size-xs: 18px;
 
+  /* navbar font sizes */
+  --navbar-mobile-brand-font-size: 24px;
+  --navbar-mobile-menu-item-font-size: 28px;
+  --navbar-desktop-brand-font-size: 22px;
+  --navbar-desktop-menu-item-font-size: 14px;
+
   /* button sizes */
   --button-font-size-m: 16px;
 
@@ -162,10 +168,6 @@ body.appear {
   display: block;
   align-items: center;
 }
-
-/* header {
-  height: var(--nav-height);
-} */
 
 h1,
 h2,
@@ -559,9 +561,10 @@ main .section.highlight {
 
 .section.hero-section {
   padding-top: clamp(26px, 15vh, 150px);
-
+  
   /* adjust styles to reveal less bottom section for better lighthouse score */
   min-height: 95vh;
+  max-height: 900px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
