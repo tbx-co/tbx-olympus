@@ -43,6 +43,8 @@ function addMobileHamburgerToggleButton(nav, block) {
   hamburger.addEventListener('click', () => {
     const expanded = nav.getAttribute('aria-expanded') === 'true';
     document.body.style.overflowY = expanded ? '' : 'hidden';
+    // NOTE: testing for ios scrolling fix
+    document.body.style.position = expanded ? '' : 'fixed';
     nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   });
   nav.prepend(hamburger);
@@ -51,20 +53,26 @@ function addMobileHamburgerToggleButton(nav, block) {
   block.append(nav);
 }
 
-function addScrollToBottomForContactLink(navSectionLink) {
-  // new business is a special case, always anchor to footer
-  if (!navSectionLink.href.includes('#contact-us')) {
-    const gotoLink = new URL(navSectionLink.href);
-    navSectionLink.href = gotoLink.pathname;
-  } else if (navSectionLink.href.includes('#contact-us')) {
-    // scroll to anchor: bottom of page
-    navSectionLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      document
-        .getElementById('contact-us')
-        .scrollIntoView({ behavior: 'smooth' });
-    });
-  }
+function addScrollToBottomForContactLink(nav) {
+  const navSectionLinks = nav.querySelectorAll('a');
+
+  // contact is a special case, always anchor to footer
+  navSectionLinks.forEach((navSectionLink) => {
+    if (!navSectionLink.href.includes('#contact-us')) {
+      const gotoLink = new URL(navSectionLink.href);
+      navSectionLink.href = gotoLink.pathname;
+    } else if (navSectionLink.href.includes('#contact-us')) {
+      // scroll to bottom of page for desktop only
+      if (navSectionLink.className.includes('desktop-nav-link')) {
+        navSectionLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          document
+            .getElementById('contact-us')
+            .scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+    }
+  });
 }
 
 function closeMobileMenuWhenLinkIsOnSamePage(nav) {
@@ -75,6 +83,17 @@ function closeMobileMenuWhenLinkIsOnSamePage(nav) {
       link.addEventListener('click', () => {
         mobileMenuButton.click();
       });
+    }
+  });
+}
+
+function closeMobileMenuWhenResizeBackToMobile(nav) {
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) {
+      if (nav.getAttribute('aria-expanded') === 'true') {
+        const mobileMenuButton = nav.querySelector('.nav-hamburger');
+        mobileMenuButton.click();
+      }
     }
   });
 }
@@ -160,20 +179,23 @@ export default async function decorate(block) {
     // add hamburger for mobile menu
     addMobileHamburgerToggleButton(nav, block);
 
-    // add mobile nav-link class + scrollToBottom contact link + desktop nav-links
+    // add desktop nav-links + mobile nav-link class
     navSections = nav.querySelector('div.nav-sections');
     navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
       const navSectionLink = navSection.querySelector('a');
-
-      addScrollToBottomForContactLink(navSectionLink);
       addDesktopNavLink(navSectionLink, navSection);
 
       // add mobile class to allow hiding of links
       navSectionLink.classList.add('mobile-nav-link');
     });
 
-    closeMobileMenuWhenLinkIsOnSamePage(nav);
+    addScrollToBottomForContactLink(nav);
 
+    // mobile menu behavior
+    closeMobileMenuWhenLinkIsOnSamePage(nav);
+    closeMobileMenuWhenResizeBackToMobile(nav);
+
+    // animation
     addRollingAnimationForDesktopNavLinks();
   }
 }

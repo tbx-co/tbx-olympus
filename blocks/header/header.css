@@ -68,6 +68,10 @@ header nav .nav-hamburger {
   justify-content: end;
 }
 
+.header nav .nav-hamburger:hover{
+  cursor: pointer;
+}
+
 .nav-hamburger-icon {
   position: relative;
   width: 22px;
@@ -136,14 +140,16 @@ header nav .nav-sections {
   header nav .nav-sections {
     opacity: 0;
     pointer-events: none;   /* mobile */
-    position: absolute;
+
+    /* position: absolute; */
+    position: fixed;
     top: calc(var(--nav-height) - 1px);
     left: 0;
     width: 100vw;
-    height: calc(100vh - var(--nav-height) + 1px);
+    height: 100vh;
     background: var(--background-color);
     padding: 0.5rem 2rem;
-    transition: var(--transition-ease-in-out);
+    transition: var(--transition-ease-in-out) 0.2s;
   }
 
   header nav[aria-expanded="true"] .nav-sections {

@@ -140,10 +140,6 @@ html {
   height: 100%;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-s);
@@ -152,6 +148,7 @@ body {
   margin: 0;
   color: var(--text-color);
   background-color: var(--background-color);
+  position:relative;
 }
 
 /* disable default styles */
