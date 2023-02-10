@@ -67,6 +67,18 @@ function addScrollToBottomForContactLink(navSectionLink) {
   }
 }
 
+function closeMobileMenuWhenLinkIsOnSamePage(nav) {
+  const mobileMenuLinks = nav.querySelectorAll('.mobile-nav-link');
+  const mobileMenuButton = nav.querySelector('.nav-hamburger');
+  mobileMenuLinks.forEach((link) => {
+    if (link.href.includes('#')) {
+      link.addEventListener('click', () => {
+        mobileMenuButton.click();
+      });
+    }
+  });
+}
+
 function addDesktopNavLink(navSectionLink, navSection) {
   const DECONSTRUCTION_AMOUNT = 4;
   const sectionText = navSectionLink.innerHTML;
@@ -143,7 +155,6 @@ export default async function decorate(block) {
 
     // add brand icon
     navSections.insertAdjacentHTML('afterbegin', BRAND_IMG);
-
     updateNavBrandWithHomeLink(nav);
 
     // add hamburger for mobile menu
@@ -160,6 +171,8 @@ export default async function decorate(block) {
       // add mobile class to allow hiding of links
       navSectionLink.classList.add('mobile-nav-link');
     });
+
+    closeMobileMenuWhenLinkIsOnSamePage(nav);
 
     addRollingAnimationForDesktopNavLinks();
   }

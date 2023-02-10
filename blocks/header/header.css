@@ -137,10 +137,10 @@ header nav .nav-sections {
     opacity: 0;
     pointer-events: none;   /* mobile */
     position: absolute;
-    top: var(--nav-height);
+    top: calc(var(--nav-height) - 1px);
     left: 0;
     width: 100vw;
-    height: calc(100vh - var(--nav-height));
+    height: calc(100vh - var(--nav-height) + 1px);
     background: var(--background-color);
     padding: 0.5rem 2rem;
     transition: var(--transition-ease-in-out);
