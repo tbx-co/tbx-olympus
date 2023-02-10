@@ -1,5 +1,5 @@
 import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
-import { createTag } from '../../scripts/helpers.js';
+import { createTag, replaceElementType } from '../../scripts/helpers.js';
 
 /**
  * collapses all open nav sections
@@ -19,6 +19,14 @@ function addClassToNavInnerSection(nav) {
     const section = nav.children[j];
     if (section) section.classList.add(`nav-${e}`);
   });
+}
+
+function updateNavBrandWithHomeLink(nav) {
+  const navBrandWrapper = nav.querySelector('.nav-brand');
+  if (navBrandWrapper) {
+    const navBrandWrapperLink = replaceElementType(navBrandWrapper, 'a');
+    navBrandWrapperLink.href = '/';
+  }
 }
 
 function addMobileHamburgerToggleButton(nav, block) {
@@ -135,6 +143,8 @@ export default async function decorate(block) {
 
     // add brand icon
     navSections.insertAdjacentHTML('afterbegin', BRAND_IMG);
+
+    updateNavBrandWithHomeLink(nav);
 
     // add hamburger for mobile menu
     addMobileHamburgerToggleButton(nav, block);
