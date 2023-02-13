@@ -17,6 +17,7 @@
   --background-color-light-grey: #f8f8f8;
   --background-color-grey: rgba(244, 244, 244, 0.6);
   --overlay-background-color: rgba(244, 244, 244, 0.6);
+  --nav-background-color: #222;
   --overlay-color: inherit;
   --highlight-background-color: #ccc;
   --text-color: #000;
@@ -35,6 +36,7 @@
   --body-font-family: inter, sans-serif;
   --nav-font-family: plexmono-medium, sans-serif;
   --heading-font-family: inter, sans-serif;
+  --brand-name-font-family: circular-bold, sans-serif;
   --label-font-family: "Acumin Pro", sans-serif;
   --fixed-font-family: "consolas", monospace;
 
@@ -51,6 +53,12 @@
   --heading-font-size-s: 20px;
   --heading-font-size-xs: 18px;
 
+  /* navbar font sizes */
+  --navbar-mobile-brand-font-size: 24px;
+  --navbar-mobile-menu-item-font-size: 28px;
+  --navbar-desktop-brand-font-size: 22px;
+  --navbar-desktop-menu-item-font-size: 14px;
+
   /* button sizes */
   --button-font-size-m: 16px;
 
@@ -65,6 +73,8 @@
   --label-border-radius-large: 70px;
 
   /* shadows */
+  --navbar-mobile-box-shadow: 0 2.6912px 16.1471px rgba(0, 0, 0, 0.05);
+  --navbar-desktop-box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
   --image-card-shadow: drop-shadow(0 3.1247px 34.3717px rgba(0, 0, 0, 0.15));
   --image-slider-card-box-shadow: 0 4px 20px rgba(0, 45, 93, 0.1);
   --image-label-shadow: 0 18.2327px 14.5861px rgba(0, 0, 0, 0.0503),
@@ -130,10 +140,6 @@ html {
   height: 100%;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-s);
@@ -142,6 +148,7 @@ body {
   margin: 0;
   color: var(--text-color);
   background-color: var(--background-color);
+  position:relative;
 }
 
 /* disable default styles */
@@ -157,10 +164,6 @@ a {
 body.appear {
   display: block;
   align-items: center;
-}
-
-header {
-  height: var(--nav-height);
 }
 
 h1,
@@ -558,6 +561,7 @@ main .section.highlight {
 
   /* adjust styles to reveal less bottom section for better lighthouse score */
   min-height: 95vh;
+  max-height: 900px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

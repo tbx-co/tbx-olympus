@@ -61,3 +61,12 @@
   src: url("../assets/fonts/IBMPlexMono-Medium.ttf") format("truetype");
   font-display: swap;
 }
+
+@font-face {
+  font-family: circular-bold;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/circular-std-bold.ttf") format("truetype");
+  font-display: swap;
+}
+
