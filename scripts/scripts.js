@@ -1,6 +1,5 @@
 import {
   sampleRUM,
-  buildBlock,
   loadHeader,
   loadFooter,
   decorateButtons,
@@ -16,64 +15,6 @@ import { addNextSectionArrowButton } from './helpers.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'tbx-olympus'; // add your RUM generation information here
-
-function buildHeroBlock(main) {
-  const h1 = main.querySelector('h1');
-  const picture = main.querySelector('picture');
-  // eslint-disable-next-line no-bitwise
-  if (
-    h1
-    && picture
-    && h1.compareDocumentPosition(picture) && Node.DOCUMENT_POSITION_PRECEDING
-  ) {
-    const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
-    main.prepend(section);
-  }
-}
-
-// TODO: previous custom cursor function not finishing up yet
-// TODO: remove later in codebase if not in use
-// function mouseMove(evt) {
-//   let scrollHeight = 0;
-//   window.addEventListener('scroll', (event) => {
-//     scrollHeight = window.scrollY;
-//   });
-//   const mouseX = evt.clientX;
-//   const mouseY = evt.clientY;
-//   gsap.to('.shape', {
-//     x: mouseX,
-//     y: mouseY + scrollHeight,
-//     rotation: -50,
-//     stagger: -0.02,
-//   });
-// }
-
-// function buildCursorTakeover() {
-//   const shapes = document.createElement('div');
-//   shapes.className = 'shapes';
-//   shapes.innerHTML = `<div class="shape shape-1"></div>
-//                     <div class="shape shape-2"></div>
-//                     <div class="shape shape-3"></div>`;
-//   document.body.append(shapes);
-//   window.addEventListener('mousemove', (evt) => {
-//     mouseMove(evt);
-//   });
-// }
-
-/**
- * Builds all synthetic blocks in a container element.
- * @param {Element} main The container element
- */
-// eslint-disable-next-line no-unused-vars
-function buildAutoBlocks(main) {
-  try {
-    buildHeroBlock(main);
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error('Auto Blocking failed', error);
-  }
-}
 
 /**
  * Looks for a meta tag with the given name and returns styles the body background color
@@ -96,10 +37,8 @@ export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
-  // buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
-  // buildCursorTakeover();   // TODO: remove later if not in use
 }
 
 /**
@@ -167,7 +106,7 @@ function loadDelayed() {
 
 const observerOptions = {
   threshold: 0.25,
-  rootMargin: '0px 0px -50px 0px',
+  rootMargin: '-20px 0px -30px 0px',
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -178,20 +117,6 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, observerOptions);
-
-export function initIntersectionObserver({ sections, callback, options = {} }) {
-  const intersectionObserver = new IntersectionObserver((entries, ob) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        callback(entry.target, entry);
-        ob.unobserve(entry.target);
-      }
-    });
-  }, options);
-
-  intersectionObserver.observe(sections);
-  return intersectionObserver;
-}
 
 // Window Resize Handler
 let resizeTimer;
