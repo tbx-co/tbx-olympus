@@ -147,7 +147,7 @@ function addExternalCDNScripts() {
 }
 
 async function loadPage() {
-  addExternalCDNScripts();
+  // addExternalCDNScripts();
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
