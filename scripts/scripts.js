@@ -105,8 +105,8 @@ function loadDelayed() {
 }
 
 const observerOptions = {
-  threshold: 0.25,
-  rootMargin: '-20px 0px -30px 0px',
+  threshold: 0.10,
+  rootMargin: '-10px 0px -10px 0px',
 };
 
 const observer = new IntersectionObserver((entries) => {
