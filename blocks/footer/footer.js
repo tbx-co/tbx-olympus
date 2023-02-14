@@ -24,6 +24,14 @@ function addSpanAndYearForCopyrightThinkingBoxText(footer) {
   }
 }
 
+function addMainContactID(footer) {
+  const firstMainContact = footer.querySelector('.columns > div > div:first-child');
+  const scrollToID = 'contact-us';
+  if (firstMainContact) {
+    firstMainContact.id = scrollToID;
+  }
+}
+
 /**
  * loads and decorates the footer
  * @param {Element} block The header block element
@@ -40,6 +48,8 @@ export default async function decorate(block) {
   footer.innerHTML = html;
 
   addSpanAndYearForCopyrightThinkingBoxText(footer);
+
+  addMainContactID(footer);
 
   await decorateIcons(footer);
   block.append(footer);

@@ -126,3 +126,7 @@ footer .copyright a::before {
     display: block;
   }
 }
+
+#contact-us, :target {
+  scroll-margin-top: calc(var(--nav-height) + 64px);
+}
