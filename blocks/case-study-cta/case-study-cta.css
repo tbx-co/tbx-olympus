@@ -80,7 +80,7 @@
   .case-study-copy {
     align-items: flex-start;
     text-align: left;
-    padding: 12px 16px 48px 0;
+    padding: 0 16px 48px 0;
   }
 
   .section-layout-home-case-study .case-study-copy {
@@ -93,12 +93,24 @@
 }
 
 @media (min-width: 900px) {
+  .case-study-logo {
+    margin-bottom: clamp(24px, 2vw, 28px);
+  }
+
+  .case-study-logo img {
+    max-width: 110px;
+  }
+
   .case-study-copy h1 {
-    font-size: var(--heading-font-size-xxl);
+    font-size: var(--heading-font-size-xxl); 
+  }
+
+  .section-layout-home-case-study .case-study-copy h1{
+    margin-top: 0;
   }
 
   .case-study-description {
-    margin-bottom: 3rem;
+    margin-bottom: 3.2rem;
   }
 }
 
