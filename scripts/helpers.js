@@ -129,6 +129,7 @@ export function addNextSectionArrowButton() {
   const targetBlocks = document.querySelectorAll('.has-next-section-arrow-button');
 
   targetBlocks.forEach((block, index) => {
+    block.style.position = 'relative';
     const nextSectionArrow = createTag('img', { class: 'next-section-arrow', src: '../icons/downward-arrow.svg' }, '');
     const nextSectionArrowButton = createTag('a', { class: 'next-section-arrow-btn' }, nextSectionArrow);
 
@@ -136,8 +137,13 @@ export function addNextSectionArrowButton() {
     const targetID = `next-section-button-target-${index}`;
     targetSection.setAttribute('id', targetID);
 
-    nextSectionArrowButton.setAttribute('href', `#${targetID}`);
-    block.style.position = 'relative';
+    nextSectionArrowButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      document
+        .getElementById(targetID)
+        .scrollIntoView({ behavior: 'smooth' });
+    });
+
     block.append(nextSectionArrowButton);
   });
 }

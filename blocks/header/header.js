@@ -162,15 +162,8 @@ export default async function decorate(block) {
     // add .nav-hamburger, .nav-brand, .nav-sections
     addClassToNavInnerSection(nav);
 
-    // look at URI path, look for relative and absolute links
-    let navSections = nav.querySelector('div.nav-brand');
-    navSections.querySelectorAll(':scope > p').forEach((p) => {
-      const navSectionLink = p.querySelector('a');
-      const gotoLink = new URL(navSectionLink.href);
-      navSectionLink.href = gotoLink.pathname;
-    });
-
     // add brand icon
+    let navSections = nav.querySelector('div.nav-brand');
     navSections.insertAdjacentHTML('afterbegin', BRAND_IMG);
     updateNavBrandWithHomeLink(nav);
 

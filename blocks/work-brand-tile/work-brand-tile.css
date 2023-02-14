@@ -9,6 +9,7 @@
 }
 
 .work-brand-tile__link-wrapper {
+    display: block;
     position: relative;
 }
 
@@ -34,6 +35,7 @@
     font-size: var(--heading-font-size-xs);
     padding-top: 0.5rem;
     padding-bottom: 2rem;
+    width: 100%;
 }
 
 .work-brand-tile__info-box p {
@@ -61,6 +63,8 @@
     .work-brand-tile__info-box {
         color: var(--text-color-white);
         position: absolute;
+        top: auto;
+        right: auto;
         bottom: 0;
         left: 0;
         z-index: 2;
