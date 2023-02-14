@@ -1,4 +1,3 @@
-import { initIntersectionObserver } from '../../scripts/scripts.js';
 import { createTag, replaceAllChildElements } from '../../scripts/helpers.js';
 
 export default function decorate(block) {
@@ -33,11 +32,5 @@ export default function decorate(block) {
     });
   };
 
-  initIntersectionObserver({
-    sections: block,
-    callback: embedVideo,
-    options: {
-      root: null, rootMargin: '0px', threshold: 0.25,
-    },
-  });
+  embedVideo();
 }
