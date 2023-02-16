@@ -171,7 +171,7 @@ header nav .nav-sections ul {
 
 header nav .nav-sections li {
   font-size: var(--navbar-mobile-menu-item-font-size);
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 0.8rem;
 }

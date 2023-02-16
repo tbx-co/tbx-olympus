@@ -34,7 +34,7 @@
 
   /* fonts */
   --body-font-family: inter, sans-serif;
-  --nav-font-family: plexmono-medium, sans-serif;
+  --nav-font-family: inter, sans-serif;
   --heading-font-family: inter, sans-serif;
   --brand-name-font-family: circular-bold, sans-serif;
   --label-font-family: "Acumin Pro", sans-serif;
@@ -613,9 +613,7 @@ main .section.highlight {
 
 /* fade up animation */
 .fadeup {
-  transition-timing-function: ease;
-  transition-duration: 500ms;
-  transition-property: transform, opacity;
+  transition: all 0.5s ease;
   transform: translateY(30px);
   opacity: 0;
 }

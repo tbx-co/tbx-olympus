@@ -1,4 +1,40 @@
 /* below the fold CSS goes here */
-.woo-hoo-none {
-  display: none;
+@font-face {
+  font-family: inter;
+  font-style: light;
+  font-weight: 300;
+  src: url("../assets/fonts/Inter-Light.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: inter;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Inter-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: inter;
+  font-style: bold;
+  font-weight: 700;
+  src: url("../assets/fonts/Inter-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Acumin Pro";
+  font-style: bold;
+  font-weight: 600;
+  src: url("../assets/fonts/Acumin-Pro-Semibold.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: circular-bold;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/circular-std-bold.ttf") format("truetype");
+  font-display: swap;
 }
