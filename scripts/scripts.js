@@ -71,6 +71,21 @@ export function addFavIcon(href) {
   }
 }
 
+// add external script before body tag ends to ensure availability
+export function addLibScriptBeforeBodyEndTag(cdnLink) {
+  const cdnScript = document.createElement('script');
+  cdnScript.src = cdnLink;
+  document.body.append(cdnScript);
+}
+
+// batch add external scripts
+function addExternalCDNScriptsLazy() {
+  const cdnLinks = [`${window.hlx.codeBasePath}/scripts/gasp-3_11_3-min.js`];
+  cdnLinks.forEach((link) => {
+    addLibScriptBeforeBodyEndTag(link);
+  });
+}
+
 /**
  * loads everything that doesn't need to be delayed.
  */
@@ -82,6 +97,7 @@ async function loadLazy(doc) {
   const element = hash ? main.querySelector(hash) : false;
   if (hash && element) element.scrollIntoView();
 
+  addExternalCDNScriptsLazy();
   await loadHeader(doc.querySelector('header'));
   await loadFooter(doc.querySelector('footer'));
 
@@ -131,23 +147,9 @@ window.addEventListener('resize', () => {
   }, 250);
 });
 
-// add external script before body tag ends to ensure availability
-export function addCDNScriptBeforeBodyEndTag(cdnLink) {
-  const cdnScript = document.createElement('script');
-  cdnScript.src = cdnLink;
-  document.body.append(cdnScript);
-}
-
-// batch add external scripts
-function addExternalCDNScripts() {
-  const cdnLinks = ['https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js', 'https://player.vimeo.com/api/player.js'];
-  cdnLinks.forEach((link) => {
-    addCDNScriptBeforeBodyEndTag(link);
-  });
-}
-
 async function loadPage() {
-  addExternalCDNScripts();
+  // need vimeo available for vimeo block
+  addLibScriptBeforeBodyEndTag('/scripts/vimeo-api-player.js');
   await loadEager(document);
   await loadLazy(document);
   addNextSectionArrowButton();
