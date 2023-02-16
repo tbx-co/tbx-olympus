@@ -69,7 +69,6 @@
     position: relative;
     display: flex;
     align-items: center;
-    transition: 0.4s;
     border: 0;
     outline: 0;
     background: transparent;
@@ -77,6 +76,7 @@
     padding: 0;
     text-align: left;
     white-space: normal;
+    transition: all 0.4s linear;
 }
 
 .services__accordion__button .services__left-title-wrapper__title {

@@ -24,7 +24,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .work-brand-tile__link-wrapper:hover .work-brand-tile__media-box img{ 
