@@ -1,4 +1,4 @@
-import { readBlockConfig } from '../../scripts/lib-franklin.js';
+import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
 import {
   createTag,
   replaceAllChildElements,
@@ -52,7 +52,7 @@ export default async function decorate(block) {
 
   addMainContactID(footer);
 
-  // await decorateIcons(footer);
-  // block.append(footer);
-  // addFadeUp(block);
+  await decorateIcons(footer);
+  block.append(footer);
+  addFadeUp(block);
 }
