@@ -53,6 +53,6 @@ export default async function decorate(block) {
   addMainContactID(footer);
 
   // await decorateIcons(footer);
-  block.append(footer);
-  addFadeUp(block);
+  // block.append(footer);
+  // addFadeUp(block);
 }
