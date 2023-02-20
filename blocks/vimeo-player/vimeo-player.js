@@ -1,6 +1,8 @@
-import { createTag, replaceAllChildElements } from '../../scripts/helpers.js';
+import { createTag, replaceAllChildElements, addLibScriptBeforeBodyEndTag } from '../../scripts/helpers.js';
 
 export default function decorate(block) {
+  addLibScriptBeforeBodyEndTag('/scripts/vimeo-api-player.js');
+
   const embedVideo = () => {
     // add vimeo video player to block
     const vimeoID = block.textContent.trim();

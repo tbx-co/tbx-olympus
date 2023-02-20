@@ -147,3 +147,10 @@ export function addNextSectionArrowButton() {
     block.append(nextSectionArrowButton);
   });
 }
+
+// add external script before body tag ends to ensure availability
+export function addLibScriptBeforeBodyEndTag(cdnLink) {
+  const cdnScript = document.createElement('script');
+  cdnScript.src = cdnLink;
+  document.body.append(cdnScript);
+}
