@@ -19,7 +19,7 @@
   font-family: inter;
   font-style: bold;
   font-weight: 700;
-  src: url("../assets/fonts/Inter-Bold.ttf") format("truetype");
+  src: url("../assets/fonts/inter-bold.woff2") format("truetype");
   font-display: swap;
 }
 

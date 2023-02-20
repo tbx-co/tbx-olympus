@@ -13,7 +13,7 @@ import {
 } from './lib-franklin.js';
 import { addNextSectionArrowButton } from './helpers.js';
 
-const LCP_BLOCKS = []; // add your LCP blocks to the list
+const LCP_BLOCKS = ['header-statement']; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'tbx-olympus'; // add your RUM generation information here
 
 /**
@@ -53,10 +53,15 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+
   const main = doc.querySelector('main');
   if (main) {
-    decorateMain(main);
-    await waitForLCP(LCP_BLOCKS);
+    await decorateMain(main);
+    if (document.querySelector('main .section:first-child img')) {
+      await waitForLCP(LCP_BLOCKS);
+    } else {
+      document.querySelector('body').classList.add('appear');
+    }
   }
 }
 
@@ -93,7 +98,8 @@ function addFadeUp() {
   }, observerOptions);
 
   const sections = Array.from(document.getElementsByClassName('fadeup'));
-  sections.forEach((section) => {
+  sections.forEach((section, i) => {
+    if (!i) section.classList.add('in-view');
     observer.observe(section);
   });
 }
