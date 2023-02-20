@@ -4,6 +4,7 @@ import {
   replaceAllChildElements,
   getCurrentYear,
 } from '../../scripts/helpers.js';
+import { addFadeUp } from '../../scripts/scripts.js';
 
 function addSpanAndYearForCopyrightThinkingBoxText(footer) {
   const copyrightSection = footer.querySelector('.copyright > div > div');
@@ -53,4 +54,5 @@ export default async function decorate(block) {
 
   await decorateIcons(footer);
   block.append(footer);
+  addFadeUp(block);
 }

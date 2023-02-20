@@ -82,7 +82,7 @@ export function addFavIcon(href) {
   }
 }
 
-function addFadeUp() {
+export function addFadeUp(element) {
   const observerOptions = {
     threshold: 0.10,
     rootMargin: '-10px 0px -10px 0px',
@@ -97,7 +97,7 @@ function addFadeUp() {
     });
   }, observerOptions);
 
-  const sections = Array.from(document.getElementsByClassName('fadeup'));
+  const sections = Array.from(element.getElementsByClassName('fadeup'));
   sections.forEach((section, i) => {
     if (!i) section.classList.add('in-view');
     observer.observe(section);
@@ -108,8 +108,8 @@ function addFadeUp() {
  * loads everything that doesn't need to be delayed.
  */
 async function loadLazy(doc) {
-  addFadeUp();
   const main = doc.querySelector('main');
+  addFadeUp(main);
   await loadBlocks(main);
 
   const { hash } = window.location;
