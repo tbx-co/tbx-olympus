@@ -148,9 +148,21 @@ export function addNextSectionArrowButton() {
   });
 }
 
-// add external script before body tag ends to ensure availability
-export function addLibScriptBeforeBodyEndTag(cdnLink) {
-  const cdnScript = document.createElement('script');
-  cdnScript.src = cdnLink;
-  document.body.append(cdnScript);
+export function loadScript(url, callback, attributes) {
+  const head = document.querySelector('head');
+  if (!head.querySelector(`script[src="${url}"]`)) {
+    const script = document.createElement('script');
+    script.src = url;
+
+    if (attributes) {
+      Object.keys(attributes).forEach((key) => {
+        script.setAttribute(key, attributes[key]);
+      });
+    }
+
+    head.append(script);
+    script.onload = callback;
+    return script;
+  }
+  return head.querySelector(`script[src="${url}"]`);
 }

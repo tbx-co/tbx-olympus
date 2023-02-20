@@ -1,5 +1,5 @@
 import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
-import { createTag, replaceElementType, addLibScriptBeforeBodyEndTag } from '../../scripts/helpers.js';
+import { createTag, replaceElementType, loadScript } from '../../scripts/helpers.js';
 
 /**
  * collapses all open nav sections
@@ -10,8 +10,6 @@ import { createTag, replaceElementType, addLibScriptBeforeBodyEndTag } from '../
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
-
-addLibScriptBeforeBodyEndTag(`${window.hlx.codeBasePath}/scripts/gasp-3_11_3-min.js`);
 
 const BRAND_IMG = '<img loading="lazy" alt="Adobe" src="/blocks/header/tbx-logo.svg">';
 
@@ -189,6 +187,8 @@ export default async function decorate(block) {
     closeMobileMenuWhenResizeBackToMobile(nav);
 
     // animation
-    addRollingAnimationForDesktopNavLinks();
+    loadScript(`${window.hlx.codeBasePath}/scripts/gasp-3_11_3-min.js`, () => {
+      addRollingAnimationForDesktopNavLinks();
+    });
   }
 }
