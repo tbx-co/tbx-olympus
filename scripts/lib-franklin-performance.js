@@ -2,8 +2,7 @@
  * lighthouse performance instrumentation helper
  * (needs a refactor)
  */
-
-function stamp(message, time = new Date() - performance.timing.navigationStart, type = '') {
+function stamp(message, time = new Date() - (performance.timeOrigin ? performance.timeOrigin : performance.timing.navigationStart), type = '') {
   // eslint-disable-next-line no-console
   const colors = {
     general: '#888',

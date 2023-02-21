@@ -99,7 +99,7 @@ export function addFadeUp(element) {
 
   const sections = Array.from(element.getElementsByClassName('fadeup'));
   sections.forEach((section, i) => {
-    // remove the first element with fadeup (ususally the hero)
+    // remove first section (block) from fadeup with a fadeup class
     if (!i) section.classList.add('in-view');
     observer.observe(section);
   });
