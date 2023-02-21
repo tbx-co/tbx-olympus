@@ -3,38 +3,30 @@
   font-family: inter;
   font-style: light;
   font-weight: 300;
-  src: url("../assets/fonts/Inter-Light.ttf") format("truetype");
-  font-display: swap;
+  src: url("../assets/fonts/Inter-Light.woff2") format("truetype");
+  font-display: block;
 }
 
 @font-face {
   font-family: inter;
   font-style: normal;
   font-weight: 400;
-  src: url("../assets/fonts/Inter-Regular.ttf") format("truetype");
-  font-display: swap;
+  src: url("../assets/fonts/Inter-Regular.woff2") format("truetype");
+  font-display: block;
 }
 
 @font-face {
   font-family: inter;
   font-style: bold;
   font-weight: 700;
-  src: url("../assets/fonts/inter-bold.woff2") format("truetype");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Acumin Pro";
-  font-style: bold;
-  font-weight: 600;
-  src: url("../assets/fonts/Acumin-Pro-Semibold.ttf") format("truetype");
-  font-display: swap;
+  src: url("../assets/fonts/Inter-Bold.woff2") format("truetype");
+  font-display: block
 }
 
 @font-face {
   font-family: circular-bold;
   font-style: normal;
   font-weight: 400;
-  src: url("../assets/fonts/circular-std-bold.ttf") format("truetype");
-  font-display: swap;
+  src: url("../assets/fonts/CircularStd-Bold.woff2") format("truetype");
+  font-display: block;
 }

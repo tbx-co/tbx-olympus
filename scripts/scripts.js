@@ -98,8 +98,7 @@ export function addFadeUp(element) {
   }, observerOptions);
 
   const sections = Array.from(element.getElementsByClassName('fadeup'));
-  sections.forEach((section, i) => {
-    if (!i) section.classList.add('in-view');
+  sections.forEach((section) => {
     observer.observe(section);
   });
 }
