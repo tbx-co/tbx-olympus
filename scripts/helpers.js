@@ -130,10 +130,14 @@ export function addNextSectionArrowButton() {
 
   targetBlocks.forEach((block, index) => {
     block.style.position = 'relative';
-    const nextSectionArrow = createTag('img', { class: 'next-section-arrow', src: '../icons/downward-arrow.svg' }, '');
-    nextSectionArrow.setAttribute('alt', 'Scroll to next section');
-    const nextSectionArrowButton = createTag('a', { class: 'next-section-arrow-btn' }, nextSectionArrow);
+    const nextSectionArrow = createTag('img', {
+      class: 'next-section-arrow',
+      src: '../icons/downward-arrow.svg',
+      alt: 'Scroll to next section',
+      href: '#',
+    }, '');
 
+    const nextSectionArrowButton = createTag('a', { class: 'next-section-arrow-btn' }, nextSectionArrow);
     const targetSection = block.closest('.section').nextElementSibling;
     const targetID = `next-section-button-target-${index}`;
     targetSection.setAttribute('id', targetID);
