@@ -37,7 +37,7 @@
   --nav-font-family: inter, inter-fallback, sans-serif;
   --heading-font-family: inter, inter-fallback, sans-serif;
   --brand-name-font-family: circular-bold, sans-serif;
-  --label-font-family: "Acumin Pro", sans-serif;
+  --label-font-family: inter, inter-fallback, sans-serif;
   --fixed-font-family: "consolas", monospace;
 
   /* body sizes */
@@ -136,6 +136,7 @@
   size-adjust: 110.00%;
   ascent-override: 91%;
   src: local("Arial");
+  font-display: block;
 }
 
 * {

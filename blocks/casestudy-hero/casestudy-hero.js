@@ -12,7 +12,7 @@ export default function decorate(block) {
   copyWrapper.setAttribute('class', 'copy-wrapper');
 
   const fadeupWrapper = document.createElement('div');
-  fadeupWrapper.setAttribute('class', 'fadeup');
+  // fadeupWrapper.setAttribute('class', 'fadeup');
 
   const backdrop = document.createElement('div');
   backdrop.setAttribute('class', 'casestudy-hero-backdrop');
