@@ -13,7 +13,7 @@ import {
 } from './lib-franklin.js';
 import { addNextSectionArrowButton } from './helpers.js';
 
-const LCP_BLOCKS = []; // add your LCP blocks to the list
+const LCP_BLOCKS = ['header-statement']; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'tbx-olympus'; // add your RUM generation information here
 
 /**
@@ -28,6 +28,12 @@ function decoratePageTheme() {
   }
 }
 
+function decorateIconPlaceholders(main) {
+  main.querySelectorAll('span.icon').forEach((span) => {
+    span.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg"></svg>';
+  });
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -36,9 +42,9 @@ function decoratePageTheme() {
 export function decorateMain(main) {
   // hopefully forward compatible button decoration
   decorateButtons(main);
-  decorateIcons(main);
   decorateSections(main);
   decorateBlocks(main);
+  decorateIconPlaceholders(main);
 }
 
 /**
@@ -47,10 +53,15 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+
   const main = doc.querySelector('main');
   if (main) {
-    decorateMain(main);
-    await waitForLCP(LCP_BLOCKS);
+    await decorateMain(main);
+    if (document.querySelector('main .section:first-child img')) {
+      await waitForLCP(LCP_BLOCKS);
+    } else {
+      document.querySelector('body').classList.add('appear');
+    }
   }
 }
 
@@ -71,18 +82,25 @@ export function addFavIcon(href) {
   }
 }
 
-// add external script before body tag ends to ensure availability
-export function addLibScriptBeforeBodyEndTag(cdnLink) {
-  const cdnScript = document.createElement('script');
-  cdnScript.src = cdnLink;
-  document.body.append(cdnScript);
-}
+export function addFadeUp(element) {
+  const observerOptions = {
+    threshold: 0.10,
+    rootMargin: '-10px 0px -10px 0px',
+  };
 
-// batch add external scripts
-function addExternalCDNScriptsLazy() {
-  const cdnLinks = [`${window.hlx.codeBasePath}/scripts/gasp-3_11_3-min.js`];
-  cdnLinks.forEach((link) => {
-    addLibScriptBeforeBodyEndTag(link);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const sections = Array.from(element.getElementsByClassName('fadeup'));
+  sections.forEach((section, i) => {
+    if (!i) section.classList.add('in-view');
+    observer.observe(section);
   });
 }
 
@@ -91,15 +109,16 @@ function addExternalCDNScriptsLazy() {
  */
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
+  addFadeUp(main);
   await loadBlocks(main);
 
   const { hash } = window.location;
   const element = hash ? main.querySelector(hash) : false;
   if (hash && element) element.scrollIntoView();
 
-  addExternalCDNScriptsLazy();
   await loadHeader(doc.querySelector('header'));
   await loadFooter(doc.querySelector('footer'));
+  await decorateIcons(main);
 
   decoratePageTheme();
 
@@ -120,20 +139,6 @@ function loadDelayed() {
   // load anything that can be postponed to the latest here
 }
 
-const observerOptions = {
-  threshold: 0.10,
-  rootMargin: '-10px 0px -10px 0px',
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
-
 // Window Resize Handler
 let resizeTimer;
 const resizeCompleteEvent = new CustomEvent('resizeComplete', (e) => {
@@ -149,16 +154,18 @@ window.addEventListener('resize', () => {
 
 async function loadPage() {
   // need vimeo available for vimeo block
-  addLibScriptBeforeBodyEndTag('/scripts/vimeo-api-player.js');
   await loadEager(document);
   await loadLazy(document);
   addNextSectionArrowButton();
   loadDelayed();
 }
 
-loadPage().then(() => {
-  const sections = Array.from(document.getElementsByClassName('fadeup'));
-  sections.forEach((section) => {
-    observer.observe(section);
+const params = new URLSearchParams(window.location.search);
+if (params.get('performance')) {
+  window.hlx.performance = true;
+  import('./lib-franklin-performance.js').then((mod) => {
+    if (mod.default) mod.default();
   });
-});
+}
+
+loadPage();

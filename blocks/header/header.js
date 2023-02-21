@@ -1,5 +1,5 @@
 import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
-import { createTag, replaceElementType } from '../../scripts/helpers.js';
+import { createTag, replaceElementType, loadScript } from '../../scripts/helpers.js';
 
 /**
  * collapses all open nav sections
@@ -10,6 +10,9 @@ import { createTag, replaceElementType } from '../../scripts/helpers.js';
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
+
+// media query match that indicates mobile/tablet width
+const isDesktop = window.matchMedia('(min-width: 900px)');
 
 const BRAND_IMG = '<img loading="lazy" alt="Adobe" src="/blocks/header/tbx-logo.svg">';
 
@@ -120,27 +123,31 @@ function addDesktopNavLink(navSectionLink, navSection) {
 }
 
 function addRollingAnimationForDesktopNavLinks() {
-  const deconstructedNavSections = document.getElementsByClassName('deconstructed-text-wrapper');
-  [...deconstructedNavSections].forEach((section) => {
-    const gsapAnimation = gsap
-      .timeline({ paused: true })
-      .addLabel('start')
-      .to(section.querySelector('.deconstructed-text-item_00'), { y: '150%', duration: 0.7 }, 'start+=0.1')
-      .to(section.querySelector('.deconstructed-text-container_00'), { height: 10, duration: 0.7 }, 'start+=0.1')
-      .to(section.querySelector('.deconstructed-text-item_01'), { y: '100%', duration: 0.5 }, 'start')
-      .to(section.querySelector('.deconstructed-text-container_01'), { height: '20px', duration: 0.4 }, 'start')
-      .to(section.querySelector('.deconstructed-text_01'), { y: '85%', duration: 0.5 }, 'start')
-      .to(section.querySelector('.deconstructed-text-item_02'), { y: '-50%', duration: 0.5 }, 'start+=0.1')
-      .to(section.querySelector('.deconstructed-text-container_02'), { y: '46%', height: 20, duration: 0.5 }, 'start+=0.1')
-      .to(section.querySelector('.deconstructed-text_02'), { y: '-40%', duration: 0.5 }, 'start+=0.1')
-      .to(section.querySelector('.deconstructed-text-item_03'), { y: '-50%', duration: 0.5 }, 'start+=0.2')
-      .to(section.querySelector('.deconstructed-text-container_03'), { y: '0%', height: 10, duration: 0.6 }, 'start+=0.2')
-      .to(section.querySelector('.deconstructed-text_03'), { y: '0%', duration: 0.3 }, 'start+=0.2');
+  if (isDesktop.matches) {
+    loadScript(`${window.hlx.codeBasePath}/scripts/gasp-3_11_3-min.js`, () => {
+      const deconstructedNavSections = document.getElementsByClassName('deconstructed-text-wrapper');
+      [...deconstructedNavSections].forEach((section) => {
+        const gsapAnimation = gsap
+          .timeline({ paused: true })
+          .addLabel('start')
+          .to(section.querySelector('.deconstructed-text-item_00'), { y: '150%', duration: 0.7 }, 'start+=0.1')
+          .to(section.querySelector('.deconstructed-text-container_00'), { height: 10, duration: 0.7 }, 'start+=0.1')
+          .to(section.querySelector('.deconstructed-text-item_01'), { y: '100%', duration: 0.5 }, 'start')
+          .to(section.querySelector('.deconstructed-text-container_01'), { height: '20px', duration: 0.4 }, 'start')
+          .to(section.querySelector('.deconstructed-text_01'), { y: '85%', duration: 0.5 }, 'start')
+          .to(section.querySelector('.deconstructed-text-item_02'), { y: '-50%', duration: 0.5 }, 'start+=0.1')
+          .to(section.querySelector('.deconstructed-text-container_02'), { y: '46%', height: 20, duration: 0.5 }, 'start+=0.1')
+          .to(section.querySelector('.deconstructed-text_02'), { y: '-40%', duration: 0.5 }, 'start+=0.1')
+          .to(section.querySelector('.deconstructed-text-item_03'), { y: '-50%', duration: 0.5 }, 'start+=0.2')
+          .to(section.querySelector('.deconstructed-text-container_03'), { y: '0%', height: 10, duration: 0.6 }, 'start+=0.2')
+          .to(section.querySelector('.deconstructed-text_03'), { y: '0%', duration: 0.3 }, 'start+=0.2');
 
-    section.addEventListener('mouseenter', () => {
-      gsapAnimation.timeScale(1.3).play(0);
+        section.addEventListener('mouseenter', () => {
+          gsapAnimation.timeScale(1.3).play(0);
+        });
+      });
     });
-  });
+  }
 }
 
 // ------------------------- MAIN FUNCTION HERE -------------------------
@@ -188,5 +195,7 @@ export default async function decorate(block) {
 
     // animation
     addRollingAnimationForDesktopNavLinks();
+
+    isDesktop.addEventListener('change', addRollingAnimationForDesktopNavLinks);
   }
 }

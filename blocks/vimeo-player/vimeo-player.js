@@ -1,4 +1,4 @@
-import { createTag, replaceAllChildElements } from '../../scripts/helpers.js';
+import { createTag, replaceAllChildElements, loadScript } from '../../scripts/helpers.js';
 
 export default function decorate(block) {
   const embedVideo = () => {
@@ -32,5 +32,7 @@ export default function decorate(block) {
     });
   };
 
-  embedVideo();
+  loadScript('/scripts/vimeo-api-player.js', () => {
+    embedVideo();
+  });
 }

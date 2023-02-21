@@ -33,9 +33,9 @@
   --black: #000;
 
   /* fonts */
-  --body-font-family: inter, sans-serif;
-  --nav-font-family: inter, sans-serif;
-  --heading-font-family: inter, sans-serif;
+  --body-font-family: inter, inter-fallback, sans-serif;
+  --nav-font-family: inter, inter-fallback, sans-serif;
+  --heading-font-family: inter, inter-fallback, sans-serif;
   --brand-name-font-family: circular-bold, sans-serif;
   --label-font-family: "Acumin Pro", sans-serif;
   --fixed-font-family: "consolas", monospace;
@@ -129,6 +129,13 @@
   .section > div {
     padding: 0 40px;
   }
+}
+
+@font-face {
+  font-family: inter-fallback;
+  size-adjust: 110.00%;
+  ascent-override: 91%;
+  src: local("Arial");
 }
 
 * {
