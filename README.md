@@ -9,9 +9,9 @@ Adobe Franklin site build for the TBX Syndicate.
 
 ## Environments
 
-- Develop Preview: https://develop--tbx-olympus--solomon71.hlx.page/
+- Your-branch Preview: https://<branchname>--tbx-olympus--solomon71.hlx.live/
 - Preview: https://main--tbx-olympus--solomon71.hlx.page/
-- Live: https://main--tbx-olympus--solomon71.hlx.page/
+- Live: https://main--tbx-olympus--solomon71.hlx.live/
 
 ## Installation
 
