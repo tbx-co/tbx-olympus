@@ -15,6 +15,7 @@
   --link-hover-color: #136ff6;
   --background-color: #fff;
   --background-color-light-grey: #f8f8f8;
+  --background-color-333: #333;
   --background-color-grey: rgba(244, 244, 244, 0.6);
   --overlay-background-color: rgba(244, 244, 244, 0.6);
   --nav-background-color: #222;
@@ -493,8 +494,20 @@ main .section.highlight {
   line-height: 3.5rem;
 }
 
+.bg-333 {
+  background-color: var(--background-color-333);
+}
+
 .bg-grey {
   background-color: var(--background-color-grey);
+}
+
+.text-white h1, .text-white div, .text-white p, .text-white a, .text-white span {
+  color: var(--text-color-white);
+}
+
+.text-white svg {
+  fill: var(--text-color-white);
 }
 
 .py-50 {

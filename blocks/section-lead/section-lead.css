@@ -1,3 +1,7 @@
+.section > div.section-lead-wrapper {
+    padding-bottom: 36px;
+}
+
 .section-lead {
     position: relative;
 }
@@ -22,6 +26,10 @@
 }
 
 @media (min-width: 600px) {
+    .section > div.section-lead-wrapper {
+        padding-bottom: 80px;
+    }
+
     .section-lead p {
         width: clamp(300px, 50vw, 540px);
     }
@@ -32,3 +40,4 @@
         width: clamp(300px, 45vw, 620px);
     }
 }
+
