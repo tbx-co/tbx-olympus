@@ -3,7 +3,8 @@ import {
 } from '../../scripts/helpers.js';
 
 export default function decorate(block) {
-  if (block.children.children.length > 1) {
+  // traverse to our cells
+  if (block.childNodes[1].children[0].children.length > 1) {
     [...block.children].forEach((row) => {
       row.className = 'section-lead__inner-wrapper';
     });

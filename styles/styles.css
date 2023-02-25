@@ -502,6 +502,10 @@ main .section.highlight {
   background-color: var(--background-color-grey);
 }
 
+.bg-white {
+  background-color: var(--background-color);
+}
+
 .text-white h1, .text-white div, .text-white p, .text-white a, .text-white span {
   color: var(--text-color-white);
 }
