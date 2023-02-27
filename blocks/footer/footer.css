@@ -37,6 +37,11 @@ footer .footer a {
   color: var(--text-color);
   transition: all 0.25s ease-in-out;
   padding-block: 0.5em;
+  text-decoration: rgba(255, 156, 125, 0.5) solid underline 2px;
+}
+
+footer .footer a:hover   {
+  text-decoration: rgb(255, 156, 125) solid underline 2px;
 }
 
 footer .footer .columns div {

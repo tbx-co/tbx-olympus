@@ -19,7 +19,8 @@
 }
 
 .case-study-logo img {
-  max-width: 104px;
+  /*max-width: 104px;*/
+  max-height: 20px;
 }
 
 .case-study-copy {
@@ -98,7 +99,7 @@
   }
 
   .case-study-logo img {
-    max-width: 110px;
+    max-height: 24px;
   }
 
   .case-study-copy h1 {
