@@ -27,7 +27,7 @@
 
 @media (min-width: 600px) {
     .section > div.section-lead-wrapper {
-        padding-bottom: 80px;
+        padding-bottom: 48px;
     }
 
     .section-lead p {

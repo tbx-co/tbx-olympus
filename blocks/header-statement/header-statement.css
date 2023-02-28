@@ -1,40 +1,32 @@
 .section > div.header-statement-wrapper {
   padding-top: 36px;
-  padding-bottom: 36px;
 }
 
 .header-statement h1 {
-  width: clamp(300px, 45vw, 700px);
+  background: url("./home-header.png") no-repeat left top / contain;
+  width: 90vw;
+  padding: 10px 0;
 }
 
-.section.all-works-hero-section {
-  padding-top: clamp(26px, 15vh, 150px);
+.header-statement h1 span {
+  position: relative;
+  left: -9000px;
 }
 
 @media (min-width: 600px) {
-  .header-statement h1 {
-    width: clamp(300px, 90vw, 540px);
-  }
-
-  .section-layout-all-works h1 {
-    width: clamp(300px, 45vw, 630px);
-  }
-
   .section > div.header-statement-wrapper {
-    padding-top: 120px;
-    padding-bottom: 16px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .header-statement h1 {
+    width: 80vw;
+    padding: 10px 100px 10px 50px;
   }
 }
 
 @media (min-width: 900px) {
   .header-statement h1 {
     width: clamp(300px, 55vw, 700px);
-  }
-}
-
-@media (min-width: 600px) {
-  .section.all-works-hero-section {
-    padding-top: 108px;
-    padding-bottom: 54px;
   }
 }
