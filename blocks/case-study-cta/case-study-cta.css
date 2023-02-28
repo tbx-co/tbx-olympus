@@ -9,6 +9,13 @@
   margin: 0 auto;
 }
 
+.section-layout-services-case-study .blocks-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin: 0 auto;
+}
+
 .case-study-cta-wrapper {
   padding: 42px 0;
 }
@@ -19,7 +26,6 @@
 }
 
 .case-study-logo img {
-  /*max-width: 104px;*/
   max-height: 20px;
 }
 
