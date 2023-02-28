@@ -18,14 +18,14 @@
 }
 
 .services__left-title-wrapper__title {
-    color: var(--text-color-light-grey);
+    color: var(--text-color-grey);
     transition: var(--transition-ease-in-out);
     margin-bottom: 0.6em;
 }
 
 .services__left-title-wrapper__title:hover {
     cursor: pointer;
-    color: var(--text-color-grey);
+    color: var(--link-hover-color);
 }
 
 .services__left-title-wrapper__title.active {
