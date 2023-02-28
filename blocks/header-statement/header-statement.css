@@ -3,7 +3,7 @@
 }
 
 .header-statement h1 {
-  background: url("./home-header.png") no-repeat left top / contain;
+  background: no-repeat left top / contain;
   width: 90vw;
   padding: 10px 0;
 }
