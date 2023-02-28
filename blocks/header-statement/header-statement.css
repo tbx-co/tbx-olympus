@@ -1,5 +1,5 @@
 .section > div.header-statement-wrapper {
-  padding-top: 36px;
+  padding-top: 96px;
 }
 
 .header-statement h1 {
@@ -13,6 +13,11 @@
   left: -9000px;
 }
 
+.header-statement .header-statement__text {
+  margin-top: -96px;
+  padding-bottom: 24px;
+}
+
 @media (min-width: 600px) {
   .section > div.header-statement-wrapper {
     padding-top: 36px;
@@ -23,10 +28,19 @@
     width: 80vw;
     padding: 10px 100px 10px 50px;
   }
+
+  .header-statement .header-statement__text {
+    width: clamp(300px, 50vw, 540px);
+    margin-top: -48px;
+  }
 }
 
 @media (min-width: 900px) {
   .header-statement h1 {
     width: clamp(300px, 55vw, 700px);
+  }
+
+  .header-statement .header-statement__text {
+    width: clamp(300px, 45vw, 620px);
   }
 }

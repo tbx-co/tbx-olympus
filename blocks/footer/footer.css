@@ -37,11 +37,12 @@ footer .footer a {
   color: var(--text-color);
   transition: all 0.25s ease-in-out;
   padding-block: 0.5em;
-  text-decoration: rgba(255, 156, 125) solid underline 2px;
+  text-decoration: var(--link-color) solid underline 1px;
+  text-underline-offset: 0.2rem;
 }
 
-footer .footer a:hover   {
-  text-decoration: rgb(255, 156, 125) solid underline 3px;
+footer .footer a:hover {
+  text-decoration: var(--link-hover-color) solid underline 1px;
 }
 
 footer .footer .columns div {
@@ -98,16 +99,7 @@ footer .footer .columns div > div {
 }
 
 footer .copyright {
-  font-size: 16px;
-  display: none;
-}
-
-footer .copyright a {
-  text-decoration: none;
-}
-
-footer .copyright a:hover {
-  background: none;
+  font-size: 10px;
 }
 
 footer .copyright a::before {
@@ -115,8 +107,8 @@ footer .copyright a::before {
   display: inline-block;
   width: 0.2rem;
   height: 0.2rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   background-color: var(--text-color);
   border-radius: 50%;
   vertical-align: middle;
@@ -129,9 +121,23 @@ footer .copyright a::before {
 @media (min-width: 600px) {
   footer .copyright {
     display: block;
+    font-size: 16px;
   }
+
+  footer .copyright a::before {
+    content: "";
+    display: inline-block;
+    width: 0.2rem;
+    height: 0.2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+
 }
 
 #contact-us, :target {
-  scroll-margin-top: calc(var(--nav-height) + 64px);
+  scroll-margin-top: calc(var(--nav-height) + 30vh);
 }
