@@ -64,18 +64,28 @@
   max-width: 360px;
 }
 
+.section-layout-services-case-study .case-study-copy {
+  align-items: flex-start;
+  max-width: 360px;
+}
+
+
 @media (max-width: 600px) {
   .section-layout-home-case-study.stacked-card-display-container {
+    padding-top: 64px;
+  }
+
+  .section-layout-services-case-study.stacked-card-display-container {
     padding-top: 64px;
   }
 }
 
 @media (min-width: 600px) {
-  .section-layout-home-case-study .blocks-wrapper {
+  .section-layout-home-case-study .blocks-wrapper, .section-layout-services-case-study .blocks-wrapper {
     flex-direction: row;
   }
 
-  .section-layout-home-case-study .blocks-wrapper > div {
+  .section-layout-home-case-study .blocks-wrapper > div, .section-layout-services-case-study .blocks-wrapper > div {
     flex: 1;
   }
 
@@ -90,7 +100,7 @@
     padding: 0 16px 48px 0;
   }
 
-  .section-layout-home-case-study .case-study-copy {
+  .section-layout-home-case-study .case-study-copy, .section-layout-services-case-study .case-study-copy {
     max-width: 570px;
   }
 
@@ -112,7 +122,7 @@
     font-size: var(--heading-font-size-xxl); 
   }
 
-  .section-layout-home-case-study .case-study-copy h1{
+  .section-layout-home-case-study .case-study-copy h1, .section-layout-services-case-study .case-study-copy h1 {
     margin-top: 0;
   }
 
@@ -130,7 +140,7 @@
 /* section layout with class starting with 'section-layout-'
   home - case study */
 @media (min-width: 600px) {
-  .section-layout-home-case-study .case-study-copy {
+  .section-layout-home-case-study .case-study-copy, .section-layout-services-case-study .case-study-copy {
     align-items: flex-start;
     text-align: left;
   }
