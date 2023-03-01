@@ -37,7 +37,9 @@ footer .footer a {
   color: var(--text-color);
   transition: all 0.25s ease-in-out;
   padding-block: 0.5em;
-  text-decoration: var(--link-color) solid underline 1px;
+  text-decoration: underline;
+  text-decoration-color: var(--link-color);
+  text-decoration-thickness: 1px;
   text-underline-offset: 0.2rem;
 }
 
