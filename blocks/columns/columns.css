@@ -24,10 +24,10 @@
   width: clamp(40px, 6vw, 54px);
   height: clamp(40px, 6vw, 54px);
   aspect-ratio: 1 / 1;
-  background: #d9d9d9;  /* placeholder bg only */
 }
 
 .columns .icon svg {
+  width: 80%;
   height: 80%;
 }
 
