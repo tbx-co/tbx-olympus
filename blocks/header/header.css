@@ -28,7 +28,7 @@ header nav {
 }
 
 header nav a:any-link {
-  color: currentcolor;
+  color: var(--background-color-333);
 }
 
 /* nav in mobile open state */
@@ -171,9 +171,9 @@ header nav .nav-sections ul {
 
 header nav .nav-sections li {
   font-size: var(--navbar-mobile-menu-item-font-size);
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 header nav .nav-sections .deconstruction_text_wrapper {
