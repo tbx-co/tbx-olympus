@@ -46,7 +46,7 @@
 }
 
 .services__content-wrapper h4 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.1rem;
 }
 
 .services__accordion__content-panel > .services__content-wrapper h4 {
@@ -117,6 +117,15 @@
 @media (min-width: 900px) {
     .services__accordion-mobile-wrapper {
         display: none;
+    }
+
+    .services__accordion__content-panel > .services__content-wrapper h4 {
+        display: block;
+    }
+
+    h4 span svg {
+        width: 32px;
+        height: 32px;
     }
 }
 
