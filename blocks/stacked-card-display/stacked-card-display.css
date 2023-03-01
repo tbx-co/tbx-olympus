@@ -21,7 +21,8 @@
 
 .stacked-cards-wrapper picture img {
   width: 100%;
-  /*aspect-ratio: 360 / 756;*/
+
+  /* aspect-ratio: 360 / 756; */
   filter: var(--image-card-shadow);
 }
 
