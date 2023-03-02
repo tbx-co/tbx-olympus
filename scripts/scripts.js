@@ -11,7 +11,11 @@ import {
   loadBlocks,
   loadCSS,
 } from './lib-franklin.js';
-import { addNextSectionArrowButton } from './helpers.js';
+
+import {
+  addNextSectionArrowButton,
+  loadScript,
+} from './helpers.js';
 
 const LCP_BLOCKS = ['header-statement']; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'tbx-olympus'; // add your RUM generation information here
@@ -125,6 +129,17 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`, null);
   addFavIcon(`${window.hlx.codeBasePath}/assets/images/favicon-96x96.png`);
+
+  // GTM4
+  loadScript('https://www.googletagmanager.com/gtag/js?id=G-SWMRJ9EY1E', () => {
+    window.dataLayer = window.dataLayer || [];
+    // eslint-disable-next-line
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-SWMRJ9EY1E');
+  });
+
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
