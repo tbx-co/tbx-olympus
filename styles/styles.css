@@ -160,6 +160,14 @@ body {
   position:relative;
 }
 
+em {
+  background-color: #0ec2ff4d;
+  border: rgba(255, 255, 255, 0) 0 solid;
+  border-radius: 7px;
+  font-style: inherit;
+  padding: 0 1px;
+}
+
 /* disable default styles */
 input,
 textarea,
