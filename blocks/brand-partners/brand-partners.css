@@ -28,7 +28,7 @@
 .brand-partners .partners-list-item img {
     margin: 0 auto;
     display: block;
-    height: clamp(32px, 32px, 48px);
+    height: clamp(24px, 28px, 48px);
 }
 
 @media (min-width: 900px) {
