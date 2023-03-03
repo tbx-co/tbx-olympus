@@ -163,9 +163,9 @@ body {
 em {
   background-color: #0ec2ff4d;
   border: rgba(255, 255, 255, 0) 0 solid;
-  border-radius: 7px;
+  border-radius: 4px;
   font-style: inherit;
-  padding: 0 1px;
+  padding: 0 3px;
 }
 
 /* disable default styles */
