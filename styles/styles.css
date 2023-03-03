@@ -161,7 +161,9 @@ body {
 }
 
 em {
-  background-color: #0ec2ff4d;
+  /*background-color: #0ec2ff4d;*/
+  background: #0ec2ff4d;
+  background: linear-gradient(0deg, #0ec2ff4d 0%, #0ec2ff00 100%);
   border: rgba(255, 255, 255, 0) 0 solid;
   border-radius: 4px;
   font-style: inherit;
