@@ -42,5 +42,6 @@
 
   .header-statement .header-statement__text {
     width: clamp(300px, 45vw, 620px);
+    margin-top: -76px;
   }
 }
