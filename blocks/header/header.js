@@ -11,9 +11,6 @@ import { createTag, replaceElementType } from '../../scripts/helpers.js';
  * @param {Element} block The header block element
  */
 
-// media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
-
 const BRAND_IMG = '<img loading="lazy" alt="Adobe" src="/blocks/header/tbx-logo.svg">';
 
 function addClassToNavInnerSection(nav) {
@@ -113,21 +110,6 @@ function addDesktopNavLink(navSectionLink, navSection) {
   navSection.append(desktopRollingLink);
 }
 
-function addPageScrollStyle() {
-  document.addEventListener('scroll', () => {
-    if (!isDesktop.matches) return;
-
-    const nav = document.querySelector('nav');
-    const triggerHeight = nav.offsetHeight / 2;
-
-    if (window.scrollY > triggerHeight) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-  });
-}
-
 // ------------------------- MAIN FUNCTION HERE -------------------------
 export default async function decorate(block) {
   const cfg = readBlockConfig(block);
@@ -170,7 +152,5 @@ export default async function decorate(block) {
     // mobile menu behavior
     closeMobileMenuWhenLinkIsOnSamePage(nav);
     closeMobileMenuWhenResizeBackToMobile(nav);
-
-    addPageScrollStyle();
   }
 }

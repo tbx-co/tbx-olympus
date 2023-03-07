@@ -219,11 +219,6 @@ header nav .nav-brand a {
     height: var(--nav-height);
     padding: 1.5rem 3rem;
     border: 0;
-    box-shadow: none;
-    background: transparent;
-  }
-
-  header nav.scrolled {
     background: var(--background-color);
     box-shadow: var(--navbar-desktop-box-shadow);
   }
@@ -346,7 +341,7 @@ header nav .nav-brand a {
   .desktop-nav-link span::before {
     content: "";
     width: 0;
-    height: 1px;
+    height: 2px;
     position: absolute;
     bottom: -2px;
     right: 0;
