@@ -236,24 +236,6 @@ header nav .nav-brand a {
     display: unset;
   }
 
-  header nav .nav-sections > ul > li.nav-drop {
-    position: relative;
-    padding-right: 32px;
-  }
-
-  header nav .nav-drop::after {
-    content: " ";
-    position: absolute;
-    top: 8px;
-    right: 14px;
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    transform: rotate(135deg);
-    border: solid currentcolor;
-    border-width: 2px 2px 0 0;
-  }
-
   header nav .nav-hamburger {
     display: none;
   }
