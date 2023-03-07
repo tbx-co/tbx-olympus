@@ -307,11 +307,15 @@ header nav .nav-brand a {
     transform-origin: left;
   }
 
+  .desktop-nav-link.active span::before,
   .desktop-nav-link span:hover::before {
     background-color: var(--background-color-333);
     left: 0;
     width: 100%;
     transition: all 0.3s;
+  }
+
+  .desktop-nav-link:not(.active) span:hover::before {
     animation: bounce 0.5s linear;
   }
 

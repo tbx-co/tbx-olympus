@@ -99,15 +99,17 @@ function closeMobileMenuWhenResizeBackToMobile(nav) {
 function addDesktopNavLink(navSectionLink, navSection) {
   const sectionText = navSectionLink.innerHTML;
 
-  const desktopRollingLink = navSectionLink.cloneNode(true);
-  desktopRollingLink.classList.add('desktop-nav-link');
-  desktopRollingLink.innerHTML = '';
+  const desktopNavLink = navSectionLink.cloneNode(true);
+  desktopNavLink.classList.add('desktop-nav-link');
+  desktopNavLink.innerHTML = '';
+
+  if (document.URL === desktopNavLink.href) desktopNavLink.classList.add('active');
 
   const span = document.createElement('span');
   span.innerHTML = sectionText;
-  desktopRollingLink.appendChild(span);
+  desktopNavLink.appendChild(span);
 
-  navSection.append(desktopRollingLink);
+  navSection.append(desktopNavLink);
 }
 
 // ------------------------- MAIN FUNCTION HERE -------------------------
