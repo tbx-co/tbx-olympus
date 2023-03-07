@@ -4,22 +4,25 @@
 }
 
 /* header and nav layout */
-header nav {
-  font-family: var(--nav-font-family);
+header {
   position: fixed;
   top: 0;
   width: 100%;
-  height: var(--nav-height);
+  z-index: 5;
+  box-shadow: var(--navbar-mobile-box-shadow);
+  background-color: var(--background-color);
+  box-sizing: border-box;
+} 
+
+header nav {
+  font-family: var(--nav-font-family);
   margin: 0 auto;
   padding: 0 2rem;
+  width: 100%;
+  height: var(--nav-height);
   display: grid;
   grid-template-areas: "brand hamburger";
   align-items: center;
-  box-sizing: border-box;
-  background-color: var(--background-color);
-  box-shadow: var(--navbar-mobile-box-shadow);
-  z-index: 5;
-  transition: 0.2s ease-in;
 }
 
 .header.block {
@@ -213,14 +216,19 @@ header nav .nav-brand a {
     display: none;
   }
 
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    height: var(--nav-height);
-    padding: 1.5rem 3rem;
+  header {
     border: 0;
     background: var(--background-color);
     box-shadow: var(--navbar-desktop-box-shadow);
+    height: var(--nav-height);
+    padding: 0 3rem;
+  } 
+  
+  header nav {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+    box-shadow: none;
   }
  
   header nav .nav-sections {
@@ -269,69 +277,19 @@ header nav .nav-brand a {
     flex-direction: row;
     margin: 0;
     background-color: unset;
+    column-gap: 36px;
   }
 
   header nav[aria-expanded="true"] .nav-sections ol {
     display: flex;
     min-height: unset;
   }
-
-  header nav .nav-sections > ul > li {
+  
+  header .nav-sections > ul > li {
     font-size: var(--navbar-desktop-menu-item-font-size);
     letter-spacing: 0.09em;
     position: relative;
     margin: 0;
-    width: 84px;
-    height: 20px;
-    margin-left: 28px;
-    display: flex;
-    justify-content: end;
-  }
-
-  header nav .nav-sections > ul > li > ul > li {
-    font-size: 18px;
-    padding: 8px 16px;
-  }
-
-  /* work nav-link spacing with approach nav-link */
-  header nav .nav-sections > ul > li:first-child {
-    margin-right: 18px;
-  }
-
-  header nav .nav-sections > ul > li > p {
-    margin: 0;
-  }
-
-  header nav .nav-sections > ul > li > ul {
-    position: relative;
-    display: none;
-    margin-top: 20px;
-  }
-
-  header nav .nav-sections > ul > li > ul:any-link {
-    font-size: var(--body-font-size-m);
-  }
-
-  header nav .nav-sections > ul > li > ul::before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    left: 20px;
-    width: 0;
-    height: 0;
-    border-right: 15px solid transparent;
-    border-bottom: 15px solid var(--highlight-background-color);
-    border-left: 15px solid transparent;
-  }
-
-  header nav .nav-sections > ul > li[aria-expanded="true"] ul {
-    position: absolute;
-    left: 0;
-    display: block;
-    width: 300px;
-    padding: 16px;
-    background-color: var(--highlight-background-color);
-    box-shadow: 0 0 5px var(--text-color);
   }
 
   .desktop-nav-link span {

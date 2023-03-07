@@ -58,13 +58,13 @@
   --navbar-mobile-brand-font-size: 24px;
   --navbar-mobile-menu-item-font-size: 24px;
   --navbar-desktop-brand-font-size: 22px;
-  --navbar-desktop-menu-item-font-size: 14px;
+  --navbar-desktop-menu-item-font-size: 16px;
 
   /* button sizes */
   --button-font-size-m: 16px;
 
   /* nav height */
-  --nav-height: 72px;
+  --nav-height: 92px;
   --cursor-large-size: 60px;
   --cursor-small-size: 10px;
 
