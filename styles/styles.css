@@ -58,13 +58,13 @@
   --navbar-mobile-brand-font-size: 24px;
   --navbar-mobile-menu-item-font-size: 24px;
   --navbar-desktop-brand-font-size: 22px;
-  --navbar-desktop-menu-item-font-size: 14px;
+  --navbar-desktop-menu-item-font-size: 16px;
 
   /* button sizes */
   --button-font-size-m: 16px;
 
   /* nav height */
-  --nav-height: 72px;
+  --nav-height: 92px;
   --cursor-large-size: 60px;
   --cursor-small-size: 10px;
 
@@ -161,7 +161,6 @@ body {
 }
 
 em {
-  /*background-color: #0ec2ff4d;*/
   background: #0ec2ff4d;
   background: linear-gradient(0deg, #0ec2ff4d 0%, #0ec2ff00 100%);
   border: rgba(255, 255, 255, 0) 0 solid;

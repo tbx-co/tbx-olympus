@@ -1,5 +1,5 @@
 import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
-import { createTag, replaceElementType, loadScript } from '../../scripts/helpers.js';
+import { createTag, replaceElementType } from '../../scripts/helpers.js';
 
 /**
  * collapses all open nav sections
@@ -10,9 +10,6 @@ import { createTag, replaceElementType, loadScript } from '../../scripts/helpers
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
-
-// media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
 
 const BRAND_IMG = '<img loading="lazy" alt="Adobe" src="/blocks/header/tbx-logo.svg">';
 
@@ -100,54 +97,19 @@ function closeMobileMenuWhenResizeBackToMobile(nav) {
 }
 
 function addDesktopNavLink(navSectionLink, navSection) {
-  const DECONSTRUCTION_AMOUNT = 4;
   const sectionText = navSectionLink.innerHTML;
 
-  const desktopRollingLink = navSectionLink.cloneNode(true);
-  desktopRollingLink.innerHTML = '';
-  desktopRollingLink.classList.add('deconstructed-text-wrapper', 'desktop-nav-link');
-  // decorate nav-section decosntruct text
-  for (let i = 0; i < DECONSTRUCTION_AMOUNT; i += 1) {
-    const deconstructionTextWrapper = `<div class="deconstructed-text-item_0${i}">
-                                              <div class="deconstructed-text-container_0${i}">
-                                                <div class="deconstructed-text_0${i}">
-                                                ${sectionText}
-                                                </div>
-                                              </div>
-                                            </div>
-                                          <div class="hidden-text">${sectionText}</div>`;
-    desktopRollingLink.innerHTML += deconstructionTextWrapper;
-  }
+  const desktopNavLink = navSectionLink.cloneNode(true);
+  desktopNavLink.classList.add('desktop-nav-link');
+  desktopNavLink.innerHTML = '';
 
-  navSection.append(desktopRollingLink);
-}
+  if (document.URL === desktopNavLink.href) desktopNavLink.classList.add('active');
 
-function addRollingAnimationForDesktopNavLinks() {
-  if (isDesktop.matches) {
-    loadScript(`${window.hlx.codeBasePath}/scripts/gasp-3_11_3-min.js`, () => {
-      const deconstructedNavSections = document.getElementsByClassName('deconstructed-text-wrapper');
-      [...deconstructedNavSections].forEach((section) => {
-        const gsapAnimation = gsap
-          .timeline({ paused: true })
-          .addLabel('start')
-          .to(section.querySelector('.deconstructed-text-item_00'), { y: '150%', duration: 0.7 }, 'start+=0.1')
-          .to(section.querySelector('.deconstructed-text-container_00'), { height: 10, duration: 0.7 }, 'start+=0.1')
-          .to(section.querySelector('.deconstructed-text-item_01'), { y: '100%', duration: 0.5 }, 'start')
-          .to(section.querySelector('.deconstructed-text-container_01'), { height: '20px', duration: 0.4 }, 'start')
-          .to(section.querySelector('.deconstructed-text_01'), { y: '85%', duration: 0.5 }, 'start')
-          .to(section.querySelector('.deconstructed-text-item_02'), { y: '-50%', duration: 0.5 }, 'start+=0.1')
-          .to(section.querySelector('.deconstructed-text-container_02'), { y: '46%', height: 20, duration: 0.5 }, 'start+=0.1')
-          .to(section.querySelector('.deconstructed-text_02'), { y: '-40%', duration: 0.5 }, 'start+=0.1')
-          .to(section.querySelector('.deconstructed-text-item_03'), { y: '-50%', duration: 0.5 }, 'start+=0.2')
-          .to(section.querySelector('.deconstructed-text-container_03'), { y: '0%', height: 10, duration: 0.6 }, 'start+=0.2')
-          .to(section.querySelector('.deconstructed-text_03'), { y: '0%', duration: 0.3 }, 'start+=0.2');
+  const span = document.createElement('span');
+  span.innerHTML = sectionText;
+  desktopNavLink.appendChild(span);
 
-        section.addEventListener('mouseenter', () => {
-          gsapAnimation.timeScale(1.3).play(0);
-        });
-      });
-    });
-  }
+  navSection.append(desktopNavLink);
 }
 
 // ------------------------- MAIN FUNCTION HERE -------------------------
@@ -192,10 +154,5 @@ export default async function decorate(block) {
     // mobile menu behavior
     closeMobileMenuWhenLinkIsOnSamePage(nav);
     closeMobileMenuWhenResizeBackToMobile(nav);
-
-    // animation
-    addRollingAnimationForDesktopNavLinks();
-
-    isDesktop.addEventListener('change', addRollingAnimationForDesktopNavLinks);
   }
 }
