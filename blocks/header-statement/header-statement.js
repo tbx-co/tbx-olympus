@@ -8,7 +8,7 @@ export default function decorate(block) {
     spanH1.textContent = nodeH1.textContent;
     nodeH1.innerHTML = null;
     nodeH1.appendChild(spanH1);
-    nodeH1.style.backgroundImage = `url("/blocks/header-statement/${bgImage[0]}.png")`;
+    nodeH1.style.backgroundImage = `url("/blocks/header-statement/${bgImage[0]}.webp")`;
   } else {
     nodeH1.style.backgroundImage = null;
   }

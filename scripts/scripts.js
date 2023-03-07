@@ -11,7 +11,10 @@ import {
   loadBlocks,
   loadCSS,
 } from './lib-franklin.js';
-import { addNextSectionArrowButton } from './helpers.js';
+
+import {
+  addNextSectionArrowButton,
+} from './helpers.js';
 
 const LCP_BLOCKS = ['header-statement']; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'tbx-olympus'; // add your RUM generation information here
@@ -125,6 +128,7 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`, null);
   addFavIcon(`${window.hlx.codeBasePath}/assets/images/favicon-96x96.png`);
+
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
