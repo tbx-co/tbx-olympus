@@ -4,8 +4,8 @@
 
 .header-statement h1 {
   background: no-repeat left top / contain;
-  width: 90vw;
-  padding: 10px 0;
+  width: 100%;
+  padding: 0;
 }
 
 .section.hero-section.header-statement-container.image-column-container .header-statement h1 {
@@ -22,11 +22,6 @@
   padding-bottom: 24px;
 }
 
-.header-statement h1 {
-  width: 100%;
-  padding: 0 0 0;
-}
-
 @media (min-width: 500px) {
   .section.hero-section.header-statement-container.image-column-container .header-statement h1 {
     margin-top: 0;
@@ -39,7 +34,7 @@
 
   .header-statement h1 {
     width: clamp(300px, 488px, 700px);
-    padding: 0 0 0;
+    padding: 0;
   }
 
   .header-statement .header-statement__text {
