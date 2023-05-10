@@ -23,6 +23,11 @@
 }
 
 @media (min-width: 500px) {
+  .header-statement h1 {
+    width: clamp(300px, 488px, 700px);
+    padding: 0;
+  }
+  
   .section.hero-section.header-statement-container.image-column-container .header-statement h1 {
     margin-top: 0;
   }
@@ -30,11 +35,6 @@
   .section > div.header-statement-wrapper {
     padding-top: 36px;
     padding-bottom: 36px;
-  }
-
-  .header-statement h1 {
-    width: clamp(300px, 488px, 700px);
-    padding: 0;
   }
 
   .header-statement .header-statement__text {
