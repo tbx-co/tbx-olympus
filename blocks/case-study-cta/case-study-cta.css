@@ -69,6 +69,9 @@
   max-width: 360px;
 }
 
+.section-layout-services-case-study .image-column img {
+  max-height: 610px;
+}
 
 @media (max-width: 600px) {
   .section-layout-home-case-study.stacked-card-display-container {
