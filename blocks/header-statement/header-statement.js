@@ -1,4 +1,3 @@
-import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
 import {
   addSectionLayoutClassToParentSection,
   addSectionInnerWrapperDiv,
@@ -9,7 +8,6 @@ export default function decorate(block) {
   addSectionLayoutClassToParentSection(block);
   
   const nodeH1 = block.getElementsByTagName('h1')[0];
-
   const pattern = /\b(img-\S+)\b/;
   const bgImage = block.classList.toString().match(pattern);
   if (bgImage) {
