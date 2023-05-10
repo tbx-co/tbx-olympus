@@ -1,4 +1,13 @@
+import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
+import {
+  addSectionLayoutClassToParentSection,
+  addSectionInnerWrapperDiv,
+} from '../../scripts/helpers.js';
+
 export default function decorate(block) {
+  addSectionInnerWrapperDiv(block);
+  addSectionLayoutClassToParentSection(block);
+  
   const nodeH1 = block.getElementsByTagName('h1')[0];
 
   const pattern = /\b(img-\S+)\b/;
