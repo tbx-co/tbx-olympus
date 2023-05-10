@@ -6,7 +6,7 @@ import {
 export default function decorate(block) {
   addSectionInnerWrapperDiv(block);
   addSectionLayoutClassToParentSection(block);
-  
+
   const nodeH1 = block.getElementsByTagName('h1')[0];
   const pattern = /\b(img-\S+)\b/;
   const bgImage = block.classList.toString().match(pattern);
